@@ -1,0 +1,4 @@
+# Auto generated files and folders
+.ipynb_checkpoints
+.DS_Store
+__pycache__
