@@ -1,0 +1,20 @@
+services:
+  namenode:
+    build: ./namenode
+    container_name: namenode
+    environment:
+      - CLUSTER_NAME=demoo
+    ports:
+      - "9870:9870"
+
+  datanode1:
+    build: ./datanode
+    container_name: datanode1
+    depends_on:
+      - namenode
+
+  datanode2:
+    build: ./datanode
+    container_name: datanode2
+    depends_on:
+      - namenode
