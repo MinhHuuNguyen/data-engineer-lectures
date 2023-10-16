@@ -18,3 +18,15 @@ services:
     container_name: datanode2
     depends_on:
       - namenode
+
+  datanode3:
+    build: ./datanode
+    container_name: datanode3
+    depends_on:
+      - namenode
+
+  datanode4:
+    build: ./datanode
+    container_name: datanode4
+    depends_on:
+      - namenode
