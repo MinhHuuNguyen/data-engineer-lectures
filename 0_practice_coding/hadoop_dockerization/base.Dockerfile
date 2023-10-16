@@ -21,7 +21,12 @@ RUN chmod 0600 ~/.ssh/authorized_keys
 RUN wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz
 RUN tar -xzf hadoop-3.3.4.tar.gz
 
-# 5. Set environment variables (in ~/.bashrc)
+# 5. Install Python libraries
+RUN apt-get update
+RUN apt-get install python3-pip -y
+RUN pip3 install pathlib mrjob pyyaml
+
+# 6. Set environment variables (in ~/.bashrc)
 ENV HADOOP_HOME=/hadoop-3.3.4
 ENV HADOOP_INSTALL=$HADOOP_HOME
 ENV HADOOP_MAPRED_HOME=$HADOOP_HOME
@@ -38,7 +43,7 @@ ENV HDFS_SECONDARYNAMENODE_USER="root"
 ENV YARN_RESOURCEMANAGER_USER="root"
 ENV YARN_NODEMANAGER_USER="root"
 
-# 6. Edit core-site.xml, hdfs-site.xml, mapred-site.xml, yarn-site.xml, hadoop-env.sh
+# 7. Edit core-site.xml, hdfs-site.xml, mapred-site.xml, yarn-site.xml, hadoop-env.sh
 ENV HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 COPY custom_config_files/core-site.xml $HADOOP_CONF_DIR/core-site.xml
 COPY custom_config_files/hdfs-site.xml $HADOOP_CONF_DIR/hdfs-site.xml

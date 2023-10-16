@@ -14,7 +14,7 @@ docker ps
 docker exec -it namenode bash
 
 # 5. Copy file to hadoop
-docker cp ../hadoop_demo/wordcount_dataset namenode:/
+docker cp ../hadoop_demo/mapreduce_data/wordcount_dataset namenode:/
 hdfs dfs -put wordcount_dataset/small_500k.txt /
 hdfs dfs -ls /
 hdfs dfs -cat /small_500k.txt
@@ -44,3 +44,36 @@ hdfs dfs -count /
 hdfs dfs -df
 hdfs dfs -head /small_500k.txt
 hdfs dfs -tail /small_500k.txt
+
+# 8. Demo mapreduce
+docker cp ../hadoop_demo/wordcount.py namenode:/
+python3 wordcount.py -r local wordcount_dataset/small_500k.txt
+python3 /wordcount.py -r hadoop hdfs:///small_500k.txt --output-dir hdfs:///wordcount_output
+# Go to http://localhost:8089/ to check the job status
+# Go to http://localhost:9870/ to check the file system
+
+# 9. Demo YARN
+yarn version
+yarn node -list
+yarn application -list
+yarn application -status <application_id>
+yarn application -kill <application_id>
+yarn logs -applicationId <application_id>
+yarn top
+
+mapred queue -list
+yarn queue -status <your-yarn-queue>
+yarn queue -setState <queue_name> <state>
+
+# MapReduce without using mrjob library
+yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.4. jar \
+    -files <path _to_your_script_on_hdfs> \
+    -mapper "python3 <name_of_your_script.py>" \
+    -input /<your_input_data_on_hdfs> \
+    -output <your_output_on_hdfs>
+# Example:
+# yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.4.jar \
+#     -files wordcount.py \
+#     -mapper "python3 wordcount.py" \
+#     -input /small_500k.txt \
+#     -output /wordcount_output

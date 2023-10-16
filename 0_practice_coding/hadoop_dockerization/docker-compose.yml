@@ -30,3 +30,15 @@ services:
     container_name: datanode4
     depends_on:
       - namenode
+
+  resourcemanager:
+    build: ./resourcemanager
+    container_name: resourcemanager
+    depends_on:
+      - namenode
+      - datanode1
+      - datanode2
+      - datanode3
+      - datanode4
+    ports:
+      - "8089:8088"
