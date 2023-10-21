@@ -66,7 +66,7 @@ yarn queue -status <your-yarn-queue>
 yarn queue -setState <queue_name> <state>
 
 # MapReduce without using mrjob library
-yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.4. jar \
+yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.4.jar \
     -files <path _to_your_script_on_hdfs> \
     -mapper "python3 <name_of_your_script.py>" \
     -input /<your_input_data_on_hdfs> \
@@ -77,3 +77,8 @@ yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.4. jar \
 #     -mapper "python3 wordcount.py" \
 #     -input /small_500k.txt \
 #     -output /wordcount_output
+
+# 10. SSH tunneling
+ssh -i <KEY> -L <local_port>:<remote_ip>:<remote_local> username@<remote_ip>
+# Example:
+# ssh -i ~/.ssh/labserver.pem -L 8089:192.168.100.141:8089 -L 9870:192.168.100.141:9870 nguyenhuuminh@192.168.100.141

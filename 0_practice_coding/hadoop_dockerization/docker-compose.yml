@@ -42,3 +42,15 @@ services:
       - datanode4
     ports:
       - "8089:8088"
+
+  nodemanager1:
+    build: ./nodemanager
+    container_name: nodemanager1
+    depends_on:
+      - namenode
+      - datanode1
+      - datanode2
+      - datanode3
+      - datanode4
+    ports:
+      - "8042:8042"
