@@ -32,7 +32,7 @@ kill -9 <PID>
 # wait for 10 mins to check if datanode is dead or not
 hdfs dfsadmin -report
 # after demo with small_500k file, continue to demo with big_5M file
- 
+
 # 7. Some hadoop commands
 hdfs dfs -rm /small_500k.txt
 hdfs dfs -ls /
@@ -48,7 +48,8 @@ hdfs dfs -tail /small_500k.txt
 # 8. Demo mapreduce
 docker cp ../hadoop_demo/wordcount.py namenode:/
 python3 wordcount.py -r local wordcount_dataset/small_500k.txt
-python3 /wordcount.py -r hadoop hdfs:///small_500k.txt --output-dir hdfs:///wordcount_output
+python3 wordcount.py -r hadoop hdfs:///small_500k.txt --output-dir hdfs:///output_wordcount_small_500k
+python3 wordcount.py -r hadoop hdfs:///big_5M.txt --output-dir hdfs:///output_wordcount_big_5M
 # Go to http://localhost:8089/ to check the job status
 # Go to http://localhost:9870/ to check the file system
 
@@ -73,10 +74,11 @@ yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.4.jar \
     -output <your_output_on_hdfs>
 # Example:
 # yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.4.jar \
-#     -files wordcount.py \
-#     -mapper "python3 wordcount.py" \
+#     -files wordcount_no_mrjob.py \
+#     -mapper "python3 wordcount_no_mrjob.py mapper" \
+#     -reducer "python3 wordcount_no_mrjob.py reducer" \
 #     -input /small_500k.txt \
-#     -output /wordcount_output
+#     -output /wordcount_output_no_mrjob
 
 # 10. SSH tunneling
 ssh -i <KEY> -L <local_port>:<remote_ip>:<remote_local> username@<remote_ip>
