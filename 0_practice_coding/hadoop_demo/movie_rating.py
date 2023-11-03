@@ -16,18 +16,14 @@ class MovieRating(MRJob):
     def mapper(self, _, line):
         # 0	50	5	881250949
         (user_id, movie_id, rating, timestamp) = line.split('\t')
-        yield movie_id, float(rating)
+        yield movie_id, (float(rating), 1)
 
-    def reducer(self, movie_id, ratings):
-        total_ratings = 0
-        num_ratings = 0
-
-        for rating in ratings:
-            total_ratings += rating
-            num_ratings += 1
-
-        average_rating = total_ratings / num_ratings
-        yield movie_id, average_rating
+    def reducer(self, movie_id, ratings_counts):
+        sum_ratings, sum_counts = 0, 0
+        for (rating, count) in ratings_counts:
+            sum_ratings += rating
+            sum_counts += count
+        yield movie_id, sum_ratings / sum_counts
 
 
 if __name__ == '__main__':
