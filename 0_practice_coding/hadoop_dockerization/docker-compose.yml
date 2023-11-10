@@ -2,6 +2,8 @@ services:
   namenode:
     build: ./namenode
     container_name: namenode
+    volumes:
+      - ../hadoop_demo:/hadoop_demo
     environment:
       - CLUSTER_NAME=demoo
     ports:
@@ -41,7 +43,7 @@ services:
       - datanode3
       - datanode4
     ports:
-      - "8089:8088"
+      - "8088:8088"
 
   nodemanager1:
     build: ./nodemanager
@@ -54,3 +56,29 @@ services:
       - datanode4
     ports:
       - "8042:8042"
+
+  spark-master:
+    image: bde2020/spark-master:3.3.0-hadoop3.3
+    container_name: spark-master
+    ports:
+      - "9090:8080"
+    volumes:
+      - ../hadoop_demo:/hadoop_demo
+      - ../spark_demo:/spark_demo
+    depends_on:
+      - namenode
+      - datanode1
+      - datanode2
+      - datanode3
+      - datanode4
+      - nodemanager1
+    environment:
+      - SPARK_HOME=/spark
+      - PATH=${PATH}:/spark/bin
+      - HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
+
+  spark-worker:
+    image: bde2020/spark-worker:3.3.0-hadoop3.3
+    container_name: spark-worker
+    depends_on:
+      - spark-master
