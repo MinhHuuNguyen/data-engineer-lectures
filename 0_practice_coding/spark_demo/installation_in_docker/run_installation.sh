@@ -9,3 +9,4 @@ apk add python3-dev
 
 # Serve Spark MLlib
 pip3 install numpy
+pip3 install pyspark

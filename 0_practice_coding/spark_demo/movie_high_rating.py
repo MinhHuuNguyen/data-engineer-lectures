@@ -12,8 +12,8 @@ if __name__ == "__main__":
     sc = SparkContext(conf=conf)
 
     # Load the movie ratings data from a text file
-    # lines = sc.textFile("../hadoop_demo/mapreduce_data/movie_rating_dataset/movie_data.txt")
-    lines = sc.textFile("hdfs://namenode:9000/movie_data.txt")
+    lines = sc.textFile("../hadoop_demo/mapreduce_data/movie_rating_dataset/movie_data.txt")
+    # lines = sc.textFile("hdfs://namenode:9000/movie_data.txt")
 
     # Use the mapper function to parse and extract ratings data, creating key-value pairs
     movie_ratings = lines.map(mapper_get_ratings)
