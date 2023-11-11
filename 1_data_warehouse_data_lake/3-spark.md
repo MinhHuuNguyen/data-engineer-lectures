@@ -342,3 +342,21 @@ GraphX có thể tích hợp với Spark MLlib, cho phép bạn sử dụng mach
 GraphX có thể được tích hợp với Spark Streaming và Spark SQL để xử lý và phân tích dữ liệu đồ thị trong các ứng dụng thời gian thực và các truy vấn SQL.
 
 <img src="https://drive.google.com/uc?id=1UU-AgvHOHQ6Lf_SQTKFV9c9HuBHYPrkj" style="width: 1000px;"/>
+
+
+<!-- ## 3. Phân biệt một số khái niệm
+
+### 3.1. SparkContext và SparkSession
+
+Đối với SparkContext:
+- SparkContext được sử dụng trong phiên bản Spark trước 2.0.
+- SparkContext làm việc với dữ liệu phi cấu trúc thông qua RDD.
+- SparkContext là một đối tượng chính của SparkCore giúp quản lý tài nguyên và phân phối các nhiệm vụ trên cụm.
+
+Đối với SparkSession:
+- SparkSession được giới thiệu từ phiên bản Spark 2.0 trở lên.
+- SparkSession làm việc với dữ liệu có cấu trúc thông qua DataFrame.
+- SparkSession hoạt động với Spark SQL và Hive, tổng hợp các tính năng của SparkContext, SQLContext và HiveContext.
+
+### 3.2. RDD và DataFrame
+ -->
