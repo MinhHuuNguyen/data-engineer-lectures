@@ -65,6 +65,7 @@ services:
     volumes:
       - ../hadoop_demo:/hadoop_demo
       - ../spark_demo:/spark_demo
+      - ../kafka_demo:/kafka_demo
     depends_on:
       - namenode
       - datanode1
@@ -82,3 +83,26 @@ services:
     container_name: spark-worker
     depends_on:
       - spark-master
+
+  zookeeper:
+    image: docker.io/bitnami/zookeeper:3.8
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+  kafka:
+    image: docker.io/bitnami/kafka:3.4
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    volumes:
+      - ../hadoop_demo:/hadoop_demo
+    environment:
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_ENABLE_KRAFT=no
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+    depends_on:
+      - zookeeper
