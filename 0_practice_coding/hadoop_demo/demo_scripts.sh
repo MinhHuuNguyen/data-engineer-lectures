@@ -67,13 +67,13 @@ yarn queue -status <your-yarn-queue>
 yarn queue -setState <queue_name> <state>
 
 # MapReduce without using mrjob library
-yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.4.jar \
+yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.5.jar \
     -files <path _to_your_script_on_hdfs> \
     -mapper "python3 <name_of_your_script.py>" \
     -input /<your_input_data_on_hdfs> \
     -output <your_output_on_hdfs>
 # Example:
-# yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.4.jar \
+# yarn jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.5.jar \
 #     -files wordcount_no_mrjob.py \
 #     -mapper "python3 wordcount_no_mrjob.py mapper" \
 #     -reducer "python3 wordcount_no_mrjob.py reducer" \

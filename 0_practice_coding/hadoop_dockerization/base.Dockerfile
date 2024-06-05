@@ -18,8 +18,8 @@ RUN cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 RUN chmod 0600 ~/.ssh/authorized_keys
 
 # 4. Install Hadoop
-RUN wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.4/hadoop-3.3.4.tar.gz
-RUN tar -xzf hadoop-3.3.4.tar.gz
+RUN wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.5/hadoop-3.3.5.tar.gz
+RUN tar -xzf hadoop-3.3.5.tar.gz
 
 # 5. Install Python libraries
 RUN apt-get update
@@ -27,7 +27,7 @@ RUN apt-get install python3-pip -y
 RUN pip3 install pathlib mrjob pyyaml
 
 # 6. Set environment variables (in ~/.bashrc)
-ENV HADOOP_HOME=/hadoop-3.3.4
+ENV HADOOP_HOME=/hadoop-3.3.5
 ENV HADOOP_INSTALL=$HADOOP_HOME
 ENV HADOOP_MAPRED_HOME=$HADOOP_HOME
 ENV HADOOP_COMMON_HOME=$HADOOP_HOME
