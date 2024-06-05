@@ -4,3 +4,4 @@
 __pycache__
 *.parquet
 *.csv
+0_practice_coding/hadoop_demo/mapreduce_data/*
