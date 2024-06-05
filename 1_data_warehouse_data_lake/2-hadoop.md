@@ -124,14 +124,14 @@ MapReduce được thiết kế để xử lý và phân tích dữ liệu lớn
 
 Cấu trúc MapReduce gồm 3 bước:
 - Map:
-Bước Map chấp nhận dữ liệu đầu vào và thực hiện một tập hợp các phép biến đổi, tạo ra các cặp key-value trị.
+Bước Map chấp nhận dữ liệu đầu vào và thực hiện một tập hợp các phép biến đổi, tạo ra các cặp key-value.
 Bước này tách dữ liệu thành các phần nhỏ và độc lập xử lý chúng trên các máy tính khác nhau.
-Kết quả của bước Map là một tập hợp các cặp key-value trị tạo ra bởi các hàm Map.
+Kết quả của bước Map là một tập hợp các cặp key-value tạo ra bởi các hàm Map.
 - Shuffle and Sort:
-Bước Shuffle và Sort sắp xếp và trộn các cặp key-value trị để đảm bảo rằng các value có cùng key được gom lại với nhau.
+Bước Shuffle và Sort sắp xếp và trộn các cặp key-value để đảm bảo rằng các value có cùng key được gom lại với nhau.
 Điều này làm cho việc chuyển dữ liệu từ bước Map sang bước Reduce hiệu quả hơn.
 - Reduce:
-Bước Reduce nhận các cặp key-value trị sau khi đã được sắp xếp và trộn.
+Bước Reduce nhận các cặp key-value sau khi đã được sắp xếp và trộn.
 Nó thực hiện các phép biến đổi hoặc tính toán trên các value có cùng key để tạo ra kết quả cuối cùng.
 Bước Reduce có thể thực hiện song song trên nhiều máy tính.
 
@@ -145,7 +145,7 @@ Giả sử bạn có một tài liệu văn bản lớn (có thể là một t�
     Trong bước Map, bạn chia tài liệu thành các phần nhỏ hơn (đoạn văn bản hoặc câu).
     Tạo ra các cặp key-value, trong đó, key ở đây là từ và value số lần xuất hiện của từ đó.
     - Shuffle và Sort:
-    Hệ thống MapReduce tự động sắp xếp và trộn các cặp key-value trị sao cho các từ cùng key được gom lại với nhau.
+    Hệ thống MapReduce tự động sắp xếp và trộn các cặp key-value sao cho các từ cùng key được gom lại với nhau.
     - Reduce:
     Tổng hợp số lần xuất hiện của từng từ bằng cách thêm value của từng key.
     Kết quả là bạn sẽ có một danh sách các từ và số lần xuất hiện của mỗi từ trong tài liệu.
