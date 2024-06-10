@@ -2,7 +2,7 @@
 cd hadoop_dockerization
 
 # 1. Build hadoop_base image
-docker build -t hadoop_base:v1.0.0 -f ./base.Dockerfile .
+docker build --platform=linux/amd64 -t hadoop_base:v1.0.0 -f ./base.Dockerfile .
 
 # 2. Run docker compose
 docker-compose up -d

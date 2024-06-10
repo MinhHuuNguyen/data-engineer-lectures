@@ -1,6 +1,7 @@
 services:
   namenode:
     build: ./namenode
+    platform: linux/amd64
     container_name: namenode
     volumes:
       - ../hadoop_demo:/hadoop_demo
@@ -11,30 +12,35 @@ services:
 
   datanode1:
     build: ./datanode
+    platform: linux/amd64
     container_name: datanode1
     depends_on:
       - namenode
 
   datanode2:
     build: ./datanode
+    platform: linux/amd64
     container_name: datanode2
     depends_on:
       - namenode
 
   datanode3:
     build: ./datanode
+    platform: linux/amd64
     container_name: datanode3
     depends_on:
       - namenode
 
   datanode4:
     build: ./datanode
+    platform: linux/amd64
     container_name: datanode4
     depends_on:
       - namenode
 
   resourcemanager:
     build: ./resourcemanager
+    platform: linux/amd64
     container_name: resourcemanager
     depends_on:
       - namenode
@@ -47,6 +53,7 @@ services:
 
   nodemanager1:
     build: ./nodemanager
+    platform: linux/amd64
     container_name: nodemanager1
     depends_on:
       - namenode
