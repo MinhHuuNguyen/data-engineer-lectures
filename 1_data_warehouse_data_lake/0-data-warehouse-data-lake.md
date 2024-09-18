@@ -1,10 +1,12 @@
 ---
-layout: "post"
-title:  "Data lake data warehouse"
+slug: machine-learning
+time: "11/09/2024"
+title: "Machine learning"
+description: "Machine Learning (ML) là một phần của trí tuệ nhân tạo (AI) mà chúng ta dùng để xây dựng các mô hình hoặc chương trình máy tính có khả năng tự học từ dữ liệu."
 author: "Nguyễn Hữu Minh"
-permalink: "/data-lake-data-warehouse"
-has_children: true
-nav_order: 7
+banner_url: "https://tenten.vn/tin-tuc/wp-content/uploads/2023/08/1cG6U1qstYDijh9bPL42e-Q.jpg"
+tags:
+is_highlight: false
 ---
 
 # Data lake data warehouse
