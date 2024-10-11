@@ -7,6 +7,7 @@ author: Nguyễn Hữu Minh
 banner_url: 
 tags: [big-data, syllabus]
 is_highlight: false
+is_published: false
 ---
 
 ## Bài 1: Giới thiệu chung về Big Data

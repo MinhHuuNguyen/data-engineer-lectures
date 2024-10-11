@@ -7,6 +7,7 @@ author: Nguyễn Hữu Minh
 banner_url: 
 tags: [big-data, tools]
 is_highlight: false
+is_published: false
 ---
 
 ## 1. Hypertext transfer protocol (HTTP)

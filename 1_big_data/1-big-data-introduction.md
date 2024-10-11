@@ -7,6 +7,7 @@ author: Nguyễn Hữu Minh
 banner_url: 
 tags: [big-data]
 is_highlight: false
+is_published: false
 ---
 
 # Data lake data warehouse
