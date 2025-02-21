@@ -1,7 +1,7 @@
 ---
 time: 11/01/2025
 title: Kiến trúc của DataBricks
-description: 
+description: Data Intelligence Platform của DataBricks gồm những thành phần nào? Chi tiết về Control Plane - Unity Catalog và Data Plane - Delta Lake. AI mang lại giá trị gì trong hệ thống của DataBricks?
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.png
 tags: []
 is_highlight: false
@@ -90,6 +90,10 @@ Với kiến trúc Serverless, người dùng chỉ cần tập trung vào việ
 
 ## 4. AI mang lại giá trị gì trong hệ thống của DataBricks?
 
+Nếu không có AI, người dùng dữ liệu có thể gặp phải một số vấn đề như:
+
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/without_ai.png" style="width: 1200px;"/>
+
+Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách thông minh, giúp họ thực thi các tác vụ một cách nhanh chóng và dễ dàng hơn.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/with_ai.png" style="width: 1200px;"/>

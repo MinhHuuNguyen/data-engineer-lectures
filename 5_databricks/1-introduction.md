@@ -50,6 +50,13 @@ DataBrick giúp người dùng **thay vì phải quản lý nhiều tài nguyên
 DataBricks giải quyết các vấn đề trên bằng cách xây dựng một mô hình quản trị dữ liệu mới, gọi là **Data Lakehouse**.
 Kết hợp các ưu điểm của Data Lake và Data Warehouse, Data Lakehouse giúp giảm thiểu các hạn chế của cả hai mô hình truyền thống.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/lakehouse_combination.png" style="width: 1200px;"/>
+
+Một số ưu điểm của Data Lakehouse:
+- Kiến trúc đồng nhất: Dữ liệu được lưu trữ trong một hệ thống duy nhất, giúp giảm thiểu sự phân mảnh.
+- Môi trường mở: Hỗ trợ nhiều ngôn ngữ lập trình và công cụ, giúp tăng cường sự linh hoạt và tính tương tác.
+- Tối ưu chi phí và khả năng mở rộng: Tích hợp và quản lý trên đám mây giúp giảm chi phí so với các hệ thống truyền thống.
+
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/lakehouse_paper.png" style="width: 800px;"/>
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/lakehouse_timeline.png" style="width: 300px;"/>
