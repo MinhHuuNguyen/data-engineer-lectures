@@ -25,7 +25,7 @@ Các vấn đề mà DataBricks mong muốn giải quyết bao gồm:
 
 Ngoài dữ liệu thô được thu thập về, trong quá trình xử lý và sử dụng dữ liệu, có nhiều dẫn xuất của dữ liệu được sinh ra.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_type_problem.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_type_problem.png" style="width: 600px;"/>
 
 Đồng thời, theo thời gian, doanh nghiệp có thể mở rộng các vị trí liên quan đến dữ liệu, do đó, số lượng các vài trò liên quan đến dữ liệu cũng tăng lên, dẫn đến việc quản trị dữ liệu trở nên phức tạp hơn.
 
@@ -50,9 +50,9 @@ DataBrick giúp người dùng **thay vì phải quản lý nhiều tài nguyên
 DataBricks giải quyết các vấn đề trên bằng cách xây dựng một mô hình quản trị dữ liệu mới, gọi là **Data Lakehouse**.
 Kết hợp các ưu điểm của Data Lake và Data Warehouse, Data Lakehouse giúp giảm thiểu các hạn chế của cả hai mô hình truyền thống.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/lakehouse_paper.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/lakehouse_paper.png" style="width: 800px;"/>
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/lakehouse_timeline.png" style="width: 600px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/lakehouse_timeline.png" style="width: 300px;"/>
 
 Kiến trúc của Data Lakehouse được công bố bởi DataBricks gồm:
 - Data Science & AI: Các dịch vụ liên quan đến Khoa học dữ liệu và Trí tuệ nhân tạo.
@@ -63,18 +63,18 @@ Kiến trúc của Data Lakehouse được công bố bởi DataBricks gồm:
 - Delta Lake Uniform: Các dịch vụ lưu trữ với hiệu năng và độ tin cậy cao.
 - Open Data Lake: Các dịch vụ liên quan đến lưu trữ dữ liệu phi cấu trúc như logs, văn bản, âm thanh, hình ảnh, video.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/lakehouse.png" style="width: 600px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/lakehouse.png" style="width: 1200px;"/>
 
 ### 3.2. Data Intelligence Platform
 
 Đến những năm gần đây, với sự bùng nổ của Trí tuệ nhân tạo trong việc hỗ trợ các công việc của con người, DataBricks tích hợp Trí tuệ nhân tạo vào rất sâu trong hệ thống, từ đó cung cấp một nền tảng dữ liệu tốt hơn - Data Intelligence Platform.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform_idea.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform_idea.png" style="width: 800px;"/>
 
 Ý tưởng chính mà DataBricks nêu ra ở đây là việc kết hợp các hệ thống ChatBot (được xây dựng từ các mô hình Generative AI - Trí tuệ nhân tạo tạo sinh) vào trong hệ thống quản trị dữ liệu.
 Để xây dựng được sự kết hợp này, DataBricks đã mua lại MosaicML để có đội ngũ nhân sự tốt nhất, phục vụ mục tiêu tích hợp Trí tuệ nhân tạo vào trong hệ thống quản trị dữ liệu.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform_mosaic_ai.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform_mosaic_ai.png" style="width: 600px;"/>
 
 Từ đó, người dùng có "một người trợ lý ảo" sẵn sàng hỗ trợ để giúp thực thi các tác vụ một cách nhanh chóng và dễ dàng hơn.
 Điểm nâng cấp lớn này được gọi là DataBricks IQ.
@@ -85,4 +85,4 @@ Từ đó, người dùng có "một người trợ lý ảo" sẵn sàng hỗ t
 
 Với việc cung cấp một hệ thống quản trị dữ liệu thông minh, DataBricks sẵn sàng phục vụ cho nhiều đối tượng người dùng khác nhau và nhiều công việc khác nhau trong quá trình xử lý dữ liệu.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform.PNG" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/users.PNG" style="width: 1200px;"/>
