@@ -187,6 +187,26 @@ Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách
 
 **E.** Khả năng mở rộng nhanh hơn
 
+**9. Databricks hỗ trợ người dùng không chuyên về kỹ thuật khai thác thông tin từ dữ liệu bằng ngôn ngữ tự nhiên như thế nào?**
+
+**A.** Thông qua AI/BI Genie Spaces và Databricks Assistant, giúp người dùng tương tác với dữ liệu bằng các câu lệnh ngôn ngữ tự nhiên.
+
+**B.** Bằng cách cung cấp blog Databricks và tài liệu cloud-specific thông qua Intelligent Search.
+
+**C.** Bằng cách cung cấp các hướng dẫn lập trình và notebook có sẵn, giúp người dùng truy cập mã được đánh giá chuyên nghiệp chỉ với một cú nhấp chuột.
+
+**10. Ba thách thức chính của hệ sinh thái dữ liệu mà doanh nghiệp gặp phải khi khai thác dữ liệu để thu được giá trị là gì?**
+
+**A.** Mỗi công cụ và nền tảng trong hệ sinh thái dữ liệu yêu cầu nhân viên có trình độ kỹ thuật cao.
+
+**B.** Dữ liệu thường bị khóa trong các silo với các nhóm làm việc độc lập.
+
+**C.** Các công cụ và cơ sở hạ tầng cũ thiếu các tính năng và khả năng phù hợp.
+
+**D.** Nhiều hệ thống làm nảy sinh các vấn đề về quyền riêng tư và kiểm soát dữ liệu.
+
+**E.** Hệ sinh thái dữ liệu lớn dẫn đến chi phí quản lý và bảo trì cao.
+
 </details>
 
 <details>
@@ -207,4 +227,16 @@ Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách
 **7. B, D** vì Data lakehouse kết hợp khả năng lưu trữ linh hoạt của Data Lake và hiệu suất cao của Data Warehouse. Hỗ trợ cả BI (Business Intelligence) và AI (Artificial Intelligence).
 
 **8. A, B, E** vì Serverless compute giúp minh bạch hóa chi phí bằng cách tính phí theo mức sử dụng thực tế. Cải thiện độ tin cậy do không cần quản lý cụm tính toán. Tự động mở rộng để đáp ứng nhu cầu tính toán cao.
+
+**9. A** vì AI/BI Genie Spaces và Databricks Assistant giúp người dùng tương tác với dữ liệu bằng ngôn ngữ tự nhiên, giúp họ khai thác thông tin từ dữ liệu một cách dễ dàng.
+
+**10. B, C, D** vì Databricks giúp khắc phục các thách thức về dữ liệu bằng cách thống nhất dữ liệu, cung cấp quản trị thống nhất, và hỗ trợ AI và BI trên cùng một nền tảng.
+
+</details>
+
+<details>
+<summary>Demo</summary>
+
+**Hướng dẫn sử dụng DataBricks Workspace**
+
 </details>
