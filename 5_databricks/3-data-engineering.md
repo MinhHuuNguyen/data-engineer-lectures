@@ -8,11 +8,24 @@ is_highlight: false
 is_published: true
 ---
 
-## 1. Tổng quan về quy trình ETL trong DataBricks
+## 1. Tổng quan về quy trình Data Engineering
+
+Các tổ chức thường sử dụng nhiều nền tảng công nghệ khác nhau để quản lý quy trình kỹ thuật dữ liệu, điều này gây ra một số thách thức:
+- Phương pháp thu thập dữ liệu phức tạp:
+    - Thu thập dữ liệu trực tuyến
+    - Theo dõi thủ công các tệp để thu thập
+    - Quản lý các tác vụ thu thập dễ xảy ra lỗi
+- Hỗ trợ các nguyên tắc kỹ thuật dữ liệu chính:
+    - Phát triển theo phương thức Agile, CI/CD và kiểm soát phiên bản
+    - Môi trường development và môi trường production riêng biệt
+- Công cụ điều phối của bên thứ ba:
+    - Tăng chi phí hoạt động và độ phức tạp của hệ thống
+    - Yêu cầu các kỹ năng và chuyên môn nâng cao
+    - Sự không nhất quán của nền tảng
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/overall.png" style="width: 1200px;"/>
 
-## 2. DeltaLake - Lưu trữ dữ liệu linh hoạt và hiệu quả
+## 2. Delta Lake - Lưu trữ dữ liệu linh hoạt và hiệu quả
 
 Delta Lake là một giao thức mã nguồn mở phục vụ cho việc đọc và ghi file dữ liệu vào các kho dữ liệu đám mây.
 
@@ -82,6 +95,35 @@ Delta Lake hỗ trợ đồng nhất giữa xử lý theo lô (batching) và x�
 |  | 6. Dùng với các công việc liên quan đến Machine Learning với MLFlow notebook. |
 |  | 7. Dùng với API bên ngoài, các đoạn code và các tác cụ tuỳ chỉnh. |
 
+
+### 5.1. Delta Live Tables (DLT)
+
+Delta Live Tables là phương pháp tốt nhất để thực thi ETL với Data Lakehouse. DLT giúp:
+- Tăng tốc phát triển ETL: Khai báo SQL hoặc Python và Delta Live Tables tự động sắp xếp DAG, xử lý thử lại, những thay đổi trong dữ liệu.
+- Tự động quản lý cơ sở hạ tầng của bạn: Tự động hóa các hoạt động như phục hồi, tự động mở rộng và tối ưu hóa hiệu suất.
+- Đảm bảo chất lượng dữ liệu cao: Cung cấp dữ liệu đáng tin cậy với các biện pháp kiểm soát chất lượng, thử nghiệm, giám sát và thực thi.
+- Xử lý hợp nhất giữa batch và streaming: Đơn giản hoá việc sử dụng SQL với xử lý theo batch và streaming.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/delta_live_table_visualization.png" style="width: 1200px;"/>
+
+Trực quan hoá pipeline với DLT, giúp người dùng dễ dàng theo dõi quy trình xử lý dữ liệu ngay bên cạnh code.
+
+### 5.2. Databricks Workflows
+
+Jobs trong Databricks Workflows có thể được chạy trên nhiều nền tảng tính toán khác nhau:
+- Serverless compute:
+    - Là nền tảng tính toán mặc định của workflows.
+    - Mang lại khả năng mở rộng nhanh chóng, cải thiện khả độ tin cậy và đơn giản hoá trải nghiệm người dùng.
+    - Tối ưu chi phí.
+- Interactive clusters (all-purpose cluster):
+    - Có thể được chia sẻ, dùng chung bởi nhiều người dùng.
+    - Dùng trong quá trình phát triển, phân tích ad-hoc và khai phá dữ liệu.
+    - Không tối ưu về mặt chi phí.
+- Job cluster:
+    - Tài nguyên tính toán được tắt khi Job hoàn tất, giúp tiết kiệm chi phí.
+    - Phụ thuộc vào nhà cung cấp cloud.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/orchestration_workflow_jobs.png" style="width: 1200px;"/>
 
 ---
 
