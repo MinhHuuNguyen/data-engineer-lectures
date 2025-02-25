@@ -67,7 +67,7 @@ Sử dụng AI để tăng trải nghiệm người dùng:
 - Trợ lý Al để tạo hình ảnh trực quan nhanh chóng.
 - Genie Spaces do Al cung cấp để nhanh chóng hiểu dữ liệu của bạn bằng ngôn ngữ tự nhiên.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/sql_dashboard_genie_menu.png" style="width: 400px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/sql_dashboard_genie_menu.png" style="width: 300px;"/>
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/sql_dashboard.png" style="width: 1000px;"/>
 
