@@ -21,7 +21,7 @@ Một số tiêu chí của một Data Intelligence Platform:
 - Truy cập vào công nghệ tiên tiến nhất: Liên tục cập nhật công nghệ mới nhất
 - Hỗ trợ cho nhân viên không chuyên về kỹ thuật: Dễ sử dụng, không cần kiến thức chuyên sâu về kỹ thuật
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform.png" style="width: 800px;"/>
 
 Đi sâu hơn vào kiến trúc của DataBricks, ta có thể chia thành 2 phần chính: Control Plane và Data Plane.
 - Control Plane: Cung cấp giao diện tương tác với người dùng và tương tác với các ứng dụng (thông qua API calls).
@@ -38,11 +38,17 @@ Một số tiêu chí của một Data Intelligence Platform:
 Unity Catalog là một dịch vụ quản lý tập trung, giúp người dùng quản lý dữ liệu một cách hiệu quả và linh hoạt.
 Đây chính là thành phần tạo nên yếu tố **unified data platform** của DataBricks.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_unity_catalog.png" style="width: 600px;"/>
+<p float="left">
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_before.png" style="width: 400px;"/>
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_after.png" style="width: 400px;"/>
+</p>
 
 Bất kể bạn là Data Engineer, Data Scientist hay Data Analyst và bạn có nhu cầu truy cập vào thành phần nào của dữ liệu như Data Lake, Data Warehouse, Metadata hay Machine Learning. Unity Catalog đều cung cấp cho bạn một giao diện quản lý dữ liệu trực quan và dễ sử dụng.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog.png" style="width: 1200px;"/>
+<p float="left">
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_unity_catalog.png" style="width: 200px;"/>
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog.png" style="width: 600px;"/>
+</p>
 
 Môt số tính năng chính có thể sử dụng từ Unity Catalog:
 - Discovery: Tìm kiếm và khám phá dữ liệu một cách dễ dàng.
@@ -52,7 +58,7 @@ Môt số tính năng chính có thể sử dụng từ Unity Catalog:
 - Auditing: Theo dõi và ghi lại các hoạt động trên dữ liệu.
 - Monitoring: Giám sát hiệu suất và tình trạng của hệ thống xử lý dữ liệu.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_functions.png" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_functions.png" style="width: 500px;"/>
 
 Từ những tính năng trên, Unity Catalog giúp người dùng:
 - Thống nhất quản trị trên các dịch vụ đám mây khác nhau
@@ -85,6 +91,18 @@ Tầng dưới cùng của DataBricks Data Intelligence Platform là Open Data L
 
 Với mục tiêu tối ưu hoá hiệu suất và chi phí, DataBricks cung cấp mô hình tính toán Serverless, giúp người dùng không cần quan tâm đến việc quản lý tài nguyên máy chủ.
 Với kiến trúc Serverless, người dùng chỉ cần tập trung vào việc viết mã, còn việc quản lý tài nguyên máy chủ, tối ưu hiệu suất sẽ được DataBricks thực hiện tự động.
+- Năng suất người dùng cao hơn:
+    - Truy vấn của người dùng bắt đầu ngay lập tức, không cần chờ khởi động cụm
+    - Thêm nhiều người dùng đồng thời hơn với khả năng mở rộng cụm tức thì
+- Không cần quản lý:
+    - Không cấu hình
+    - Không điều chỉnh hiệu suất
+    - Không quản lý dung lượng
+    - Tự động nâng cấp và vá lỗi
+- Chi phí thấp hơn:
+    - Trả tiền theo sử dụng
+    - Không cung cấp quá nhiều tài nguyên
+    - Dung lượng nhàn rỗi bị xóa sau 10 phút kể từ lần truy vấn cuối cùng
 
 Điều này sẽ giúp hệ thống tiết kiệm chi phí khi nhu cầu tính toán thấp và dễ dàng nâng cao hiệu suất nhu cầu tính toán tăng lên.
 
@@ -97,6 +115,15 @@ Nếu không có AI, người dùng dữ liệu có thể gặp phải một s�
 Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách thông minh, giúp họ thực thi các tác vụ một cách nhanh chóng và dễ dàng hơn.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/with_ai.png" style="width: 1200px;"/>
+
+
+## 5. DataBricks Marketplace, Partner Connect và Delta Sharing
+
+<p float="left">
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_1.png" style="width: 300px;"/>
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_2.png" style="width: 300px;"/>
+</p>
+
 
 ---
 

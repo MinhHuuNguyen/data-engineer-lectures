@@ -13,7 +13,7 @@ is_published: true
 Đội ngũ của DataBricks cho rằng "Dữ liệu có mặt ở khắp mọi nơi và mọi người cần tận dụng dữ liệu để phục vụ cho các mục đích khác nhau."
 Họ cũng nhấn mạnh "Người chiến thắng ở trong bất kỳ một ngành công nghiệp nào là công ty tận dụng và kết hợp được giữa dữ liệu và trí tuệ nhân tạo."
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/statement.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/statement.png" style="width: 600px;"/>
 
 Tuy nhiên, chưa kể việc các công ty không nhận ra được tầm nhìn này, mà việc tận dụng dữ liệu là không dễ dàng do có quá nhiều khâu, quá nhiều công đoạn cần phải thực hiện để khai khác các khía cạnh khác nhau của dữ liệu.
 
@@ -25,7 +25,7 @@ Các vấn đề mà DataBricks mong muốn giải quyết bao gồm:
 
 Ngoài dữ liệu thô được thu thập về, trong quá trình xử lý và sử dụng dữ liệu, có nhiều dẫn xuất của dữ liệu được sinh ra.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_type_problem.png" style="width: 600px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_type_problem.png" style="width: 400px;"/>
 
 Đồng thời, theo thời gian, doanh nghiệp có thể mở rộng các vị trí liên quan đến dữ liệu, do đó, số lượng các vài trò liên quan đến dữ liệu cũng tăng lên, dẫn đến việc quản trị dữ liệu trở nên phức tạp hơn.
 
