@@ -117,13 +117,47 @@ Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/with_ai.png" style="width: 1200px;"/>
 
 
-## 5. DataBricks Marketplace, Partner Connect và Delta Sharing
+## 5. Partner Connect, DataBricks Marketplace và Delta Sharing
+
+### 5.1. Partner Connect
+
+Partner Connect là một dịch vụ giúp người dùng kết nối với các đối tác của DataBricks, giúp họ truy cập vào các dịch vụ và công cụ mà đối tác cung cấp.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_1.png" style="width: 1200px;"/>
+
+Một số đặc điểm của các đối tác trong Partner Connect:
+- Nhiều đối tác chỉ mất vài click chuột để kết nối vào hệ thống của DataBricks.
+- Tự động khởi chạy cụm, gọi API của đối tác thông qua Personal Access Token (PAT) chia sẻ thông tin chi tiết về cấu hình cụm.
+- Thiết lập tất cả các cấu hình cần thiết để tối ưu hóa trải nghiệm người dùng.
+- Tạo tài khoản dùng thử trong sản phẩm đối tác nếu tài khoản không tồn tại
 
 <p float="left">
     <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_1.png" style="width: 300px;"/>
     <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_2.png" style="width: 300px;"/>
 </p>
 
+### 5.2. DataBricks Marketplace
+
+DataBricks Marketplace là nơi người dùng có thể tìm kiếm, chia sẻ và sử dụng các ứng dụng, công cụ và dịch vụ dữ liệu từ các nhà cung cấp khác nhau.
+
+Ý tưởng Marketplace mang lại giá trị win-win cho cả người dùng và nhà cung cấp:
+- Người dùng: Có thể tìm kiếm và sử dụng các ứng dụng, công cụ và dịch vụ dữ liệu một cách dễ dàng và nhanh chóng.
+- Nhà cung cấp: Có thể chia sẻ và bán các ứng dụng, công cụ và dịch vụ dữ liệu của mình cho người dùng DataBricks.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/marketplace_idea.png" style="width: 1200px;"/>
+
+Nhà cung cấp và người dùng có thể tương tác với nhiều loại tài nguyên dữ liệu khác nhau như: Dataset, Notebook, Dashboard, Machine Learning Model, Compute Resource ...
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/marketplace.png" style="width: 1200px;"/>
+
+### 5.3. Delta Sharing
+
+Delta Sharing là công nghệ lõi, góp phần tạo nên Partner Connect và DataBricks Marketplace, giúp người dùng chia sẻ dữ liệu một cách an toàn và hiệu quả.
+
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_sharing.png" style="width: 1200px;"/>
+
+Delta Sharing giúp người dùng dễ dàng chia sẻ các loại dữ liệu khác nhau với người dùng khác, nhóm người dùng khác hay tổ chức khác ...
 
 ---
 
@@ -261,9 +295,15 @@ Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách
 
 </details>
 
-<details>
+<details open>
 <summary>Demo</summary>
 
-**Hướng dẫn sử dụng DataBricks Workspace**
+**Hướng dẫn sử dụng Catalog với dữ liệu dạng bảng Table**
+
+<iframe width="1000" height="625" src="https://www.youtube.com/embed/Y6Uz0bPt2mo?si=g9tplVDPG12c8n5N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+**Sử dụng Notebook với SQL, Spark và Pandas**
+
+<iframe width="1000" height="625" src="https://www.youtube.com/embed/s-YwOdI1vM4?si=yXp-lJWVTNyEY3Ix" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 </details>
