@@ -21,7 +21,7 @@ Một số tiêu chí của một Data Intelligence Platform:
 - Truy cập vào công nghệ tiên tiến nhất: Liên tục cập nhật công nghệ mới nhất
 - Hỗ trợ cho nhân viên không chuyên về kỹ thuật: Dễ sử dụng, không cần kiến thức chuyên sâu về kỹ thuật
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform.png" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform.png" style="width: 1000px;"/>
 
 Đi sâu hơn vào kiến trúc của DataBricks, ta có thể chia thành 2 phần chính: Control Plane và Data Plane.
 - Control Plane: Cung cấp giao diện tương tác với người dùng và tương tác với các ứng dụng (thông qua API calls).
@@ -74,7 +74,7 @@ Từ những tính năng trên, Unity Catalog giúp người dùng:
 Data Plane của DataBricks được cung cấp dưới dạng dịch vụ được gọi là Delta Lake.
 Delta Lake là dịch vụ bao gồm cả lưu trữ và tính toán, giúp người dùng xử lý dữ liệu một cách hiệu quả và linh hoạt.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_lake.png" style="width: 600px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_lake.png" style="width: 400px;"/>
 
 Tầng dưới cùng của DataBricks Data Intelligence Platform là Open Data Lake, nơi lưu trữ dữ liệu nguyên thô, bao gồm cả dữ liệu có cấu trúc, bán cấu trúc và phi cấu trúc. Và DataBricks hỗ trợ cả 3 nhà cung cấp dịch vụ cloud lớn trên thế giới là AWS, Azure và GCP.
 
@@ -122,7 +122,7 @@ Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách
 
 Partner Connect là một dịch vụ giúp người dùng kết nối với các đối tác của DataBricks, giúp họ truy cập vào các dịch vụ và công cụ mà đối tác cung cấp.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_1.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect.png" style="width: 1200px;"/>
 
 Một số đặc điểm của các đối tác trong Partner Connect:
 - Nhiều đối tác chỉ mất vài click chuột để kết nối vào hệ thống của DataBricks.
@@ -131,8 +131,8 @@ Một số đặc điểm của các đối tác trong Partner Connect:
 - Tạo tài khoản dùng thử trong sản phẩm đối tác nếu tài khoản không tồn tại
 
 <p float="left">
-    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_1.png" style="width: 300px;"/>
-    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_2.png" style="width: 300px;"/>
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_1.png" style="width: 500px;"/>
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_2.png" style="width: 500px;"/>
 </p>
 
 ### 5.2. Marketplace
@@ -159,7 +159,7 @@ Clean Room của DataBricks là dịch vụ giúp các bên đối tác có th�
 
 Delta Sharing là công nghệ lõi, góp phần tạo nên Partner Connect, Marketplace và Clean Room, giúp người dùng chia sẻ dữ liệu một cách an toàn và hiệu quả.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_sharing.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_sharing.png" style="width: 400px;"/>
 
 Delta Sharing giúp người dùng dễ dàng chia sẻ các loại dữ liệu khác nhau với người dùng khác, nhóm người dùng khác hay tổ chức khác ...
 

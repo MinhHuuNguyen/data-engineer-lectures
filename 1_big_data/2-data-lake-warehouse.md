@@ -1,7 +1,7 @@
 ---
 time: 11/01/2025
 title: So sánh Data Lake, Data Warehouse và quy trình xử lý dữ liệu ETL và ELT
-description: 
+description: Data Lake và Data Warehouse là hai hệ thống lưu trữ dữ liệu quan trọng trong lĩnh vực quản lý dữ liệu. Bài viết này sẽ giúp bạn hiểu rõ hơn về ưu nhược điểm của Data Lake và Data Warehouse. Ngoài ra, bài viết cũng giải thích và so sánh về quy trình xử lý dữ liệu ETL và ELT.
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/warehouse_vs_lake_graph.png
 tags: []
 is_highlight: false
