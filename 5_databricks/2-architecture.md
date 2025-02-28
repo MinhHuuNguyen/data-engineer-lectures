@@ -116,8 +116,7 @@ Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/with_ai.png" style="width: 1200px;"/>
 
-
-## 5. Partner Connect, DataBricks Marketplace và Delta Sharing
+## 5. Partner Connect, Marketplace, Clean Room và Delta Sharing
 
 ### 5.1. Partner Connect
 
@@ -136,9 +135,9 @@ Một số đặc điểm của các đối tác trong Partner Connect:
     <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_2.png" style="width: 300px;"/>
 </p>
 
-### 5.2. DataBricks Marketplace
+### 5.2. Marketplace
 
-DataBricks Marketplace là nơi người dùng có thể tìm kiếm, chia sẻ và sử dụng các ứng dụng, công cụ và dịch vụ dữ liệu từ các nhà cung cấp khác nhau.
+Marketplace là nơi người dùng có thể tìm kiếm, chia sẻ và sử dụng các ứng dụng, công cụ và dịch vụ dữ liệu từ các nhà cung cấp khác nhau.
 
 Ý tưởng Marketplace mang lại giá trị win-win cho cả người dùng và nhà cung cấp:
 - Người dùng: Có thể tìm kiếm và sử dụng các ứng dụng, công cụ và dịch vụ dữ liệu một cách dễ dàng và nhanh chóng.
@@ -150,10 +149,15 @@ Nhà cung cấp và người dùng có thể tương tác với nhiều loại t
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/marketplace.png" style="width: 1200px;"/>
 
-### 5.3. Delta Sharing
+### 5.3. Clean Room
 
-Delta Sharing là công nghệ lõi, góp phần tạo nên Partner Connect và DataBricks Marketplace, giúp người dùng chia sẻ dữ liệu một cách an toàn và hiệu quả.
+Clean Room của DataBricks là dịch vụ giúp các bên đối tác có thể chia sẻ dữ liệu một cách an toàn và hiệu quả mà không cần phải chia sẻ dữ liệu thô.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/clean_room.png" style="width: 1200px;"/>
+
+### 5.4. Delta Sharing
+
+Delta Sharing là công nghệ lõi, góp phần tạo nên Partner Connect, Marketplace và Clean Room, giúp người dùng chia sẻ dữ liệu một cách an toàn và hiệu quả.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_sharing.png" style="width: 1200px;"/>
 
