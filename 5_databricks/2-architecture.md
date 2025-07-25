@@ -38,17 +38,23 @@ Một số tiêu chí của một Data Intelligence Platform:
 Unity Catalog là một dịch vụ quản lý tập trung, giúp người dùng quản lý dữ liệu một cách hiệu quả và linh hoạt.
 Đây chính là thành phần tạo nên yếu tố **unified data platform** của DataBricks.
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_before.png" style="width: 400px;"/>
-  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_after.png" style="width: 400px;"/>
+<p style="float: left;">
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_before.png" style="width: 500px;"/>
 </p>
+<p style="float: right;">
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_after.png" style="width: 500px;"/>
+</p>
+<br style="clear: both;"/>
 
 Bất kể bạn là Data Engineer, Data Scientist hay Data Analyst và bạn có nhu cầu truy cập vào thành phần nào của dữ liệu như Data Lake, Data Warehouse, Metadata hay Machine Learning. Unity Catalog đều cung cấp cho bạn một giao diện quản lý dữ liệu trực quan và dễ sử dụng.
 
-<p float="left">
+<p style="float: left;">
     <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_unity_catalog.png" style="width: 200px;"/>
-    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog.png" style="width: 600px;"/>
 </p>
+<p style="float: right;">
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog.png" style="width: 800px;"/>
+</p>
+<br style="clear: both;"/>
 
 Môt số tính năng chính có thể sử dụng từ Unity Catalog:
 - Discovery: Tìm kiếm và khám phá dữ liệu một cách dễ dàng.
@@ -130,10 +136,13 @@ Một số đặc điểm của các đối tác trong Partner Connect:
 - Thiết lập tất cả các cấu hình cần thiết để tối ưu hóa trải nghiệm người dùng.
 - Tạo tài khoản dùng thử trong sản phẩm đối tác nếu tài khoản không tồn tại
 
-<p float="left">
+<p style="float: left;">
     <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_1.png" style="width: 500px;"/>
+</p>
+<p style="float: right;">
     <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_2.png" style="width: 500px;"/>
 </p>
+<br style="clear: both;"/>
 
 ### 5.2. Marketplace
 

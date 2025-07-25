@@ -12,15 +12,18 @@ is_published: true
 
 DataBricks cung cấp các dịch vụ để thực thi MLOps một cách hiệu quả bao gồm cả DataOps và ModelOps kết hợp với các công cụ DevOps để tạo ra một quy trình MLOps đầy đủ, làm việc mạnh mẽ và linh hoạt.
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/mlops_1.png" style="width: 400px;"/>
-  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/mlops_2.png" style="width: 400px;"/>
+<p style="float: left;">
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/mlops_1.png" style="width: 500px;"/>
 </p>
+<p style="float: right;">
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/mlops_2.png" style="width: 500px;"/>
+</p>
+<br style="clear: both;"/>
 
 MLFlow là một nền tảng quản lý mô hình mã nguồn mở, giúp quản lý các mô hình máy học, từ việc huấn luyện, đánh giá, triển khai và theo dõi mô hình.
 Với MLFlow, Data Scientist và AI Engineer có thể dễ dàng xây dựng các mô hình Machine Learning, triển khai các thử nghiệm một cách nhanh chóng, đưa ra các phân tích và so sánh giữa các mô hình chính xác.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/mlflow.png" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/mlflow.png" style="width: 500px;"/>
 
 MLFlow cung cấp các thành phần chính:
 - Tracking: Ghi lại các tham số, mô hình, kết quả và thời gian chạy của mô hình
@@ -42,10 +45,13 @@ Trong đó, Model Registry giúp quản lý các mô hình Machine Learning hi�
 AutoML là một công cụ tự động hóa việc xây dựng mô hình Machine Learning, giúp giảm thời gian và chi phí cho việc xây dựng mô hình Machine Learning.
 AutoML giúp tìm ra mô hình tốt nhất cho dữ liệu mà không cần phải có kiến thức chuyên sâu về Machine Learning.
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/automl_use_case_1.png" style="width: 400px;"/>
-  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/automl_use_case_2.png" style="width: 400px;"/>
+<p style="float: left;">
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/automl_use_case_1.png" style="width: 500px;"/>
 </p>
+<p style="float: right;">
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/5-artificial-intelligence/automl_use_case_2.png" style="width: 500px;"/>
+</p>
+<br style="clear: both;"/>
 
 AutoML trong DataBricks cung cấp các tính năng như:
 - Tự động hoá quá trình chuẩn bị dữ liệu
