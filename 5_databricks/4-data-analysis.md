@@ -1,5 +1,5 @@
 ---
-time: 11/01/2025
+time: 03/08/2025
 title: Phân tích dữ liệu và BI trên DataBricks
 description: DataBricks cung cấp các công cụ phân tích dữ liệu và Business Intelligence (BI) để giúp người dùng trực quan hóa dữ liệu, xây dựng dashboard và báo cáo, và phân tích dữ liệu một cách hiệu quả.
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.png

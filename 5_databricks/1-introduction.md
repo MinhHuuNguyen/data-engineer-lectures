@@ -1,5 +1,5 @@
 ---
-time: 11/01/2025
+time: 02/14/2025
 title: Giới thiệu chung về DataBricks
 description: DataBricks là một nền tảng dữ liệu hợp nhất (unified data platform) dựa trên đám mây, được thiết kế để hỗ trợ các nhu cầu về xử lý dữ liệu lớn, khoa học dữ liệu và máy học.
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.png

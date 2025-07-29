@@ -1,5 +1,5 @@
 ---
-time: 11/01/2025
+time: 02/22/2025
 title: Kiến trúc của DataBricks
 description: Data Intelligence Platform của DataBricks gồm những thành phần nào? Chi tiết về Control Plane - Unity Catalog và Data Plane - Delta Lake. AI mang lại giá trị gì trong hệ thống của DataBricks?
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.png

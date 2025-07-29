@@ -1,5 +1,5 @@
 ---
-time: 11/01/2025
+time: 03/14/2025
 title: Trí tuệ nhân tạo trên DataBricks
 description: DataBricks cung cấp các dịch vụ như MLFlow, AutoML và Model Serving để hỗ trợ việc triển khai các mô hình trí tuệ nhân tạo trở nên đơn giản hơn.
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.png

@@ -1,5 +1,5 @@
 ---
-time: 11/01/2025
+time: 02/28/2025
 title: Xử lý dữ liệu với DataBricks
 description: DataBricks là một nền tảng xử lý dữ liệu thông minh, giúp người dùng quản lý dữ liệu một cách hiệu quả và linh hoạt.
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.png
