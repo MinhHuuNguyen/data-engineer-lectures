@@ -1,21 +1,19 @@
 ---
-slug: data-scraping
-time: 11/09/2024
-title: Thu thập dữ liệu từ các website Data Scraping
+time: 09/09/2021
+title: Thu thập dữ liệu từ các website
 description:
-author: Nguyễn Hữu Minh
 banner_url: 
 tags: [big-data]
 is_highlight: false
-is_published: false
+is_published: true
 ---
-
-# Data scraping
 
 ## 1. Data scraping là gì?
 
 Data scraping (còn được gọi là web scraping) là quá trình tự động hoá việc trích xuất thông tin từ các trang web và chuyển đổi nó thành dữ liệu có thể sử dụng trong các ứng dụng khác nhau.
 Đây là một phần quan trọng trong quá trình thu thập dữ liệu từ internet để phân tích, nghiên cứu.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/images/data-scraping-1.jpeg" style="width: 1200px;"/>
 
 ## 2. Các công cụ để thực hiện data scraping
 
@@ -29,6 +27,8 @@ Data scraping thường được thực hiện bằng cách sử dụng các k�
 - Lấy thông tin về khách hàng và phản hồi từ các trang web xã hội để nghiên cứu thị trường và phân tích tình hình khách hàng.
 - Trích xuất dữ liệu từ trang web tin tức để tự động cập nhật các bản tin hoặc dữ liệu liên quan.
 - Thu thập dữ liệu từ trang web về điểm số thể thao để cập nhật thông tin thời gian thực về trận đấu và tỷ lệ cược.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/images/data-scraping-2.jpeg" style="width: 1200px;"/>
 
 Tuy nhiên, cần lưu ý rằng việc data scraping có thể liên quan đến các vấn đề về bản quyền và luật pháp tùy theo trường hợp cụ thể.
 Điều này nên được thực hiện theo quy định của pháp luật và tuân thủ quy tắc etic của mạng để đảm bảo tính hợp pháp và đạo đức trong việc sử dụng dữ liệu từ internet.

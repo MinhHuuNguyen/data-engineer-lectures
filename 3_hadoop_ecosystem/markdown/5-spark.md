@@ -1,13 +1,11 @@
 ---
-slug: spark-introduction
-time: 11/09/2024
+time: 09/09/2021
 title: Giới thiệu về Apache Spark
 description:
-author: Nguyễn Hữu Minh
 banner_url: 
 tags: [big-data]
 is_highlight: false
-is_published: false
+is_published: true
 ---
 
 # Spark
@@ -16,7 +14,7 @@ is_published: false
 
 Apache Spark là một hệ thống xử lý dữ liệu phân tán mã nguồn mở được phát triển bởi Apache Software Foundation.
 
-<img src="https://techvccloud.mediacdn.vn/280518386289090560/2021/7/26/apache-spark-16272742352401372840332-60-0-397-600-crop-16272743360081603829654.jpg" style="width: 600px;"/>
+<img src="https://techvccloud.mediacdn.vn/280518386289090560/2021/7/26/apache-spark-16272742352401372840332-60-0-397-600-crop-16272743360081603829654.jpg" style="width: 1200px;"/>
 
 
 Các đặc trưng của Spark:
@@ -45,19 +43,19 @@ Spark sử dụng bộ nhớ đệm và tối ưu hóa xử lý dữ liệu, gi�
 Spark có khả năng xử lý lỗi và khả năng mở rộng tốt, cho phép tăng cường khả năng chịu tải khi cần thiết.
 
 
-<img src="https://drive.google.com/uc?id=1MsNZkbkPqWPlc-zM-MtnwSnWLEBALXa7" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1MsNZkbkPqWPlc-zM-MtnwSnWLEBALXa7" style="width: 1200px;"/>
 
 
 ## 2. Chi tiết các thành phần trong Spark
 
-<img src="https://drive.google.com/uc?id=1GAImR0WdOwbaaZ7NTeW0W6d5PU7mE_0g" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1GAImR0WdOwbaaZ7NTeW0W6d5PU7mE_0g" style="width: 1200px;"/>
 
 ### 2.1. Spark Core
 
 Apache Spark Core là một phần quan trọng và cốt lõi của Apache Spark, là một cơ sở cho toàn bộ hệ thống.
 Nó cung cấp các chức năng cơ bản cho xử lý dữ liệu phân tán và quản lý tài nguyên trong cụm máy tính và là nền tảng cho các thành phần khác của Apache Spark như Spark SQL, Spark Streaming, Spark MLlib và Spark GraphX.
 
-<img src="https://drive.google.com/uc?id=1YBj4Hm2RHCsiqC4QrNCKJ-BxTeRSS_Ms" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1YBj4Hm2RHCsiqC4QrNCKJ-BxTeRSS_Ms" style="width: 1200px;"/>
 
 #### Resilient Distributed Dataset (RDD)
 
@@ -175,7 +173,7 @@ Apache Spark's Catalyst Optimizer là một trong những thành phần quan tr�
 Catalyst là một bộ tối ưu hóa truy vấn được sử dụng để cải thiện hiệu suất và tối ưu hóa kế hoạch thực hiện truy vấn.
 Nó là một bộ tối ưu hóa dựa trên quy tắc (rule-based optimizer) và được sử dụng để biến đổi câu truy vấn và kế hoạch thực hiện câu truy vấn để tạo ra kế hoạch thực hiện hiệu quả hơn.
 
-<img src="https://miro.medium.com/v2/0*cWEUvlErq9Mf3pdr" style="width: 400px;"/>
+<img src="https://miro.medium.com/v2/0*cWEUvlErq9Mf3pdr" style="width: 1200px;"/>
 
 Các bước biến đổi trong Catalyst Optimizer:
 - **Preprocessing**:
@@ -199,7 +197,7 @@ Kế hoạch này thể hiện cấu trúc thực hiện truy vấn sau khi tấ
 Kế hoạch thực hiện cuối cùng sau bước tối ưu hóa được sử dụng để thực hiện truy vấn trên dữ liệu thực tế.
 Trong quá trình này, dữ liệu được đọc, biến đổi và tính toán dựa trên kế hoạch tối ưu hóa đã xây dựng.
 
-<img src="https://miro.medium.com/v2/resize:fit:828/0*8jymyiQyW1D3lS-0" style="width: 600px;"/>
+<img src="https://miro.medium.com/v2/resize:fit:828/0*8jymyiQyW1D3lS-0" style="width: 1200px;"/>
 
 Ví dụ:
 ```sql
@@ -247,7 +245,7 @@ Spark SQL có thể tích hợp với các công cụ Business Intelligence (BI)
 - **Hỗ trợ cho MLlib và GraphX**:
 Dữ liệu có thể được trực tiếp chuyển đổi thành các đối tượng sử dụng trong thư viện MLlib và GraphX của Spark để thực hiện học máy và xử lý đồ thị.
 
-<img src="https://drive.google.com/uc?id=1epRfkR7EHlyw_p36reBp_0TuBjcrZ-7-" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1epRfkR7EHlyw_p36reBp_0TuBjcrZ-7-" style="width: 1200px;"/>
 
 #### DataFrame DSL (Domain-Specific Language)
 
@@ -297,7 +295,7 @@ Có thể sử dụng các thư viện khác của Spark như Spark SQL, MLlib, 
 - **Windowed Processing**:
 Spark Streaming cho phép bạn thực hiện xử lý dữ liệu trong cửa sổ thời gian, giúp bạn tính toán tổng hợp và thống kê trên dữ liệu trong khoảng thời gian nhất định.
 
-<img src="https://drive.google.com/uc?id=1MYQ3SRohKQTpkGEjQK2oJ_lPi5HnD-ht" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1MYQ3SRohKQTpkGEjQK2oJ_lPi5HnD-ht" style="width: 1200px;"/>
 
 ### 2.4. Spark MLlib
 
@@ -319,7 +317,7 @@ Tích hợp với Spark Streaming và Spark SQL, cho phép bạn xây dựng ứ
 - **Sự phát triển và cộng đồng mạnh mẽ**:
 Là một dự án mã nguồn mở phát triển mạnh mẽ và có sự đóng góp từ cộng đồng rộng rãi. Điều này đảm bảo tính cập nhật, sửa lỗi và bổ sung mới liên tục.
 
-<img src="https://drive.google.com/uc?id=1OXiPvRFYB6cc_-XaaZjntl_m14eSppP3" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1OXiPvRFYB6cc_-XaaZjntl_m14eSppP3" style="width: 1200px;"/>
 
 ### 2.5. Spark GraphX
 
@@ -344,7 +342,7 @@ GraphX có thể tích hợp với Spark MLlib, cho phép bạn sử dụng mach
 - **Hỗ trợ cho Spark Streaming và Spark SQL**:
 GraphX có thể được tích hợp với Spark Streaming và Spark SQL để xử lý và phân tích dữ liệu đồ thị trong các ứng dụng thời gian thực và các truy vấn SQL.
 
-<img src="https://drive.google.com/uc?id=1UU-AgvHOHQ6Lf_SQTKFV9c9HuBHYPrkj" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1UU-AgvHOHQ6Lf_SQTKFV9c9HuBHYPrkj" style="width: 1200px;"/>
 
 
 <!-- ## 3. Phân biệt một số khái niệm

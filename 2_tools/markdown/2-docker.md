@@ -1,20 +1,18 @@
 ---
-slug: docker-introduction
-time: 11/09/2024
-title: Giới thiệu về Docker
+time: 09/09/2021
+title: Công nghệ Containerization và Docker
 description:
-author: Nguyễn Hữu Minh
 banner_url: 
 tags: [big-data, tools]
 is_highlight: false
-is_published: false
+is_published: true
 ---
 
 # Docker introduction
 
 ## 1. Giới thiệu về công nghệ Containerization
 
-<img src="https://onedrive.live.com/embed?resid=55F936846CC480BE%2123421&authkey=%21AFdBecLAeHpJdpY" style="width: 800px;"/>
+<img src="https://onedrive.live.com/embed?resid=55F936846CC480BE%2123421&authkey=%21AFdBecLAeHpJdpY" style="width: 1200px;"/>
 
 Containerization là một công nghệ ảo hóa hệ thống giúp đóng gói ứng dụng và môi trường chạy của chúng vào một container độc lập, tự đủ, có thể di chuyển và chạy trên bất kỳ môi trường máy tính nào hỗ trợ containerization mà không cần phải quan tâm đến môi trường hệ thống phía dưới.
 
@@ -37,7 +35,7 @@ Nó cho phép tạo và quản lý các container Linux một cách trực tiế
 
 ## 2. Giới thiệu về Docker
 
-<img src="https://onedrive.live.com/embed?resid=55F936846CC480BE%2123419&authkey=%21AG31-e6Vv2WLFrk" style="width: 800px;"/>
+<img src="https://onedrive.live.com/embed?resid=55F936846CC480BE%2123419&authkey=%21AG31-e6Vv2WLFrk" style="width: 1200px;"/>
 
 Docker là một công nghệ containerization mạnh mẽ, cho phép bạn đóng gói ứng dụng và tài nguyên của chúng vào một container độc lập.
 Mỗi container hoạt động như một môi trường cô độc, đảm bảo tính nhất quán và di động giữa các máy chủ và môi trường khác nhau.
@@ -66,7 +64,7 @@ Docker Hub là một registry phổ biến chứa nhiều image sẵn sàng sử
 
 ## 3. Các bước sử dụng Docker
 
-<img src="https://onedrive.live.com/embed?resid=55F936846CC480BE%2123420&authkey=%21AMRnBio3tfPgwtk" style="width: 800px;"/>
+<img src="https://onedrive.live.com/embed?resid=55F936846CC480BE%2123420&authkey=%21AMRnBio3tfPgwtk" style="width: 1200px;"/>
 
 ### 3.1. Khái quát các bước sử dụng
 

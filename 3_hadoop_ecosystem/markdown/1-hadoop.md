@@ -1,13 +1,11 @@
 ---
-slug: map-reduce-introduction
-time: 11/09/2024
-title: Giới thiệu về MapReduce
+time: 09/09/2021
+title: Giới thiệu chung về hệ sinh thái Hadoop
 description:
-author: Nguyễn Hữu Minh
 banner_url: 
 tags: [big-data]
 is_highlight: false
-is_published: false
+is_published: true
 ---
 
 # Hadoop
@@ -21,7 +19,7 @@ Nó được thiết kế để mở rộng từ một server đơn lẻ đến 
 
 Hadoop có thể xử lý dữ liệu có cấu trúc và không có cấu trúc.
 
-<img src="https://www.edureka.co/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png" style="width: 1000px;"/>
+<img src="https://www.edureka.co/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.jpeg" style="width: 1200px;"/>
 
 Hệ sinh thái Hadoop bao gồm một loạt các thành phần và dự án phụ để hỗ trợ việc xử lý và quản lý dữ liệu lớn.
 
@@ -54,7 +52,7 @@ ZooKeeper là một dự án để quản lý và phân phối thông tin cấu 
 Oozie là một hệ thống quản lý và lập lịch công việc trong môi trường Hadoop, cho phép bạn tự động hóa luồng công việc xử lý dữ liệu.
 - Flume và Kafka: Flume và Kafka là dự án được sử dụng để thu thập và truyền dữ liệu từ nguồn khác nhau vào hệ thống Hadoop.
 
-<img src="https://drive.google.com/uc?id=1iQqZLmqWmIXhgnyKyXaIkO5x5470x3uP" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1iQqZLmqWmIXhgnyKyXaIkO5x5470x3uP" style="width: 1200px;"/>
 
 ## 2. Hadoop Distributed File System (HDFS)
 
@@ -63,7 +61,7 @@ Oozie là một hệ thống quản lý và lập lịch công việc trong môi
 DFS là một hệ thống tệp phân tán, cho phép lưu trữ và quản lý dữ liệu trên nhiều máy tính hoặc máy chủ trong một mạng phân tán.
 Mục tiêu chính của DFS là cung cấp khả năng truy cập và quản lý tệp và dữ liệu trên một mạng rộng (WAN), cho phép người dùng và ứng dụng truy cập dữ liệu từ bất kỳ máy tính nào trong hệ thống, bất kể vị trí đặc biệt của dữ liệu đó.
 
-<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200728155638/Hadoop-HDFS-Hadoop-Distributed-File-System.png" style="width: 700px;"/>
+<img src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200728155638/Hadoop-HDFS-Hadoop-Distributed-File-System.jpeg" style="width: 1200px;"/>
 
 ### 2.2. Hadoop Distributed File System (HDFS)
 
@@ -89,7 +87,7 @@ HDFS cung cấp khả năng đọc và ghi dữ liệu song song.
 HDFS có khả năng mở rộng dễ dàng bằng cách thêm máy chủ vào hệ thống.
 Điều này cho phép nó xử lý dữ liệu lớn và mở rộng theo nhu cầu.
 
-<img src="https://www.researchgate.net/profile/Zhang-Jianbo-2/publication/348387085/figure/fig4/AS:981518453309440@1611023643650/The-overview-of-the-Hadoop-Distributed-File-System-HDFS.ppm" style="width: 700px;"/>
+<img src="https://www.researchgate.net/profile/Zhang-Jianbo-2/publication/348387085/figure/fig4/AS:981518453309440@1611023643650/The-overview-of-the-Hadoop-Distributed-File-System-HDFS.ppm" style="width: 1200px;"/>
 
 Kiến trúc của HDFS bao gồm ba thành phần chính:
 - NameNode:
@@ -119,7 +117,7 @@ Kiến trúc của HDFS bao gồm ba thành phần chính:
     - Secondary NameNode thường được cấu hình để thực hiện các bước này theo lịch trình định kỳ, ví dụ: mỗi giờ.
     Quá trình này giúp giảm nguy cơ mất dữ liệu và cải thiện tính đáng tin cậy của hệ thống HDFS bằng cách cập nhật metadata và duy trì một phiên bản mới nhất của nó.
 
-<img src="https://drive.google.com/uc?id=1_l69cdlf71wQNiSlvjfER3XK3qKiJuSQ" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1_l69cdlf71wQNiSlvjfER3XK3qKiJuSQ" style="width: 1200px;"/>
 
 ## 3. MapReduce
 
@@ -138,7 +136,7 @@ Bước Reduce nhận các cặp key-value sau khi đã được sắp xếp và
 Nó thực hiện các phép biến đổi hoặc tính toán trên các value có cùng key để tạo ra kết quả cuối cùng.
 Bước Reduce có thể thực hiện song song trên nhiều máy tính.
 
-<img src="https://editor.analyticsvidhya.com/uploads/90908example-of-mapreduce.png" style="width: 1000px;"/>
+<img src="https://editor.analyticsvidhya.com/uploads/90908example-of-mapreduce.jpeg" style="width: 1200px;"/>
 
 Ví dụ 1: Đếm từ trong một tài liệu văn bản lớn
 - Yêu cầu:
@@ -198,7 +196,7 @@ Mỗi ứng dụng trong cụm Hadoop có một ApplicationMaster.
 ApplicationMaster chịu trách nhiệm quản lý các tài nguyên cụ thể được cấp cho ứng dụng đó.
 Nó cũng theo dõi trạng thái của các tác vụ và báo cáo trạng thái cho ResourceManager.
 
-<img src="https://drive.google.com/uc?id=1JUM6etug4feIKkLKs3BvAFPMNC12fbI_" style="width: 1000px;"/>
+<img src="https://drive.google.com/uc?id=1JUM6etug4feIKkLKs3BvAFPMNC12fbI_" style="width: 1200px;"/>
 
 ## 4.2. Các bước hoạt động của YARN:
 
@@ -207,7 +205,7 @@ Trước khi nhận yêu cầu từ người dùng:
 - Khởi động NodeManager trên mỗi máy chủ trong cụm
 - Đăng ký NodeManager với ResourceManager
 
-<img src="https://www.edureka.co/blog/wp-content/uploads/2018/06/Components-of-YARN-1.png" style="width: 1000px;"/>
+<img src="https://www.edureka.co/blog/wp-content/uploads/2018/06/Components-of-YARN-1.jpeg" style="width: 1200px;"/>
 
 Khi hệ thống đã sẵn sàng và nhận yêu cầu từ người dùng:
 - Bước 1: YARN Client gửi yêu cầu đến ResourceManager để chạy ứng dụng.

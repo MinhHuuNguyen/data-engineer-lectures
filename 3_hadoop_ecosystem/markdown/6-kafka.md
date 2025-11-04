@@ -1,13 +1,11 @@
 ---
-slug: kafka-introduction
-time: 11/09/2024
+time: 09/09/2021
 title: Giới thiệu về Apache Kafka
 description:
-author: Nguyễn Hữu Minh
 banner_url: 
-tags:
+tags: [big-data]
 is_highlight: false
-is_published: false
+is_published: true
 ---
 
 # Streaming data Kafka
@@ -18,7 +16,7 @@ Dữ liệu trực tiếp (streaming data) là một loại dữ liệu mà dữ
 
 Điều này có nghĩa rằng dữ liệu được truyền từ nguồn gốc đến máy tính hoặc thiết bị khác một cách liên tục và không bị ngắt quãng.
 
-<img src="https://static.packt-cdn.com/products/9781787281202/graphics/7799ffa6-f240-4c4e-8cd4-d2c70dc9aadd.png" style="width: 700px;"/>
+<img src="https://static.packt-cdn.com/products/9781787281202/graphics/7799ffa6-f240-4c4e-8cd4-d2c70dc9aadd.jpeg" style="width: 1200px;"/>
 
 ### 1.1. Batch Processing (Xử lý theo lô):
 
@@ -66,7 +64,7 @@ Kafka có khả năng mở rộng dễ dàng, cho phép bạn thêm máy chủ K
 - Xử lý dữ liệu thời gian thực:
 Kafka được sử dụng để xử lý dữ liệu thời gian thực và phản hồi nhanh chóng đối với dữ liệu mới xuất hiện.
 
-<img src="https://images.viblo.asia/eabf0b4b-2cf2-4398-a20e-9dd312a93fb7.png" style="width: 700px;"/>
+<img src="https://images.viblo.asia/eabf0b4b-2cf2-4398-a20e-9dd312a93fb7.jpeg" style="width: 1200px;"/>
 
 ### 2.2. Producer - Broker - Consumer
 
@@ -124,7 +122,7 @@ Apache Spark Streaming là một mô-đun của Apache Spark, một hệ thống
 Spark Streaming giúp xử lý streaming data, cho phép bạn xử lý dữ liệu khi nó được tạo ra hoặc truyền tải đến hệ thống mà không cần lưu trữ và xử lý dữ liệu sau khi nó được nhận.
 Nó cho phép việc giám sát thời gian thực, phát hiện sự cố, và tạo ra báo cáo thời gian thực.
 
-<img src="https://dezyre.gumlet.io/images/blog/spark-streaming-example/image_795716530101640689003007.png" style="width: 1000px;"/>
+<img src="https://dezyre.gumlet.io/images/blog/spark-streaming-example/image_795716530101640689003007.jpeg" style="width: 1200px;"/>
 
 - Xử lý dữ liệu thời gian thực:
 Spark Streaming cho phép bạn xử lý dữ liệu thời gian thực mà không cần đợi đến khi dữ liệu được tập trung và lưu trữ hoặc xử lý sau này.
@@ -135,7 +133,7 @@ Spark Streaming cung cấp các công cụ để biến đổi và tính toán d
 - Kết hợp với dữ liệu tĩnh:
 Spark Streaming có tích hợp với Apache Spark, cho phép bạn kết hợp xử lý streaming data với dữ liệu tĩnh, giúp tạo ra các ứng dụng phức tạp và mạnh mẽ.
 
-<img src="https://spark.apache.org/docs/2.2.0/img/streaming-flow.png" style="width: 800px;"/>
+<img src="https://spark.apache.org/docs/2.2.0/img/streaming-flow.jpeg" style="width: 1200px;"/>
 
 ### 3.3. Kiến trúc của Apache Spark Streaming
 
@@ -145,9 +143,9 @@ Spark Streaming là một mô-đun của Apache Spark và sử dụng kiến tr�
 - Độ lớn của khoảng thời gian để sinh ra batch dữ liệu được gọi là batch interval
 - Batch interval thường nằm trong khoảng từ 500ms đến vài giây
 
-<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/11/vQp083.png" style="width: 800px;"/>
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/11/vQp083.jpeg" style="width: 1200px;"/>
 
-<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/11/an6Nl4.png" style="width: 800px;"/>
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/11/an6Nl4.jpeg" style="width: 1200px;"/>
 
 Spark Streaming gồm các thành phần:
 - Input Data:
@@ -183,7 +181,7 @@ Spark Streaming hỗ trợ các phép biến đổi trên cửa sổ dữ liệu
     Khoảng thời gian này thường ngắn hơn kích thước cửa sổ.
         - Ví dụ, nếu bạn muốn tính toán tổng cộng mỗi giờ và mỗi 15 phút, khoảng thời gian trượt sẽ là 15 phút.
 
-<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/11/i8ChIj.png" style="width: 800px;"/>
+<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/11/i8ChIj.jpeg" style="width: 1200px;"/>
 
 ### 3.4. Bước hoạt động của Spark Streaming
 

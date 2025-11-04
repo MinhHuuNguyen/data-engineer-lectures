@@ -1,9 +1,9 @@
 ---
-time: 11/01/2025
-title: So sánh Data Lake, Data Warehouse và quy trình xử lý dữ liệu ETL và ELT
-description: Data Lake và Data Warehouse là hai hệ thống lưu trữ dữ liệu quan trọng trong lĩnh vực quản lý dữ liệu. Bài viết này sẽ giúp bạn hiểu rõ hơn về ưu nhược điểm của Data Lake và Data Warehouse. Ngoài ra, bài viết cũng giải thích và so sánh về quy trình xử lý dữ liệu ETL và ELT.
-banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/warehouse_vs_lake_graph.png
-tags: []
+time: 09/09/2021
+title: Mô hình lưu trữ dữ liệu và quy trình xử lý dữ liệu
+description:
+banner_url: 
+tags: [big-data]
 is_highlight: false
 is_published: true
 ---
@@ -14,7 +14,7 @@ is_published: true
 
 Định nghĩa: Data Lake là một hệ thống lưu trữ dữ liệu quy mô lớn, không có sự cấu trúc cố định, cho phép lưu trữ mọi loại dữ liệu, bao gồm dữ liệu có cấu trúc, bán cấu trúc và phi cấu trúc.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/lake.png" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/lake.jpeg" style="width: 500px;"/>
 
 - Ưu điểm:
     - Lưu trữ các loại dữ liệu khác nhau
@@ -33,7 +33,7 @@ is_published: true
 Định nghĩa: Data Warehouse là một hệ thống lưu trữ dữ liệu được cấu trúc theo một mô hình tổ chức cụ thể.
 Dữ liệu trong Data Warehouse đã được biến đổi và làm sạch trước khi lưu trữ, để phục vụ cho các mục đích phân tích kinh doanh.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/warehouse.png" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/warehouse.jpeg" style="width: 500px;"/>
 
 - Ưu điểm:
     - Mục đích xây dựng dành cho BI và báo cáo
@@ -45,7 +45,7 @@ Dữ liệu trong Data Warehouse đã được biến đổi và làm sạch tr�
     - Sử dụng định dạng đóng và định dạng độc quyền
     - Chi phí cao khi mở rộng
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/warehouse_vs_lake_graph.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/warehouse_vs_lake_graph.jpeg" style="width: 1200px;"/>
 
 ### 1.3. Data Mart (Thị trường dữ liệu):
 
@@ -55,7 +55,7 @@ Data Mart thường tập trung vào một lĩnh vực hoặc chức năng cụ 
 - Ưu điểm: tương tự như Data Warehouse
 - Nhược điểm: tương tự như Data Warehouse
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/warehouse_vs_lake_detail.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/warehouse_vs_lake_detail.jpeg" style="width: 1200px;"/>
 
 ## 2. Quy trình xử lý dữ liệu
 
@@ -74,7 +74,7 @@ Các biến đổi này có thể bao gồm làm sạch dữ liệu, chuyển đ
 - Load (Nạp):
 Cuối cùng, dữ liệu đã được biến đổi được nạp vào một kho dữ liệu hoặc Data Warehouse để sẵn sàng cho việc truy vấn và phân tích.
 
-<img src="https://rivery.io/wp-content/uploads/2020/05/ETL-Process-for-linkedin3-1024x535.png" style="width: 1200px;"/>
+<img src="https://rivery.io/wp-content/uploads/2020/05/ETL-Process-for-linkedin3-1024x535.jpeg" style="width: 1200px;"/>
 
 Ưu điểm của ETL:
 - Tách biệt dữ liệu nguồn và dữ liệu đã biến đổi, giúp đảm bảo tính chính xác của dữ liệu nạp.
@@ -90,7 +90,7 @@ Sau khi dữ liệu được trích xuất, nó được nạp trực tiếp và
 Sau khi dữ liệu đã được nạp vào kho dữ liệu, các biến đổi và xử lý dữ liệu được thực hiện tại đây.
 Các công cụ trong kho dữ liệu thường được sử dụng để biến đổi dữ liệu theo yêu cầu.
 
-<img src="https://rivery.io/wp-content/uploads/2020/05/ETL-Process-for-linkedin.png" style="width: 1200px;"/>
+<img src="https://rivery.io/wp-content/uploads/2020/05/ETL-Process-for-linkedin.jpeg" style="width: 1200px;"/>
 
 Ưu điểm của ELT:
 - Cho phép lưu trữ dữ liệu nguyên gốc, giúp tiết kiệm thời gian và công sức trong việc trích xuất dữ liệu.
