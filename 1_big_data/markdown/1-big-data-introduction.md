@@ -14,7 +14,7 @@ Big Data là thuật ngữ dùng để mô tả tập dữ liệu có quy mô r�
 
 Big Data thường đòi hỏi các công nghệ lưu trữ phân tán, thuật toán xử lý song song, và các mô hình phân tích nâng cao như học máy và trí tuệ nhân tạo.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/big_data_small_data.jpeg" style="width: 900px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/big_data_small_data.jpeg" style="width: 600px;"/>
 
 Các hệ thống truyền thống thường chỉ đủ khả năng xử lý các tập dữ liệu có kích thước nhỏ hơn, với tốc độ sinh dữ liệu thấp hơn và chủ yếu là dữ liệu có cấu trúc.
 
@@ -87,7 +87,7 @@ Thiết kế hệ thống, cơ sở dữ liệu, và chiến lược partitionin
 
 Ngoài ba đặc trưng cơ bản (Volume, Velocity, Variety) đã đề cập ở trên, ta có thêm 2 đặc trưng mở rộng khác, tạo thành mô hình 5Vs của Big Data theo nhu cầu quản trị dữ liệu: Veracity và Value.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/veracity_value.jpeg" style="width: 900px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/veracity_value.jpeg" style="width: 600px;"/>
 
 #### Veracity - Độ tin cậy / tính xác thực của dữ liệu
 
@@ -109,7 +109,7 @@ Ngoài ba đặc trưng cơ bản (Volume, Velocity, Variety) đã đề cập �
 
 Ta cũng có thể mở rộng thêm hai đặc trưng nữa, tạo thành mô hình 7Vs của Big Data theo nhu cầu chất lượng vận hành: Validity và Variability.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/variability_visualization.jpeg" style="width: 900px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/variability_visualization.jpeg" style="width: 600px;"/>
 
 #### Variability - Tính biến đổi (biến thể theo thời gian / ngữ cảnh)
 
@@ -131,7 +131,7 @@ Ta cũng có thể mở rộng thêm hai đặc trưng nữa, tạo thành mô h
 
 Cuối cùng, ta có thể mở rộng thêm hai đặc trưng nữa, tạo thành mô hình 9Vs của Big Data theo nhu cầu bảo mật dữ liệu: Validity và Vulnerability.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/validity_vulnerability.jpeg" style="width: 900px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/validity_vulnerability.jpeg" style="width: 600px;"/>
 
 #### Vulnerability - Tính dễ tổn thương / rủi ro bảo mật & quyền riêng tư
 
