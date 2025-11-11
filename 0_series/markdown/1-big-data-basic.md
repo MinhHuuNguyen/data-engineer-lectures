@@ -2,15 +2,25 @@
 time: 09/09/2021
 title: "[SERIES] Big Data cơ bản"
 description: Là kết quả từ cách mạng công nghiệp 3.0, cho đến nay, thế giới đã tạo ra một lượng dữ liệu khổng lồ, trở thành nền tảng cho cách mạng công nghiệp 4.0 với Trí tuệ nhân tạo. Việc thu thập, xử lý và lưu trữ lượng dữ liệu lớn này đòi hỏi những công nghệ và kỹ thuật đặc biệt, được gọi chung là Big Data. Series bài viết này sẽ cung cấp cho bạn cái nhìn tổng quan về Big Data, từ các khái niệm cơ bản đến các công cụ và kỹ thuật phổ biến trong lĩnh vực này.
-banner_url: 
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/banner.jpeg
 tags: [big-data, series]
 is_highlight: false
 is_published: true
 ---
 
+---
+
 ### [Bài 1: Giới thiệu chung về Big Data](/blog/gioi-thieu-chung-ve-big-data)
 
-Big Data là một khái niệm quan trọng trong thời đại số, đề cập đến việc xử lý và phân tích các tập dữ liệu lớn và phức tạp. Bài viết này sẽ cung cấp cái nhìn tổng quan về Big Data, từ khái niệm cơ bản đến các ứng dụng thực tiễn.
+Bài viết giới thiệu chung về Big Data và vai trò của Data Engineer nhằm cung cấp cho người học cái nhìn tổng quan về sự bùng nổ dữ liệu trong kỷ nguyên số và nhu cầu xử lý dữ liệu quy mô lớn trong doanh nghiệp hiện đại. Nội dung trình bày các đặc trưng của Big Data như Volume, Velocity, Variety và những thách thức trong việc lưu trữ, quản lý và khai thác dữ liệu. Bài viết cũng làm rõ vị trí của Data Engineer trong hệ thống dữ liệu như xây dựng kiến trúc dữ liệu, thiết kế pipeline thu thập – xử lý – phân phối dữ liệu và đảm bảo dữ liệu sẵn sàng cho phân tích, học máy.
+
+###### 1. So sánh Big data và cơ sở dữ liệu truyền thống
+
+###### 2. Các đặc trưng của Big Data
+
+###### 3. Các vai trò công việc trong lĩnh vực Big Data
+
+---
 
 ### [Bài 2: Mô hình lưu trữ dữ liệu và quy trình xử lý dữ liệu](/blog/mo-hinh-luu-tru-du-lieu-va-quy-trinh-xu-ly-du-lieu)
 
