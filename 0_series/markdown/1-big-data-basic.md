@@ -24,7 +24,27 @@ Bài viết giới thiệu chung về Big Data và vai trò của Data Engineer 
 
 ### [Bài 2: Mô hình lưu trữ dữ liệu và quy trình xử lý dữ liệu](/blog/mo-hinh-luu-tru-du-lieu-va-quy-trinh-xu-ly-du-lieu)
 
+Trong bối cảnh dữ liệu ngày càng trở thành tài sản chiến lược, các tổ chức cần nắm rõ cách dữ liệu được lưu trữ, tổ chức và xử lý để tối ưu hoá khả năng phân tích, khai thác giá trị và đảm bảo tính sẵn sàng. Các ý tưởng thiết kế hệ thống lưu trữ dữ liệu và quy trình xử lý dữ liệu cũng như các công cụ giúp triển khai từng phần trong thiết kế hệ thống đóng vai trò quan trọng trong việc xây dựng hệ thống dữ liệu hiệu quả.
+
+###### 1. Mô hình lưu trữ dữ liệu
+
+###### 2. Data Lake và Data Warehouse
+
+###### 3. Quy trình xử lý dữ liệu
+
+---
+
 ### [Bài 3: Thu thập dữ liệu từ các website](/blog/thu-thap-du-lieu-tu-cac-website)
+
+Dữ liệu từ các trang web đóng vai trò quan trọng trong việc phân tích thị trường, nghiên cứu khách hàng và phát triển sản phẩm. Việc thu thập dữ liệu này thường được thực hiện thông qua các kỹ thuật như data scraping và data crawling.
+
+###### 1. Data scraping và Data crawling là gì?
+
+###### 2. Các công cụ để thực hiện data scraping và data crawling
+
+###### 3. Ứng dụng của data scraping và data crawling
+
+---
 
 ### [Bài 4: Giới thiệu chung về hệ sinh thái Hadoop](/blog/gioi-thieu-chung-ve-he-sinh-thai-hadoop)
 
