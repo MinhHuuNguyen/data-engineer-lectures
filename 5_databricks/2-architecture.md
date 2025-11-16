@@ -2,7 +2,7 @@
 time: 02/22/2025
 title: Kiến trúc của DataBricks
 description: Data Intelligence Platform của DataBricks gồm những thành phần nào? Chi tiết về Control Plane - Unity Catalog và Data Plane - Delta Lake. AI mang lại giá trị gì trong hệ thống của DataBricks?
-banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.png
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.jpeg
 tags: []
 is_highlight: false
 is_published: true
@@ -21,7 +21,7 @@ Một số tiêu chí của một Data Intelligence Platform:
 - Truy cập vào công nghệ tiên tiến nhất: Liên tục cập nhật công nghệ mới nhất
 - Hỗ trợ cho nhân viên không chuyên về kỹ thuật: Dễ sử dụng, không cần kiến thức chuyên sâu về kỹ thuật
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform.png" style="width: 1000px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_intelligence_platform.jpeg" style="width: 1000px;"/>
 
 Đi sâu hơn vào kiến trúc của DataBricks, ta có thể chia thành 2 phần chính: Control Plane và Data Plane.
 - Control Plane: Cung cấp giao diện tương tác với người dùng và tương tác với các ứng dụng (thông qua API calls).
@@ -31,7 +31,7 @@ Một số tiêu chí của một Data Intelligence Platform:
     - Elastic Compute: Cung cấp các máy ảo, máy chủ ảo để thực thi các công việc tính toán.
     - Storage: Cung cấp các dịch vụ lưu trữ dữ liệu như S3, ADLS, GCS.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/data_intelligence_platform_infrastructure.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/data_intelligence_platform_infrastructure.jpeg" style="width: 1200px;"/>
 
 ## 2. Chi tiết về Control Plane - Unity Catalog
 
@@ -39,20 +39,20 @@ Unity Catalog là một dịch vụ quản lý tập trung, giúp người dùng
 Đây chính là thành phần tạo nên yếu tố **unified data platform** của DataBricks.
 
 <p style="float: left;">
-  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_before.png" style="width: 500px;"/>
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_before.jpeg" style="width: 500px;"/>
 </p>
 <p style="float: right;">
-  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_after.png" style="width: 500px;"/>
+  <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_after.jpeg" style="width: 500px;"/>
 </p>
 <br style="clear: both;"/>
 
 Bất kể bạn là Data Engineer, Data Scientist hay Data Analyst và bạn có nhu cầu truy cập vào thành phần nào của dữ liệu như Data Lake, Data Warehouse, Metadata hay Machine Learning. Unity Catalog đều cung cấp cho bạn một giao diện quản lý dữ liệu trực quan và dễ sử dụng.
 
 <p style="float: left;">
-    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_unity_catalog.png" style="width: 200px;"/>
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_unity_catalog.jpeg" style="width: 200px;"/>
 </p>
 <p style="float: right;">
-    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog.png" style="width: 800px;"/>
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog.jpeg" style="width: 800px;"/>
 </p>
 <br style="clear: both;"/>
 
@@ -64,7 +64,7 @@ Môt số tính năng chính có thể sử dụng từ Unity Catalog:
 - Auditing: Theo dõi và ghi lại các hoạt động trên dữ liệu.
 - Monitoring: Giám sát hiệu suất và tình trạng của hệ thống xử lý dữ liệu.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_functions.png" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/unity_catalog_functions.jpeg" style="width: 500px;"/>
 
 Từ những tính năng trên, Unity Catalog giúp người dùng:
 - Thống nhất quản trị trên các dịch vụ đám mây khác nhau
@@ -73,18 +73,18 @@ Từ những tính năng trên, Unity Catalog giúp người dùng:
 - Thống nhất dữ liệu và “tài sản” AI
     - Chia sẻ, kiểm tra, bảo mật và quản lý tập trung tất cả các loại dữ liệu bằng một giao diện đơn giản.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/data_governance_problems.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/data_governance_problems.jpeg" style="width: 1200px;"/>
 
 ## 3. Chi tiết về Data Plane - Delta Lake
 
 Data Plane của DataBricks được cung cấp dưới dạng dịch vụ được gọi là Delta Lake.
 Delta Lake là dịch vụ bao gồm cả lưu trữ và tính toán, giúp người dùng xử lý dữ liệu một cách hiệu quả và linh hoạt.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_lake.png" style="width: 400px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_lake.jpeg" style="width: 400px;"/>
 
 Tầng dưới cùng của DataBricks Data Intelligence Platform là Open Data Lake, nơi lưu trữ dữ liệu nguyên thô, bao gồm cả dữ liệu có cấu trúc, bán cấu trúc và phi cấu trúc. Và DataBricks hỗ trợ cả 3 nhà cung cấp dịch vụ cloud lớn trên thế giới là AWS, Azure và GCP.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/aws_azure_gcp.png" style="width: 600px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/aws_azure_gcp.jpeg" style="width: 600px;"/>
 
 Đối với dịch vụ tính toán, DataBricks cung cấp các loại hình dịch vụ tính toán phù hợp với các đặc thù công việc khác nhau trong quá trình xử lý dữ liệu:
 
@@ -93,7 +93,7 @@ Tầng dưới cùng của DataBricks Data Intelligence Platform là Open Data L
 - **Photon:** công cụ tính toán hiệu suất cao của DataBricks, tận dụng tối ưu Apache Spark.
 - **SQL Warehouse:** dành cho các công việc xử lý dữ liệu dạng bảng, truy vấn dữ liệu bằng SQL và các công cụ BI.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/data_intelligence_platform_serverless.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/data_intelligence_platform_serverless.jpeg" style="width: 1200px;"/>
 
 Với mục tiêu tối ưu hoá hiệu suất và chi phí, DataBricks cung cấp mô hình tính toán Serverless, giúp người dùng không cần quan tâm đến việc quản lý tài nguyên máy chủ.
 Với kiến trúc Serverless, người dùng chỉ cần tập trung vào việc viết mã, còn việc quản lý tài nguyên máy chủ, tối ưu hiệu suất sẽ được DataBricks thực hiện tự động.
@@ -116,11 +116,11 @@ Với kiến trúc Serverless, người dùng chỉ cần tập trung vào việ
 
 Nếu không có AI, người dùng dữ liệu có thể gặp phải một số vấn đề như:
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/without_ai.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/without_ai.jpeg" style="width: 1200px;"/>
 
 Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách thông minh, giúp họ thực thi các tác vụ một cách nhanh chóng và dễ dàng hơn.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/with_ai.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/with_ai.jpeg" style="width: 1200px;"/>
 
 ## 5. Partner Connect, Marketplace, Clean Room và Delta Sharing
 
@@ -128,7 +128,7 @@ Nhưng với AI, người dùng dữ liệu sẽ được hỗ trợ một cách
 
 Partner Connect là một dịch vụ giúp người dùng kết nối với các đối tác của DataBricks, giúp họ truy cập vào các dịch vụ và công cụ mà đối tác cung cấp.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect.jpeg" style="width: 1200px;"/>
 
 Một số đặc điểm của các đối tác trong Partner Connect:
 - Nhiều đối tác chỉ mất vài click chuột để kết nối vào hệ thống của DataBricks.
@@ -137,10 +137,10 @@ Một số đặc điểm của các đối tác trong Partner Connect:
 - Tạo tài khoản dùng thử trong sản phẩm đối tác nếu tài khoản không tồn tại
 
 <p style="float: left;">
-    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_1.png" style="width: 500px;"/>
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_1.jpeg" style="width: 500px;"/>
 </p>
 <p style="float: right;">
-    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_2.png" style="width: 500px;"/>
+    <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/partner_connect_2.jpeg" style="width: 500px;"/>
 </p>
 <br style="clear: both;"/>
 
@@ -152,23 +152,23 @@ Marketplace là nơi người dùng có thể tìm kiếm, chia sẻ và sử d�
 - Người dùng: Có thể tìm kiếm và sử dụng các ứng dụng, công cụ và dịch vụ dữ liệu một cách dễ dàng và nhanh chóng.
 - Nhà cung cấp: Có thể chia sẻ và bán các ứng dụng, công cụ và dịch vụ dữ liệu của mình cho người dùng DataBricks.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/marketplace_idea.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/marketplace_idea.jpeg" style="width: 1200px;"/>
 
 Nhà cung cấp và người dùng có thể tương tác với nhiều loại tài nguyên dữ liệu khác nhau như: Dataset, Notebook, Dashboard, Machine Learning Model, Compute Resource ...
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/marketplace.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/marketplace.jpeg" style="width: 1200px;"/>
 
 ### 5.3. Clean Room
 
 Clean Room của DataBricks là dịch vụ giúp các bên đối tác có thể chia sẻ dữ liệu một cách an toàn và hiệu quả mà không cần phải chia sẻ dữ liệu thô.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/clean_room.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/clean_room.jpeg" style="width: 1200px;"/>
 
 ### 5.4. Delta Sharing
 
 Delta Sharing là công nghệ lõi, góp phần tạo nên Partner Connect, Marketplace và Clean Room, giúp người dùng chia sẻ dữ liệu một cách an toàn và hiệu quả.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_sharing.png" style="width: 400px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/2-architecture/logo_delta_sharing.jpeg" style="width: 400px;"/>
 
 Delta Sharing giúp người dùng dễ dàng chia sẻ các loại dữ liệu khác nhau với người dùng khác, nhóm người dùng khác hay tổ chức khác ...
 

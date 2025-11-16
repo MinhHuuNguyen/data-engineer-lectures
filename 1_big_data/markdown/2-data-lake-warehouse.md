@@ -1,5 +1,5 @@
 ---
-time: 09/09/2021
+time: 09/13/2022
 title: Mô hình lưu trữ dữ liệu và quy trình xử lý dữ liệu
 description: Trong bối cảnh dữ liệu ngày càng trở thành tài sản chiến lược, các tổ chức cần nắm rõ cách dữ liệu được lưu trữ, tổ chức và xử lý để tối ưu hoá khả năng phân tích, khai thác giá trị và đảm bảo tính sẵn sàng. Các ý tưởng thiết kế hệ thống lưu trữ dữ liệu và quy trình xử lý dữ liệu cũng như các công cụ giúp triển khai từng phần trong thiết kế hệ thống đóng vai trò quan trọng trong việc xây dựng hệ thống dữ liệu hiệu quả.
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/banner.jpeg
@@ -36,18 +36,158 @@ Ví dụ: JSON, XML, YAML, log events ...
 ```
 
 Để lưu trữ dữ liệu bán cấu trúc, chúng ta thường sử dụng các hệ quản trị cơ sở dữ liệu NoSQL (Not Only SQL) như:
-- Nhóm Document store - Lưu trữ tài liệu: MongoDB, CouchDB.
-- Nhóm Key-Value store - Lưu trữ cặp khóa-giá trị: Redis, DynamoDB.
-- Nhóm 
+- Nhóm **Document store** - Lưu trữ tài liệu: MongoDB, CouchDB.
+- Nhóm **Key-Value store** - Lưu trữ cặp khóa-giá trị: Redis, DynamoDB (trong đó, DynamoDB hỗ trợ cả mô hình document như Document store).
+- Nhóm **Wide-column Store** - Lưu trữ cột rộng: Apache Cassandra, HBase.
+- Nhóm **Graph Database** - Cơ sở dữ liệu đồ thị: Neo4j, Amazon Neptune.
 
+#### MongoDB - Nhóm Document store
+
+MongoDB là hệ CSDL NoSQL dạng document, mã nguồn mở, đa nền tảng.
+Lưu dữ liệu trong các document JSON-like (dạng BSON – Binary JSON).
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/document_store.jpeg" style="width: 800px;"/>
+
+Mô hình dữ liệu của MongoDB gồm 3 cấp độ: Database -> Collection -> Document.
+
+Ví dụ: Xét database "Customers", trong database này có collection "Users" và collection "Orders".
+Một document trong collection "Users" có thể có cấu trúc như sau:
+
+```json
+{
+  "_id": ObjectId("..."),
+  "name": "Tran Thi C",
+  "age": 25,
+  "emails": ["c1@example.com", "c2@example.com"],
+  "address": {
+    "city": "Ho Chi Minh",
+    "district": "1"
+  }
+}
+```
+
+Để truy vấn dữ liệu trong MongoDB, ta sử dụng ngôn ngữ truy vấn MongoDB Query Language (MQL).
+
+Ví dụ: Truy vấn tất cả người dùng có tuổi lớn hơn 20 trong collection "Users":
+
+```javascript
+db.Users.find({ age: { $gt: 20 } })
+```
+
+#### Redis - Nhóm Key-Value store
+
+Redis là hệ CSDL NoSQL dạng key-value, mã nguồn mở, đa nền tảng.
+Lưu trữ dữ liệu dưới dạng cặp khóa-giá trị (key-value pairs) và đặc biệt, Redis lưu trữ dữ liệu trong bộ nhớ (in-memory), giúp truy xuất dữ liệu rất nhanh.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/key_value_store.jpeg" style="width: 800px;"/>
+
+Mô hình dữ liệu của Redis rất đơn giản, gồm các key và value, trong đó key là chuỗi (string) và value có thể là nhiều kiểu dữ liệu khác nhau như string, list, set, hash, sorted set ...
+
+Ví dụ: Để lưu trữ thông tin người dùng trong Redis, ta có thể sử dụng key là "user:1" và value là một hash chứa các trường thông tin:
+
+```
+HMSET user:1001 name "Nguyen Huu Minh" age 30 email "minh@example.com"
+```
+
+Để truy vấn dữ liệu trong Redis, ta sử dụng các lệnh như:
+
+```
+HGETALL user:1001
+HGET user:1001 name
+```
+
+#### Apache Cassandra - Nhóm Wide-column Store
+
+Apache Cassandra là CSDL NoSQL phân tán mã nguồn mở, dùng mô hình wide-column.
+Apache Cassandra dược thiết kế để xử lý khối lượng dữ liệu rất lớn và chạy trên nhiều node, nhiều datacenter, chịu lỗi tốt
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/wide_column_store.jpeg" style="width: 800px;"/>
+
+Mô hình dữ liệu của Cassandra gồm các thành phần chính: Keyspace -> Table -> Partition key -> Clustering column.
+
+Ví dụ: Xét keyspace (tương tự như database) "ecommerce", trong keyspace này có table "user_activity".
+Một bảng trong Cassandra có thể có cấu trúc như sau:
+
+```sql
+CREATE TABLE user_activity (
+    user_id UUID,
+    activity_time TIMESTAMP,
+    activity_type TEXT,
+    details TEXT,
+    PRIMARY KEY (user_id, activity_time)
+) WITH CLUSTERING ORDER BY (activity_time DESC);
+```
+
+Trong ví dụ này, ta sử dụng:
+- `user_id` làm partition key: → mọi activity của cùng 1 user nằm cùng 1 partition → truy vấn lịch sử của user rất nhanh.
+- `activity_time` làm clustering column: trong mỗi partition (mỗi user), các dòng được sắp theo activity_time (thường DESC để lấy bản ghi mới nhất).
+
+Để truy vấn dữ liệu trong Cassandra, ta sử dụng ngôn ngữ truy vấn Cassandra Query Language (CQL).
+
+#### Neo4j - Nhóm Graph Database
+
+Neo4j là hệ CSDL NoSQL dạng đồ thị (graph database), mã nguồn mở, đa nền tảng.
+Các cơ sở dữ liệu đồ thị phù hợp để lưu trữ và truy vấn các dữ liệu có quan hệ phức tạp như mạng xã hội, hệ thống gợi ý, quản lý chuỗi cung ứng ...
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/graph_database.jpeg" style="width: 800px;"/>
+
+Lưu trữ dữ liệu dưới dạng các nút (nodes), các cạnh (relationships) và các thuộc tính (properties).
+- **Node (đỉnh):** đại diện cho thực thể. Ví dụ: người dùng User.
+- **Relationship (cạnh):** quan hệ giữa các node. Ví dụ: quan hệ FRIEND, LIKES, FOLLOWS…
+- **Property:** cặp key–value gắn với node hoặc relationship. Ví dụ: trên node User có name, age, city; trên relationship FRIEND có since.
+
+Ví dụ: Xét một mạng xã hội đơn giản với các người dùng và quan hệ bạn bè giữa họ.
+
+```cypher
+CREATE
+  (:User {name: "An",   age: 25, city: "Hanoi"}),
+  (:User {name: "Binh", age: 27, city: "Hanoi"}),
+  (:User {name: "Chi",  age: 24, city: "HCM"});
+
+MATCH (a:User {name: "An"}),
+      (b:User {name: "Binh"}),
+      (c:User {name: "Chi"})
+CREATE
+  (a)-[:FRIEND {since: 2020}]->(b),
+  (b)-[:FRIEND {since: 2021}]->(c),
+  (a)-[:FRIEND {since: 2022}]->(c);
+```
 
 ### 1.3. Dữ liệu phi cấu trúc
 
 Dữ liệu phi cấu trúc là dữ liệu không có cấu trúc rõ ràng hoặc không tuân theo một schema cố định như dữ liệu hình ảnh, video, âm thanh, tệp văn bản ...
 
 Để lưu trữ dữ liệu phi cấu trúc, chúng ta thường sử dụng các hệ thống Data Lake, lưu trữ tệp phân tán như HDFS (Hadoop Distributed File System) hoặc các dịch vụ lưu trữ đám mây như Amazon S3, Google Cloud Storage, Microsoft Azure Blob Storage.
+Dữ liệu phi cấu trúc thường được lưu trữ đơn giản trên các phần cứng lưu trữ kết hợp với phần mềm quản lý dữ liệu để tổ chức và truy xuất dữ liệu hiệu quả.
 
+Tuy nhiên, trong thời gian gần đây, xuất hiện một hệ quản trị cơ sở dữ liệu mới được sử dụng rất nhiều trong việc lưu trữ và truy vấn dữ liệu phi cấu trúc, đó là Vector Database - được sử dụng rộng rãi trong các ứng dụng AI, đặc biệt là các ứng dụng liên quan đến xử lý ngôn ngữ tự nhiên (NLP) và thị giác máy tính (Computer Vision) và các hệ thống tìm kiếm nâng cao.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/vector_database.jpeg" style="width: 800px;"/>
+
+Trong Vector database, mỗi vector đại diện cho một đối tượng dữ liệu (hình ảnh, văn bản, âm thanh ...) trong không gian đa chiều.
+
+Mỗi bản ghi (record) trong vector DB thường có 3 phần chính:
+- `id`: khoá định danh (string/number), ví dụ: `"doc_001"`.
+- `vector`: embedding, mảng số thực, ví dụ: `[0.12, -0.03, 0.98, ...]`.
+- `metadata` (tuỳ chọn): thông tin phụ để lọc, ví dụ: `{"title": "Giới thiệu vector DB", "tags": ["database", "ai"], "lang": "vi"}`.
+
+| id      | vector (embedding)     | metadata                                       |
+| ------- | ---------------------- | ---------------------------------------------- |
+| doc_001 | [0.12, -0.03, 0.98, …] | {"title": "...", "tags": ["ai"], "lang": "vi"} |
+| doc_002 | [0.31, 0.22, -0.45, …] | {"title": "...", "tags": ["db"], "lang": "en"} |
+
+Vector database xây dựng chỉ mục (index) chuyên cho vector để tăng tốc tìm kiếm, ví dụ: IVF, HNSW, PQ (Product Quantization),…
+
+Khi truy vấn, hệ thống dùng phép đo độ giống nhau giữa vector truy vấn $q$ và vector trong DB như:
+- Cosine similarity (góc giữa 2 vector)
+- Hoặc khoảng cách Euclid, dot product ...
+
+Ví dụ: Người dùng cần tìm kiếm hình ảnh thông qua câu mô tả "chú mèo đang chơi với quả bóng".
+- Bước 1: Chuyển câu mô tả thành vector truy vấn $q$ bằng mô hình embedding (như CLIP, BERT, …).
+- Bước 2: Tìm kiếm trong vector DB các vector gần giống với $q$ dựa trên phép đo độ giống nhau đã chọn.
+- Bước 3: Trả về các hình ảnh tương ứng với các vector tìm được.
+
+Một số công cụ vector database phổ biến bao gồm Pinecone, Weaviate, Milvus, FAISS (Facebook AI Similarity Search).
 
 ## 2. Data Lake và Data Warehouse
 
@@ -150,7 +290,7 @@ Thay vì phải truy vấn trên Data Warehouse quy mô lớn, Data Mart cung c�
 
 Hình ảnh dưới đây được lấy từ tài liệu của DataBricks mô tả sự khác biệt giữa Data Lake và Data Warehouse tương ứng với sự phát triển của dữ liệu và Trí tuệ nhân tạo (AI):
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/warehouse_vs_lake_graph.jpeg" style="width: 1000px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/warehouse_vs_lake.jpeg" style="width: 1000px;"/>
 
 ### 2.4. Data Lakehouse
 
@@ -190,7 +330,7 @@ Cụ thể, các công việc này được chia làm ba phần chính:
 
 Hình ảnh dưới đây được lấy từ tài liệu của DataBricks mô tả tổng quan về data pipeline:
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_pipeline_general.jpeg" style="width: 1000px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/data_pipeline_general.jpeg" style="width: 800px;"/>
 
 ### 3.1. Data pipeline
 
@@ -207,7 +347,7 @@ Việc sử dụng các công cụ Data Orchestration giúp tự động hóa vi
 - **Data governance:** Với đa dạng các loại dữ liệu và nguồn dữ liệu, việc thiết lập các chính sách và quy trình quản lý dữ liệu là rất quan trọng.
 Điều này bao gồm việc xác định quyền truy cập dữ liệu, bảo mật dữ liệu, và tuân thủ các quy định liên quan đến dữ liệu.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_pipeline_on_cloud.jpeg" style="width: 1000px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/data_pipeline_on_cloud.jpeg" style="width: 800px;"/>
 
 Hình ảnh trên đây được lấy từ cuốn sách [Cloud Data Engineering for dummies](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/cloud_data_engineering_for_dummies.pdf) mô tả chi tiết hơn về các thành phần trong data pipeline trên nền tảng đám mây.
 
@@ -223,7 +363,7 @@ ETL và ELT là hai phương pháp thường được sử dụng trong việc x
 
 #### Đối với ETL (Extract, Transform, Load):
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/etl.jpeg" style="width: 1000px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/etl.jpeg" style="width: 800px;"/>
 
 Với ETL, dữ liệu phải được biến đổi bên ngoài hệ thống đích bằng một công cụ xử lý riêng, dẫn đến việc di chuyển dữ liệu không cần thiết, phát sinh thay đổi và thường chậm.
 
@@ -240,7 +380,7 @@ Cách tiếp cận này nhanh hơn vì tận dụng được khả năng xử l�
 ELT hiệu quả không yêu cầu xác định schema ngay từ đầu, kể cả với dữ liệu bán cấu trúc.
 Dữ liệu có thể được tải ở dạng thô và chỉ biến đổi khi đã rõ cách sử dụng cuối cùng.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/elt.jpeg" style="width: 1000px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/elt.jpeg" style="width: 800px;"/>
 
 | Đặc điểm                     | ETL                                                  | ELT                                                |
 | ---------------------------- | ---------------------------------------------------- | -------------------------------------------------- |

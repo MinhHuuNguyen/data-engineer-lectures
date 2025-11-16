@@ -2,7 +2,7 @@
 time: 03/08/2025
 title: Phân tích dữ liệu và BI trên DataBricks
 description: DataBricks cung cấp các công cụ phân tích dữ liệu và Business Intelligence (BI) để giúp người dùng trực quan hóa dữ liệu, xây dựng dashboard và báo cáo, và phân tích dữ liệu một cách hiệu quả.
-banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.png
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.jpeg
 tags: []
 is_highlight: false
 is_published: true
@@ -15,14 +15,14 @@ Vai trò của Data Analyst:
 - **Phân tích khai phá dữ liệu (EDA):** Thực hiện phân tích thăm dò để hiểu các đặc điểm, mô hình, xu hướng và giá trị ngoại lệ của dữ liệu; phát triển các giả thuyết và thống kê tóm tắt.
 - **Mô hình hoá, phân tích và trình bày dữ liệu:** Sử dụng hình ảnh trực quan, bảng thông tin và các phương pháp khác để trình bày các phát hiện và kết luận cho các bên liên quan; cập nhật tài liệu trình bày khi có thông tin mới.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/unified_architecture.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/unified_architecture.jpeg" style="width: 1200px;"/>
 
 Thách thức của Data Analyst:
 - **Dữ liệu cô lập và đa hệ thống:** Các dữ liệu cần thiết nằm rải rác trên nhiều nền tảng. Team dữ liệu hoạt động riêng lẻ, thiếu nhất quán.
 - **Chất lượng dữ liệu:** Data Lake và Data Warehouse có những hạn chế, dẫn đến mất thời gian trong việc có dữ liệu sạch và phân tích.
 - **Quản trị và tuân thủ:** Mỗi nền tảng trong hệ sinh thái có cấu trúc quản trị khác nhau. Việc quản lý dữ liệu nhạy cảm trở nên phức tạp trong một hệ thống rời rạc.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/warehouse_vs_lake.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/warehouse_vs_lake.jpeg" style="width: 1200px;"/>
 
 ## 2. DataBricks SQL
 
@@ -36,7 +36,7 @@ Một số đặc điểm của Databricks SQL:
 - **Trải nghiệm thông minh:** Giao diện ngôn ngữ tự nhiên do AI cung cấp; với khả năng hiểu dữ liệu và doanh nghiệp của bạn được tích hợp sẵn.
 - **Kiến trúc hợp nhất:** Thu thập, chuyển đổi và truy vấn tất cả từ một nền tảng duy nhất; đáp ứng đầy đủ nhu cầu về kho dữ liệu và BI trong khi vẫn cung cấp quyền truy cập đầy đủ vào các khả năng của AI
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/unified_sql_editor.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/unified_sql_editor.jpeg" style="width: 1200px;"/>
 
 Trình soạn thảo SQL thống nhất giúp:
 - Duyệt tất cả dữ liệu của bạn với các câu truy vấn.
@@ -45,20 +45,20 @@ Trình soạn thảo SQL thống nhất giúp:
 
 ## 3. AI/BI Dashboard
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/bi_dashboard_example.png" style="width: 1000px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/bi_dashboard_example.jpeg" style="width: 1000px;"/>
 
 Là công cụ all-in-one, có thể phục vụ cả trực quan hoá và trình bày phân tích dữ liệu.
 - Thêm tập dữ liệu, viết truy vấn và thiết kế hình ảnh trực quan trong một môi trường.
 - Dễ dàng chia sẻ để trình bày và xem xét.
 - Sử dụng ngôn ngữ tự nhiên để hỗ trợ việc tạo hình ảnh trực quan.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/bi_dashboard.png" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/bi_dashboard.jpeg" style="width: 800px;"/>
 
 BI Genie Spaces mang lại khả năng:
 - Hỗ trợ người dùng non-tech với giải pháp không code để có được thông tin chi tiết về dữ liệu bằng ngôn ngữ tự nhiên.
 - Cung cấp điểm truy cập vào dữ liệu để theo dõi các câu hỏi mà không cần phải nhờ đến chuyên gia phân tích dữ liệu.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/sql_genie_spaces.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/sql_genie_spaces.jpeg" style="width: 1200px;"/>
 
 Sử dụng AI để tăng trải nghiệm người dùng:
 - Tài liệu do Al tạo ra để tìm kiếm và khám phá dữ liệu dễ dàng hơn.
@@ -66,13 +66,13 @@ Sử dụng AI để tăng trải nghiệm người dùng:
 - Trợ lý Al để tạo hình ảnh trực quan nhanh chóng.
 - Genie Spaces do Al cung cấp để nhanh chóng hiểu dữ liệu của bạn bằng ngôn ngữ tự nhiên.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/sql_dashboard_genie_menu.png" style="width: 300px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/sql_dashboard_genie_menu.jpeg" style="width: 300px;"/>
 
 ## 4. Tích hợp sâu với Power BI và Tableau
 
 Tích hợp liền mạch các danh mục và mô hình dữ liệu với Power BI và Tableau.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/power_bi_tableau.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/power_bi_tableau.jpeg" style="width: 1200px;"/>
 
 ---
 

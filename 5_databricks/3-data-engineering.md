@@ -2,7 +2,7 @@
 time: 02/28/2025
 title: Xử lý dữ liệu với DataBricks
 description: DataBricks là một nền tảng xử lý dữ liệu thông minh, giúp người dùng quản lý dữ liệu một cách hiệu quả và linh hoạt.
-banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.png
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/intro.jpeg
 tags: []
 is_highlight: false
 is_published: true
@@ -23,13 +23,13 @@ Các tổ chức thường sử dụng nhiều nền tảng công nghệ khác n
     - Yêu cầu các kỹ năng và chuyên môn nâng cao
     - Sự không nhất quán của nền tảng
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/overall.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/overall.jpeg" style="width: 1200px;"/>
 
 ## 2. Delta Lake - Lưu trữ dữ liệu linh hoạt và hiệu quả
 
 Delta Lake là một giao thức mã nguồn mở phục vụ cho việc đọc và ghi file dữ liệu vào các kho dữ liệu đám mây.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/delta_lake.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/delta_lake.jpeg" style="width: 1200px;"/>
 
 Delta Lake Table đảm bảo giao dịch ACID - ACID Transactions ở cấp độ bảng cho dữ liệu được lưu trữ trong bộ lưu trữ đối tượng trên nền tảng đám mây.
 - Tính nguyên tử (Atomicity): Toàn bộ giao dịch được thực hiện hoàn chỉnh.
@@ -37,7 +37,7 @@ Delta Lake Table đảm bảo giao dịch ACID - ACID Transactions ở cấp đ�
 - Tính độc lập (Isolation): Một giao dịch được hoàn thành trước khi giao dịch khác bắt đầu.
 - Tính bền vững (Durability): Dữ liệu được lưu ở trạng thái bền vững sau khi hoàn tất.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/delta_lake_table.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/delta_lake_table.jpeg" style="width: 1200px;"/>
 
 Delta Lake Table hỗ trợ các phép DML (Data Manipulation Language) như:
 - INSERT: thêm các bản ghi mới
@@ -61,18 +61,18 @@ Delta Lake hỗ trợ đồng nhất giữa xử lý theo lô (batching) và x�
 
 Data Ingestion là quá trình chuyển dữ liệu từ nguồn dữ liệu vào Delta Lake để phục vụ cho các bước tiếp theo trong quá trình xử lý dữ liệu.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/ingestion.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/ingestion.jpeg" style="width: 1200px;"/>
 
 Đầu tiên, câu lệnh CREATE TABLE AS (CTAS) tạo một bảng mới từ một bảng đã có hoặc từ một nguồn dữ liệu nào đó.
 Mặc định, định dạng bảng là Delta
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/ingestion_create.png" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/ingestion_create.jpeg" style="width: 500px;"/>
 
 Nhoài ra, DataBricks còn cung cấp UPLOAD UI, là giao diện point-and-click để tải dữ liệu lên:
 - UPLOAD UI cho phép người dùng tải dữ liệu với các định dạng file CSV, TSV, JSON, Avro, Parquet, hoặc file text để tạo ra các bảng dữ liệu có cấu trúc.
 - UPLOAD UI cũng cho phép người dùng tải dữ liệu lên trực tiếp vào các ổ cứng trong Unity Catalog, giúp người dùng lưu trữ, quản lý và tương tác với dữ liệu phi cấu trúc như trong các máy tính bình thường.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/ingestion_copy.png" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/ingestion_copy.jpeg" style="width: 500px;"/>
 
 Câu lệnh COPY INTO tải file từ địa chỉ file vào trong bảng Delta.
 - Hỗ trợ nhiều định dạng file và nhiều địa chỉ lưu trữ đám mây khác nhau.
@@ -91,43 +91,43 @@ Data Transformation là quá trình biến đổi dữ liệu từ dạng nguyê
 Nền tảng biến đổi dữ liệu trong DataBricks được xây dựng từ Spark, giúp người dùng xử lý dữ liệu lớn một cách hiệu quả và linh hoạt.
 Ngoài ra, DataBricks có dịch vụ tính toán Photon, giúp tăng tốc xử lý dữ liệu lớn.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation.jpeg" style="width: 1200px;"/>
 
 Quá trình biến đổi dữ liệu trong DataBricks được xây dựng theo kiến trúc Medallion, gồm ba cấp độ: Bronze, Silver và Gold.
 
 Ba cấp độ Bronze, Silver và Gold tương ứng với chất lượng của dữ liệu được gia tăng dần, từ dữ liệu thô đến dữ liệu tinh, được sử dụng cho các mục đích phân tích và AI.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_architecture.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_architecture.jpeg" style="width: 1200px;"/>
 
 Ở cấp độ Bronze, dữ liệu được lưu trữ thô từ các hệ thống nguồn dữ liệu bên ngoài.
 Dữ liệu ở Bronze thường có thời gian lưu trữ dài, hàng năm và được lưu trữ ở dạng nguyên bản nhất.
 
 Tuy nhiên, trước khi dữ liệu vào cấp độ Bronze này, ta có thể xoá các thông tin cá nhân có thể nhận dạng nếu cần (personally identifiable information - PII).
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_bronze.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_bronze.jpeg" style="width: 1200px;"/>
 
 Ở cấp độ Silver, dữ liệu từ cấp độ Bronze được lọc, làm sạch và làm giàu.
 Dữ liệu ở Silver thường được định nghĩa cấu trúc.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_silver.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_silver.jpeg" style="width: 1200px;"/>
 
 Ở cấp độ Gold, dữ liệu từ cấp độ Silver được biến đổi và chuẩn bị sẵn sàng cho việc phân tích và AI.
 Dữ liệu ở Gold là dữ liệu sẵn sàng được sử dụng trực tiếp bởi các ứng dụng, báo cáo và các mô hình AI mà không cần biến đổi gì thêm.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_gold.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_gold.jpeg" style="width: 1200px;"/>
 
 Một cách tổng quan, quá trình biến đổi dữ liệu trong DataBricks có thể được mô tả như sau:
 - INSERT: dữ liệu thô được đưa vào trong cấp độ Bronze
 - DELETE / MERGE: dữ liệu được xử lý, loại bỏ bớt các dữ liệu dư thừa, lặp lại và gộp các dữ liệu để làm giàu dữ liệu trong cấp độ Silver
 - OVERWRITE / AGGREGATE: dữ liệu được tổng hợp, biến đổi và chuẩn bị sẵn sàng cho việc phân tích và AI trong cấp độ Gold
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_bronze_silver_gold.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_bronze_silver_gold.jpeg" style="width: 1200px;"/>
 
 Ở phiên bản phức tạp hơn, một bộ dữ liệu ở cấp độ Bronze có thể được sử dụng cho một hoặc nhiều bộ dữ liệu ở cấp độ Silver, và một bộ dữ liệu ở cấp độ Silver có thể được sử dụng cho một hoặc nhiều bộ dữ liệu ở cấp độ Gold.
 
 Ngược lại, một bộ dữ liệu ở cấp độ Gold có thể cần một hoặc nhiều bộ dữ liệu ở cấp độ Silver, và một bộ dữ liệu ở cấp độ Silver có thể cần một hoặc nhiều bộ dữ liệu ở cấp độ Bronze.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_bronze_silver_gold_complex.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/transformation_bronze_silver_gold_complex.jpeg" style="width: 1200px;"/>
 
 ## 5. Data Orchestration - Xây dựng workflow trong DataBricks
 
@@ -135,7 +135,7 @@ Data Orchestration là quá trình điều phối các công việc xử lý d�
 
 Data Orchestration trong DataBricks bao gồm Delta Live Tables (DLT) và Databricks Workflows.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/orchestration.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/orchestration.jpeg" style="width: 1200px;"/>
 
 --------------------------------------
 | Delta Live Tables (DLT) | Workflow |
@@ -156,7 +156,7 @@ Delta Live Tables là phương pháp tốt nhất để thực thi ETL với Dat
 - Đảm bảo chất lượng dữ liệu cao: Cung cấp dữ liệu đáng tin cậy với các biện pháp kiểm soát chất lượng, thử nghiệm, giám sát và thực thi.
 - Xử lý hợp nhất giữa batch và streaming: Đơn giản hoá việc sử dụng SQL với xử lý theo batch và streaming.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/delta_live_table_visualization.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/delta_live_table_visualization.jpeg" style="width: 1200px;"/>
 
 Trực quan hoá pipeline với DLT, giúp người dùng dễ dàng theo dõi quy trình xử lý dữ liệu ngay bên cạnh code.
 
@@ -175,7 +175,7 @@ Jobs trong Databricks Workflows có thể được chạy trên nhiều nền t�
     - Tài nguyên tính toán được tắt khi Job hoàn tất, giúp tiết kiệm chi phí.
     - Phụ thuộc vào nhà cung cấp cloud.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/orchestration_workflow_jobs.png" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/orchestration_workflow_jobs.jpeg" style="width: 1200px;"/>
 
 ---
 

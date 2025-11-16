@@ -1,5 +1,5 @@
 ---
-time: 09/09/2021
+time: 09/24/2022
 title: "[SERIES] Big Data cơ bản"
 description: Là kết quả từ cách mạng công nghiệp 3.0, cho đến nay, thế giới đã tạo ra một lượng dữ liệu khổng lồ, trở thành nền tảng cho cách mạng công nghiệp 4.0 với Trí tuệ nhân tạo. Việc thu thập, xử lý và lưu trữ lượng dữ liệu lớn này đòi hỏi những công nghệ và kỹ thuật đặc biệt, được gọi chung là Big Data. Series bài viết này sẽ cung cấp cho bạn cái nhìn tổng quan về Big Data, từ các khái niệm cơ bản đến các công cụ và kỹ thuật phổ biến trong lĩnh vực này.
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/banner.jpeg

@@ -1,5 +1,5 @@
 ---
-time: 09/09/2021
+time: 09/09/2022
 title: Giới thiệu chung về Big Data
 description: Bài viết giới thiệu chung về Big Data và vai trò của Data Engineer nhằm cung cấp cho người học cái nhìn tổng quan về sự bùng nổ dữ liệu trong kỷ nguyên số và nhu cầu xử lý dữ liệu quy mô lớn trong doanh nghiệp hiện đại. Nội dung trình bày các đặc trưng của Big Data như Volume, Velocity, Variety và những thách thức trong việc lưu trữ, quản lý và khai thác dữ liệu. Bài viết cũng làm rõ vị trí của Data Engineer trong hệ thống dữ liệu như xây dựng kiến trúc dữ liệu, thiết kế pipeline thu thập – xử lý – phân phối dữ liệu và đảm bảo dữ liệu sẵn sàng cho phân tích, học máy.
 banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/banner.jpeg
