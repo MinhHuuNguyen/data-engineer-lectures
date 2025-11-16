@@ -46,7 +46,7 @@ Ví dụ: JSON, XML, YAML, log events ...
 MongoDB là hệ CSDL NoSQL dạng document, mã nguồn mở, đa nền tảng.
 Lưu dữ liệu trong các document JSON-like (dạng BSON – Binary JSON).
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/document_store.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/document_store.jpeg" style="width: 500px;"/>
 
 Mô hình dữ liệu của MongoDB gồm 3 cấp độ: Database -> Collection -> Document.
 
@@ -79,7 +79,7 @@ db.Users.find({ age: { $gt: 20 } })
 Redis là hệ CSDL NoSQL dạng key-value, mã nguồn mở, đa nền tảng.
 Lưu trữ dữ liệu dưới dạng cặp khóa-giá trị (key-value pairs) và đặc biệt, Redis lưu trữ dữ liệu trong bộ nhớ (in-memory), giúp truy xuất dữ liệu rất nhanh.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/key_value_store.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/key_value_store.jpeg" style="width: 500px;"/>
 
 Mô hình dữ liệu của Redis rất đơn giản, gồm các key và value, trong đó key là chuỗi (string) và value có thể là nhiều kiểu dữ liệu khác nhau như string, list, set, hash, sorted set ...
 
@@ -101,7 +101,7 @@ HGET user:1001 name
 Apache Cassandra là CSDL NoSQL phân tán mã nguồn mở, dùng mô hình wide-column.
 Apache Cassandra dược thiết kế để xử lý khối lượng dữ liệu rất lớn và chạy trên nhiều node, nhiều datacenter, chịu lỗi tốt
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/wide_column_store.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/wide_column_store.jpeg" style="width: 500px;"/>
 
 Mô hình dữ liệu của Cassandra gồm các thành phần chính: Keyspace -> Table -> Partition key -> Clustering column.
 
@@ -129,7 +129,7 @@ Trong ví dụ này, ta sử dụng:
 Neo4j là hệ CSDL NoSQL dạng đồ thị (graph database), mã nguồn mở, đa nền tảng.
 Các cơ sở dữ liệu đồ thị phù hợp để lưu trữ và truy vấn các dữ liệu có quan hệ phức tạp như mạng xã hội, hệ thống gợi ý, quản lý chuỗi cung ứng ...
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/graph_database.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/graph_database.jpeg" style="width: 500px;"/>
 
 Lưu trữ dữ liệu dưới dạng các nút (nodes), các cạnh (relationships) và các thuộc tính (properties).
 - **Node (đỉnh):** đại diện cho thực thể. Ví dụ: người dùng User.
@@ -162,7 +162,7 @@ Dữ liệu phi cấu trúc thường được lưu trữ đơn giản trên cá
 
 Tuy nhiên, trong thời gian gần đây, xuất hiện một hệ quản trị cơ sở dữ liệu mới được sử dụng rất nhiều trong việc lưu trữ và truy vấn dữ liệu phi cấu trúc, đó là Vector Database - được sử dụng rộng rãi trong các ứng dụng AI, đặc biệt là các ứng dụng liên quan đến xử lý ngôn ngữ tự nhiên (NLP) và thị giác máy tính (Computer Vision) và các hệ thống tìm kiếm nâng cao.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/vector_database.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/vector_database.jpeg" style="width: 500px;"/>
 
 Trong Vector database, mỗi vector đại diện cho một đối tượng dữ liệu (hình ảnh, văn bản, âm thanh ...) trong không gian đa chiều.
 
@@ -381,6 +381,8 @@ ELT hiệu quả không yêu cầu xác định schema ngay từ đầu, kể c�
 Dữ liệu có thể được tải ở dạng thô và chỉ biến đổi khi đã rõ cách sử dụng cuối cùng.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/elt.jpeg" style="width: 800px;"/>
+
+<br>
 
 | Đặc điểm                     | ETL                                                  | ELT                                                |
 | ---------------------------- | ---------------------------------------------------- | -------------------------------------------------- |
