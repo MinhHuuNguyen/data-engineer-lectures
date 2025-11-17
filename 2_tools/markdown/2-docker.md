@@ -17,7 +17,7 @@ Một ứng dụng phần mềm thường bao gồm cách thành phần sau:
 - **Hệ điều hành:** Ứng dụng chạy trên một hệ điều hành cụ thể, như Windows, Linux hoặc macOS.
 - **Phần cứng (Hardware):** Ứng dụng cuối cùng chạy trên phần cứng của máy tính hoặc máy chủ.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/traditional_deployment.jpeg" style="width: 700px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/traditional_deployment.jpeg" style="width: 500px;"/>
 
 Trong mô hình triển khai truyền thống, ứng dụng được cài đặt trực tiếp trên hệ điều hành của máy chủ hoặc máy tính cá nhân.
 Điều này dẫn đến một số vấn đề như:
@@ -56,8 +56,6 @@ Ví dụ 2: Vấn đề về xung đột phụ thuộc
 ### 2.1. Định nghĩa Containerization
 
 Câu hỏi mà nhiều nhà phát triển đặt ra là: **"Có cách nào 'đóng gói' ứng dụng kèm theo tất cả những gì nó cần, để đem đi đâu chạy cũng như nhau không?"**
-
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/containerization_comparison.jpeg" style="width: 700px;"/>
 
 **Định nghĩa:** Containerization là kỹ thuật đóng gói ứng dụng gồm đầy đủ **Mã nguồn ứng dụng**, **Runtime environment**, một số **Driver và phụ thuộc hệ thống** vào thành một “hộp” gọi là Container, có thể chạy ổn định trên nhiều môi trường khác nhau.
 
