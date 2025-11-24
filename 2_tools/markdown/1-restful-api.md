@@ -2,7 +2,7 @@
 time: 10/08/2022
 title: Giao diện lập trình ứng dụng
 description: Giao diện lập trình ứng dụng giúp các chương trình giao tiếp với nhau một cách hiệu quả và chuẩn hoá. Từ đó, ta có thể xây dựng các hệ thống phân tán, microservices, và tích hợp các dịch vụ khác nhau. Giao diện lập trình ứng dụng phổ biến nhất hiện nay là RESTful API, được xây dựng từ các khái niệm như API, HTTP, URI, và REST.
-banner_url: 
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/banner.jpeg
 tags: [big-data, tools]
 is_highlight: false
 is_published: true
@@ -12,6 +12,8 @@ is_published: true
 
 API (Application Programming Interface) là “giao diện lập trình ứng dụng” – một cách để các chương trình máy tính giao tiếp với nhau.
 Thay vì một ứng dụng phải hiểu nội bộ của ứng dụng khác, nó chỉ cần gọi các hàm / endpoint mà ứng dụng kia cung cấp.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_menu.jpeg" style="width: 500px;"/>
 
 Ví dụ: Ứng dụng thời tiết trên điện thoại gọi API của server để lấy dữ liệu nhiệt độ, độ ẩm, dự báo.
 
@@ -24,6 +26,8 @@ Ta có thể xem như API là “Menu” của một nhà hàng: bạn chỉ c�
 
 API giúp độc lập hoá các ứng dụng với nhau, trong khi thư viện là tái sử dụng mã nguồn trong cùng một ứng dụng.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_vs_library.jpeg" style="width: 500px;"/>
+
 ### Phân nhóm các loại API
 
 #### Theo cách triển khai và giao thức
@@ -32,6 +36,8 @@ API giúp độc lập hoá các ứng dụng với nhau, trong khi thư viện 
 - **SOAP API (Simple Object Access Protocol):** dựa trên XML, chuẩn formal hơn
 - **GraphQL API:** 1 endpoint, client tự chọn dữ liệu cần
 - **gRPC:** dựa trên HTTP/2, dùng protobuf để serialize dữ liệu
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_type_1.jpeg" style="width: 500px;"/>
 
 Ví dụ về SOAP API lấy dữ liệu thời tiết
 
@@ -147,23 +153,29 @@ trong đó:
     - `string day = 1;`: trường `day` kiểu chuỗi, đánh số 1.
     - `string condition = 2;`: trường `condition` kiểu chuỗi, đánh số 2.
 
-#### Theo phạm vi sử dụng
-
-- **Open/Public API:** mở cho tất cả các developer bên ngoài sử dụng (ví dụ: API của Twitter, Google Maps).
-- **Internal/Private API:** chỉ sử dụng trong nội bộ công ty hoặc tổ chức. Giúp các module hoặc microservice trong cùng hệ thống giao tiếp với nhau.
-- **Partner API:** chia sẻ với các đối tác hoặc tổ chức được cấp quyền. Thường có cơ chế authentication và giới hạn truy cập.
-
 #### Theo chức năng
 
 - **Data API:** Dùng để truy xuất hoặc thao tác dữ liệu. Ví dụ: API lấy dữ liệu thời tiết, API cơ sở dữ liệu.
 - **Service API:** Cung cấp các chức năng hoặc dịch vụ cụ thể. Ví dụ: thanh toán trực tuyến (PayPal API), dịch vụ gửi email (SendGrid API).
 - **Hardware API:** Tương tác với phần cứng hoặc thiết bị. Ví dụ: API camera, API cảm biến IoT.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_type_2.jpeg" style="width: 500px;"/>
+
+#### Theo phạm vi sử dụng
+
+- **Open/Public API:** mở cho tất cả các developer bên ngoài sử dụng (ví dụ: API của Twitter, Google Maps).
+- **Internal/Private API:** chỉ sử dụng trong nội bộ công ty hoặc tổ chức. Giúp các module hoặc microservice trong cùng hệ thống giao tiếp với nhau.
+- **Partner API:** chia sẻ với các đối tác hoặc tổ chức được cấp quyền. Thường có cơ chế authentication và giới hạn truy cập.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_type_3.jpeg" style="width: 500px;"/>
+
 ## 2. URI, URL và URN là gì?
 
 Trong các hệ thống phân tán và ứng dụng web, việc định danh và truy cập tài nguyên là yêu cầu nền tảng.
 URI (Uniform Resource Identifier), URL (Uniform Resource Locator), và URN (Uniform Resource Name) là các khái niệm quan trọng giúp định danh và truy cập tài nguyên trên mạng.
 Mặc dù chúng liên quan mật thiết, mỗi khái niệm có phạm vi và vai trò riêng trong kiến trúc web hiện đại.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/uri_url_urn.jpeg" style="width: 500px;"/>
 
 ### 2.1. Uniform Resource Identifier (URI)
 
@@ -218,6 +230,8 @@ Một số namespace URN phổ biến
 HTTP (HyperText Transfer Protocol) là giao thức truyền tải dữ liệu nền tảng của World Wide Web.
 HTTP định nghĩa cách thức client (thường là trình duyệt) và server trao đổi thông tin.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/request_response.jpeg" style="width: 500px;"/>
+
 Đặc điểm chính:
 - Mô hình request–response: Client gửi yêu cầu (request), server phản hồi (response).
 - Stateless: Mỗi request là độc lập; server không tự nhớ trạng thái các request trước đó.
@@ -227,6 +241,8 @@ HTTP định nghĩa cách thức client (thường là trình duyệt) và serve
 
 HTTPS (HyperText Transfer Protocol Secure) là phiên bản bảo mật của HTTP, hoạt động thông qua cơ chế mã hoá bổ sung.
 Chữ S trong HTTPS là là "Secure".
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/https.jpeg" style="width: 500px;"/>
 
 Đặc điểm chính:
 - Xác thực danh tính máy chủ qua chứng chỉ số (SSL/TLS certificate): Đảm bảo người dùng đang kết nối đúng server.
@@ -282,6 +298,8 @@ Các phương thức phổ biến bao gồm:
 - **PATCH:** Cập nhật một phần tài nguyên trên server.
 - **DELETE:** Xóa tài nguyên trên server.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/http_methods.jpeg" style="width: 500px;"/>
+
 Đối chiếu với CRUD (Create, Read, Update, Delete) mà ta thường sử dụng trong quản lý dữ liệu:
 - `Create` → `POST /resources`: Tạo mới tài nguyên.
 - `Read (list)` → `GET /resources`: Lấy danh sách tài nguyên.
@@ -292,6 +310,9 @@ Các phương thức phổ biến bao gồm:
 ### 3.4. Status code trong HTTP/HTTPS
 
 Khi client gửi request đến server, server sẽ phản hồi lại với một mã trạng thái (status code) để cho biết kết quả của yêu cầu.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/http_status_code.jpeg" style="width: 500px;"/>
+
 Các mã trạng thái phổ biến được chia thành các nhóm chính:
 - **1xx (Informational):** Thông tin
     - 100 Continue: Yêu cầu đã được nhận, client có thể tiếp tục gửi phần còn lại của request.
@@ -320,6 +341,8 @@ Các mã trạng thái phổ biến được chia thành các nhóm chính:
 
 REST (Representational State Transfer) là một phong cách kiến trúc (architectural style) để thiết kế dịch vụ web.
 REST không phải là một protocol hay framework, mà là tập hợp nguyên tắc, ràng buộc (constraints).
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/rest_requirements.jpeg" style="width: 500px;"/>
 
 Các ràng buộc chính của REST bao gồm:
 - **Client – Server:**
@@ -358,6 +381,8 @@ RESTful API là API tuân theo các nguyên tắc REST, trong đó:
 - Hỗ trợ cache, phân lớp…
 
 Nói cách khác ngắn gọn hơn, **RESTful API = Web API được thiết kế “đúng chuẩn REST”**.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/rest_api.jpeg" style="width: 500px;"/>
 
 #### Một số quy tắc cơ bản trong thiết kế RESTful API
 
