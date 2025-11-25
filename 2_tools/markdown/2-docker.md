@@ -17,7 +17,7 @@ Một ứng dụng phần mềm thường bao gồm cách thành phần sau:
 - **Hệ điều hành:** Ứng dụng chạy trên một hệ điều hành cụ thể, như Windows, Linux hoặc macOS.
 - **Phần cứng (Hardware):** Ứng dụng cuối cùng chạy trên phần cứng của máy tính hoặc máy chủ.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/traditional_deployment.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/traditional_deployment.jpeg" style="width: 400px;"/>
 
 Trong mô hình triển khai truyền thống, ứng dụng được cài đặt trực tiếp trên hệ điều hành của máy chủ hoặc máy tính cá nhân.
 Điều này dẫn đến một số vấn đề như:
@@ -59,7 +59,7 @@ Câu hỏi mà nhiều nhà phát triển đặt ra là: **"Có cách nào 'đó
 
 **Định nghĩa:** Containerization là kỹ thuật đóng gói ứng dụng gồm đầy đủ **Mã nguồn ứng dụng**, **Runtime environment**, một số **Driver và phụ thuộc hệ thống** vào thành một “hộp” gọi là Container, có thể chạy ổn định trên nhiều môi trường khác nhau.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/container_deployment.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/container_deployment.jpeg" style="width: 400px;"/>
 
 Containerization cung cấp một cách tiếp cận tiêu chuẩn hóa cho việc triển khai ứng dụng và giúp giảm thiểu các vấn đề liên quan đến sự khác biệt giữa môi trường phát triển và môi trường sản phẩm cuối cùng.
 
@@ -70,7 +70,7 @@ Containerization cung cấp một cách tiếp cận tiêu chuẩn hóa cho vi�
 Kernel là thành phần lõi của hệ điều hành (OS), chịu trách nhiệm quản lý trực tiếp phần cứng và cung cấp các dịch vụ cơ bản cho các tiến trình.
 Kernel là "bộ não" điều phối tất cả hoạt động giữa phần mềm và phần cứng.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/kernel_in_operation_system.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/kernel_in_operation_system.jpeg" style="width: 400px;"/>
 
 Chức năng chính của kernel:
 - **Quản lý tiến trình (Process Management):** Tạo, xóa, lập lịch (scheduling), chuyển trạng thái tiến trình.
@@ -101,7 +101,7 @@ Ví dụ: Xét một ứng dụng web trên hệ điều hành Ubuntu 20.04, s�
 - Để triển khai ứng dụng web này trong thực tế, ta cần đóng gói ứng dụng này cùng với môi trường chạy và các phụ thuộc cần thiết, tạo thành một container.
 - Ta cần chạy container này trên một máy chủ khác, giả sử máy chủ chạy hệ điều hành Windows 10, vậy container này có thể chạy ổn định trên máy chủ Windows 10 không?
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/containerization_vs_virtual_machine.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/containerization_vs_virtual_machine.jpeg" style="width: 700px;"/>
 
 Để chạy được container này trên máy chủ Windows 10, Windows 10 cần sử dụng một cơ chế ảo hoá (là Windows Subsystem for Linux - WSL hoặc LinuxKit) để tạo ra kernel cho hệ điều hành Ubuntu 20.04, từ đó mới có thể chạy được container chứa ứng dụng web.
 
@@ -267,4 +267,90 @@ Sau đó, bạn có thể chạy container từ image đã pull về như bình 
 docker run -p 8000:8000 username/my-app:latest
 ```
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/docker_registry_hub.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/docker_registry_hub.jpeg" style="width: 400px;"/>
+
+## 4. Docker Compose
+
+### 4.1. Docker Compose là gì?
+
+**Docker Compose** là một công cụ để định nghĩa và chạy nhiều container Docker như một ứng dụng thống nhất.
+Thay vì chạy từng **docker run riêng rẽ**, bạn mô tả các dịch vụ (services), mạng (networks), và lưu trữ (volumes) trong một file YAML (docker-compose.yml) và dùng một vài lệnh để khởi tạo/triệt tiêu toàn bộ stack.
+
+Ví dụ: web server + application + database + cache — mỗi thành phần chạy trong một container riêng nhưng được quản lý cùng nhau.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/docker_compose.jpeg" style="width: 500px;"/>
+
+Ta thường dùng Docker Compose trong các trường hợp:
+- **Phát triển cục bộ:** khởi dựng nhanh môi trường giống production (DB, cache, message broker,...).
+- **Triển khai ứng dụng nhỏ hoặc môi trường staging.**
+- **CI pipelines để dựng môi trường tạm thời cho build/test.**
+
+*Đối với các hệ thống lớn, cần chuyển sang nền tảng orchestration như Kubernetes hoặc Docker Swarm.*
+
+### 4.2. Cấu trúc file docker-compose.yml
+
+Cấu trúc cơ bản của file docker-compose.yml gồm:
+- **version:** phiên bản của Docker Compose file format.
+- **services:** định nghĩa các dịch vụ (containers) trong ứng dụng.
+- **networks:** định nghĩa các mạng nội bộ giữa các dịch vụ.
+- **volumes:** định nghĩa các volume để lưu trữ dữ liệu bền vững.
+
+Dưới đây là ví dụ minh hoạ về một web app với database Postgres:
+
+``` yaml
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgres://postgres:example@db:5432/mydb
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  db:
+    image: postgres:14
+    environment:
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_DB=mydb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  db-data:
+```
+
+trong đó:
+- `build` vs `image`: `build` tạo image từ Dockerfile; `image` dùng image có sẵn.
+- `ports`: ánh xạ cổng host:container.
+- `volumes`: lưu trữ dữ liệu bền vững hoặc mount mã nguồn cho dev.
+- `depends_on`: đảm bảo thứ tự khởi động (nhưng không đảm bảo service sẵn sàng; dùng healthcheck để kiểm tra readiness).
+- `healthcheck`: giúp phát hiện khi một service thực sự sẵn sàng.
+
+### 4.3. Các lệnh Docker Compose cơ bản
+
+Docker Compose hiện nay có hai dạng lệnh: `docker-compose` (cũ) và plugin tích hợp `docker compose` — câu lệnh tương tự.
+
+- Khởi động (foreground): `docker compose up`
+- Khởi động nền (detached): `docker compose up -d`
+- Dừng và gỡ bỏ containers: `docker compose down`
+- Dừng và gỡ bỏ containers cùng volumes, networks không dùng: `docker compose down --volumes --remove-orphans`
+- Xem logs: `docker compose logs` và `docker compose logs -f web`
+- Xem trạng thái service: `docker compose ps`
+- Thực thi lệnh trong container đang chạy: `docker compose exec web /bin/sh`
+- Xây dựng image: `docker compose build`
+- Dọn images không dùng: `docker image prune`

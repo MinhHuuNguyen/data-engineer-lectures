@@ -195,9 +195,11 @@ URL (Uniform Resource Locator) là một loại URI có nhiệm vụ chỉ ra v�
 - **Query parameters và Fragment** (nếu có)
 
 Ví dụ: URL của một hình ảnh trên trang báo `vnexpress.net`
+
 ```
 https://vnexpress.net/images/logo.png
 ```
+
 trong đó:
 - `https`: giao thức bảo mật HTTP.
 - `vnexpress.net`: tên miền của trang web.
@@ -209,8 +211,11 @@ URN (Uniform Resource Name) là một dạng URI dùng để định danh tài n
 Mục tiêu chính của URN là đảm bảo một định danh ổn định, lâu dài và không phụ thuộc vào vị trí lưu trữ.
 
 Ví dụ: URN cho một cuốn sách theo chuẩn ISBN
-```urn:isbn:978-3-16-148410-0
+
 ```
+urn:isbn:978-3-16-148410-0
+```
+
 trong đó:
 - `urn`: chỉ định đây là một URN.
 - `isbn`: namespace cho định danh sách theo chuẩn ISBN.
