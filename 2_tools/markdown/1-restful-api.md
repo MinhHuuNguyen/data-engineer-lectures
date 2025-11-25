@@ -13,7 +13,7 @@ is_published: true
 API (Application Programming Interface) là “giao diện lập trình ứng dụng” – một cách để các chương trình máy tính giao tiếp với nhau.
 Thay vì một ứng dụng phải hiểu nội bộ của ứng dụng khác, nó chỉ cần gọi các hàm / endpoint mà ứng dụng kia cung cấp.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_menu.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_menu.jpeg" style="width: 400px;"/>
 
 Ví dụ: Ứng dụng thời tiết trên điện thoại gọi API của server để lấy dữ liệu nhiệt độ, độ ẩm, dự báo.
 
@@ -26,7 +26,7 @@ Ta có thể xem như API là “Menu” của một nhà hàng: bạn chỉ c�
 
 API giúp độc lập hoá các ứng dụng với nhau, trong khi thư viện là tái sử dụng mã nguồn trong cùng một ứng dụng.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_vs_library.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_vs_library.jpeg" style="width: 400px;"/>
 
 ### Phân nhóm các loại API
 
@@ -37,7 +37,7 @@ API giúp độc lập hoá các ứng dụng với nhau, trong khi thư viện 
 - **GraphQL API:** 1 endpoint, client tự chọn dữ liệu cần
 - **gRPC:** dựa trên HTTP/2, dùng protobuf để serialize dữ liệu
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_type_1.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_type_1.jpeg" style="width: 600px;"/>
 
 Ví dụ về SOAP API lấy dữ liệu thời tiết
 
@@ -159,7 +159,7 @@ trong đó:
 - **Service API:** Cung cấp các chức năng hoặc dịch vụ cụ thể. Ví dụ: thanh toán trực tuyến (PayPal API), dịch vụ gửi email (SendGrid API).
 - **Hardware API:** Tương tác với phần cứng hoặc thiết bị. Ví dụ: API camera, API cảm biến IoT.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_type_2.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_type_2.jpeg" style="width: 400px;"/>
 
 #### Theo phạm vi sử dụng
 
@@ -167,7 +167,7 @@ trong đó:
 - **Internal/Private API:** chỉ sử dụng trong nội bộ công ty hoặc tổ chức. Giúp các module hoặc microservice trong cùng hệ thống giao tiếp với nhau.
 - **Partner API:** chia sẻ với các đối tác hoặc tổ chức được cấp quyền. Thường có cơ chế authentication và giới hạn truy cập.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_type_3.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/api_type_3.jpeg" style="width: 600px;"/>
 
 ## 2. URI, URL và URN là gì?
 
@@ -242,7 +242,7 @@ HTTP định nghĩa cách thức client (thường là trình duyệt) và serve
 HTTPS (HyperText Transfer Protocol Secure) là phiên bản bảo mật của HTTP, hoạt động thông qua cơ chế mã hoá bổ sung.
 Chữ S trong HTTPS là là "Secure".
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/https.jpeg" style="width: 500px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/https.jpeg" style="width: 300px;"/>
 
 Đặc điểm chính:
 - Xác thực danh tính máy chủ qua chứng chỉ số (SSL/TLS certificate): Đảm bảo người dùng đang kết nối đúng server.

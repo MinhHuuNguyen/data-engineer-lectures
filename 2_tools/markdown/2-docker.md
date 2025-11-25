@@ -59,6 +59,8 @@ Câu hỏi mà nhiều nhà phát triển đặt ra là: **"Có cách nào 'đó
 
 **Định nghĩa:** Containerization là kỹ thuật đóng gói ứng dụng gồm đầy đủ **Mã nguồn ứng dụng**, **Runtime environment**, một số **Driver và phụ thuộc hệ thống** vào thành một “hộp” gọi là Container, có thể chạy ổn định trên nhiều môi trường khác nhau.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/container_deployment.jpeg" style="width: 500px;"/>
+
 Containerization cung cấp một cách tiếp cận tiêu chuẩn hóa cho việc triển khai ứng dụng và giúp giảm thiểu các vấn đề liên quan đến sự khác biệt giữa môi trường phát triển và môi trường sản phẩm cuối cùng.
 
 ### 2.2. So sánh Containerization và Virtual Machine (VM)
@@ -67,6 +69,8 @@ Containerization cung cấp một cách tiếp cận tiêu chuẩn hóa cho vi�
 
 Kernel là thành phần lõi của hệ điều hành (OS), chịu trách nhiệm quản lý trực tiếp phần cứng và cung cấp các dịch vụ cơ bản cho các tiến trình.
 Kernel là "bộ não" điều phối tất cả hoạt động giữa phần mềm và phần cứng.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/kernel_in_operation_system.jpeg" style="width: 500px;"/>
 
 Chức năng chính của kernel:
 - **Quản lý tiến trình (Process Management):** Tạo, xóa, lập lịch (scheduling), chuyển trạng thái tiến trình.
@@ -80,6 +84,8 @@ Chức năng chính của kernel:
 Hypervisor (hay Virtual Machine Monitor – VMM) là phần mềm hoặc firmware cho phép tạo và chạy máy ảo (Virtual Machine – VM) bằng cách ảo hóa tài nguyên phần cứng.
 
 Hypervisor đứng bên dưới các VM, chịu trách nhiệm phân phối CPU, RAM, I/O cho từng VM.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/virtual_machine.jpeg" style="width: 500px;"/>
 
 Chức năng chính của hypervisor:
 - Tạo VM mới.
@@ -95,6 +101,8 @@ Ví dụ: Xét một ứng dụng web trên hệ điều hành Ubuntu 20.04, s�
 - Để triển khai ứng dụng web này trong thực tế, ta cần đóng gói ứng dụng này cùng với môi trường chạy và các phụ thuộc cần thiết, tạo thành một container.
 - Ta cần chạy container này trên một máy chủ khác, giả sử máy chủ chạy hệ điều hành Windows 10, vậy container này có thể chạy ổn định trên máy chủ Windows 10 không?
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/containerization_vs_virtual_machine.jpeg" style="width: 500px;"/>
+
 Để chạy được container này trên máy chủ Windows 10, Windows 10 cần sử dụng một cơ chế ảo hoá (là Windows Subsystem for Linux - WSL hoặc LinuxKit) để tạo ra kernel cho hệ điều hành Ubuntu 20.04, từ đó mới có thể chạy được container chứa ứng dụng web.
 
 Bản chất của cơ chế ảo hoá của WSL hoặc LinuxKit tương tự như hypervisor trong VM, nhưng thay vì tạo ra một máy ảo đầy đủ với hệ điều hành riêng biệt, nó chỉ tạo ra một môi trường kernel chung để các container có thể chia sẻ và chạy trên đó.
@@ -109,10 +117,12 @@ Containerization mang lại nhiều lợi ích quan trọng trong việc phát t
 - **Di động và linh hoạt:** Container có thể chuyển đổi giữa các môi trường khác nhau mà gần như không gặp sự cản trở, từ máy tính cá nhân đến máy chủ trên đám mây.
 - **Tiết kiệm tài nguyên:** So với máy ảo truyền thống, sử dụng ít tài nguyên hơn, cho phép bạn chạy nhiều container trên cùng một máy.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/containerization_values.jpeg" style="width: 500px;"/>
+
 Một số công cụ containerization phổ biến:
 - **Docker:** Là công cụ containerization phổ biến nhất, giúp xây dựng (build), đóng gói (package), phân phối (ship), chạy (run) các ứng dụng dưới dạng container.
 - **Kubernetes:** Là một hệ thống quản lý container mã nguồn mở được sử dụng rộng rãi để tự động hóa việc triển khai, quản lý và mở rộng các container, giúp quản lý nhiều container trên các nút máy chủ khác nhau.
-- Một số công cụ khác như Podman, LXC (Linux Containers)...
+- Một số công cụ khác như **Podman**, **LXC (Linux Containers)**...
 
 ## 3. Tổng quan về Docker
 
@@ -186,6 +196,8 @@ Lệnh này sẽ thực thi khi bạn chạy container.
 CMD ["python3", "/app/main.py"]
 ```
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/dockerfile_image.jpeg" style="width: 500px;"/>
+
 ### 3.2. Bước 2: Build Docker Image
 
 Sau khi bạn đã viết xong Dockerfile, bạn có thể sử dụng lệnh docker build để xây dựng image từ Dockerfile.
@@ -198,6 +210,8 @@ Nếu như Dockerfile giống như một file chứa bản vẽ thiết kế v�
 
 Docker image là một "bản sao" tĩnh của ứng dụng và môi trường chạy, được tạo ra từ Dockerfile.
 Nói cách khác, Docker image là một đối tượng chứa ứng dụng một cách hoàn chỉnh, chỉ có điều là nó chưa được chạy thôi.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/docker_image_container.jpeg" style="width: 500px;"/>
 
 ### 3.3. Bước 3: Run Docker Container
 
@@ -214,6 +228,8 @@ Trên thực tế, từ một Docker image, bạn có thể tạo ra nhiều Doc
 
 Việc Run Docker Container thường được sử dụng trong quá trình phát triển và kiểm thử ứng dụng.
 Trong các hệ thống lớn hơn và trong môi trường production, người ta thường sử dụng các công cụ quản lý container như Docker Compose hoặc Kubernetes để triển khai và quản lý nhiều container một cách hiệu quả hơn.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/docker_image_containers.jpeg" style="width: 500px;"/>
 
 ### 3.4. Bước 4: Push Docker Image lên Docker Registry
 
@@ -250,3 +266,5 @@ Sau đó, bạn có thể chạy container từ image đã pull về như bình 
 ``` bash
 docker run -p 8000:8000 username/my-app:latest
 ```
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/2-docker/docker_registry_hub.jpeg" style="width: 500px;"/>
