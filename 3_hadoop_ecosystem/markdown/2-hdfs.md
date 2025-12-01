@@ -1,9 +1,9 @@
 ---
-time: 09/09/2021
-title: Giới thiệu về Hadoop Distributed File System (HDFS)
-description:
-banner_url: 
-tags: [big-data]
+time: 10/18/2022
+title: Hệ thống tệp phân tán Hadoop Distributed File System (HDFS)
+description: HDFS (Hadoop Distributed File System) là hệ thống tệp phân tán được thiết kế để lưu trữ dữ liệu dung lượng rất lớn trên cụm máy chủ phổ thông, đồng thời đảm bảo khả năng chịu lỗi cao và thông lượng truy cập lớn. Nhờ khả năng mở rộng tuyến tính và cơ chế tự phục hồi, HDFS trở thành lớp lưu trữ cốt lõi trong các hệ thống phân tích dữ liệu lớn và xử lý song song trong Hadoop.
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/banner.jpeg
+tags: [big-data, hadoop]
 is_highlight: false
 is_published: true
 ---

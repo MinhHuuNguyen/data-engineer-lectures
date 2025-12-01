@@ -1,9 +1,9 @@
 ---
-time: 09/09/2021
-title: Giới thiệu về Apache Spark
-description:
-banner_url: 
-tags: [big-data]
+time: 11/04/2022
+title: Nền tảng xử lý dữ liệu lớn Apache Spark
+description: Apache Spark là nền tảng xử lý dữ liệu lớn in-memory được thiết kế cho hiệu năng cao và khả năng xử lý linh hoạt. Khác với MapReduce chỉ hoạt động theo mô hình batch, Spark giữ dữ liệu trong bộ nhớ qua nhiều bước tính toán, giúp tăng tốc đáng kể các tác vụ lặp như học máy, phân tích biểu đồ và xử lý tương tác. Nhờ khả năng mở rộng và tốc độ vượt trội, Spark trở thành lựa chọn phổ biến trong các hệ thống phân tích dữ liệu hiện đại.
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/banner.jpeg
+tags: [big-data, hadoop]
 is_highlight: false
 is_published: true
 ---

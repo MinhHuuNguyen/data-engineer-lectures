@@ -46,14 +46,42 @@ Dữ liệu từ các trang web đóng vai trò quan trọng trong việc phân 
 
 ---
 
-### [Bài 4: Giới thiệu chung về hệ sinh thái Hadoop](/blog/gioi-thieu-chung-ve-he-sinh-thai-hadoop)
+### [Bài 4: Hệ sinh thái Hadoop](/blog/he-sinh-thai-hadoop)
 
-### [Bài 5: Giới thiệu về Hadoop Distributed File System (HDFS)](/blog/gioi-thieu-ve-hadoop-distributed-file-system-hdfs)
+Hệ sinh thái Hadoop là một nền tảng xử lý dữ liệu lớn được xây dựng xoay quanh khả năng lưu trữ phân tán và tính toán song song trên cụm máy chủ giá rẻ. Trung tâm của hệ sinh thái là HDFS đảm nhiệm lưu trữ dữ liệu dung lượng lớn theo dạng phân mảnh, YARN quản lý tài nguyên và lập lịch tác vụ. Nhiều thành phần mở rộng được phát triển để đáp ứng các nhu cầu khác nhau như MapReduce, Hive, HBase, Spark, Pig, Oozie, Zookeeper, Avro, Parquet. Nhờ kiến trúc linh hoạt, Hadoop trở thành nền tảng phổ biến cho phân tích dữ liệu lớn, học máy và hệ thống kho dữ liệu hiện đại.
 
-### [Bài 6: Giới thiệu về Hadoop MapReduce](/blog/gioi-thieu-ve-hadoop-mapreduce)
+###### 1. Tổng quan về hệ sinh thái Hadoop
 
-### [Bài 7: Giới thiệu về Yet Another Resource Negotiator (YARN)](/blog/gioi-thieu-ve-yarn)
+###### 2. Các thành phần cốt lõi trong hệ sinh thái Hadoop
 
-### [Bài 8: Giới thiệu về Apache Spark](/blog/gioi-thieu-ve-apache-spark)
+###### 3. Các thành phần mở rộng phổ biến trong hệ sinh thái Hadoop
 
-### [Bài 9: Giới thiệu về Apache Kafka](/blog/gioi-thieu-ve-apache-kafka)
+---
+
+### [Bài 5: Hệ thống tệp phân tán Hadoop Distributed File System (HDFS)](/blog/he-thong-tep-phan-tan-hadoop-distributed-file-system-hdfs)
+
+HDFS (Hadoop Distributed File System) là hệ thống tệp phân tán được thiết kế để lưu trữ dữ liệu dung lượng rất lớn trên cụm máy chủ phổ thông, đồng thời đảm bảo khả năng chịu lỗi cao và thông lượng truy cập lớn. Nhờ khả năng mở rộng tuyến tính và cơ chế tự phục hồi, HDFS trở thành lớp lưu trữ cốt lõi trong các hệ thống phân tích dữ liệu lớn và xử lý song song trong Hadoop.
+
+---
+
+### [Bài 6: Framework xử lý dữ liệu Hadoop Map Reduce](/blog/framework-xu-ly-du-lieu-hadoop-map-reduce)
+
+Hadoop MapReduce là mô hình và framework xử lý dữ liệu lớn theo phương thức song song và phân tán trên cụm máy chủ. Nhờ tận dụng tài nguyên từ toàn bộ cụm máy, MapReduce cho phép xử lý khối lượng dữ liệu rất lớn theo dạng batch với khả năng chịu lỗi cao. Đây là nền tảng truyền thống cho nhiều ứng dụng phân tích dữ liệu trong hệ sinh thái Hadoop.
+
+---
+
+### [Bài 7: Lớp quản lý tài nguyên Hadoop Yet Another Resource Negotiator (YARN)](/blog/lop-quan-ly-tai-nguyen-hadoop-yet-another-resource-negotiator-yarn)
+
+Hadoop YARN (Yet Another Resource Negotiator) là lớp quản lý tài nguyên và lập lịch trung tâm trong hệ sinh thái Hadoop, chịu trách nhiệm phân phối tài nguyên tính toán cho các ứng dụng chạy trên cụm. Nhờ cơ chế tách biệt giữa quản lý tài nguyên và mô hình xử lý, YARN cho phép nhiều framework như MapReduce, Spark, Tez cùng hoạt động linh hoạt trên cùng hạ tầng.
+
+---
+
+### [Bài 8: Nền tảng xử lý dữ liệu lớn Apache Spark](/blog/nen-tang-xu-ly-du-lieu-lon-apache-spark)
+
+Apache Spark là nền tảng xử lý dữ liệu lớn in-memory được thiết kế cho hiệu năng cao và khả năng xử lý linh hoạt. Khác với MapReduce chỉ hoạt động theo mô hình batch, Spark giữ dữ liệu trong bộ nhớ qua nhiều bước tính toán, giúp tăng tốc đáng kể các tác vụ lặp như học máy, phân tích biểu đồ và xử lý tương tác. Nhờ khả năng mở rộng và tốc độ vượt trội, Spark trở thành lựa chọn phổ biến trong các hệ thống phân tích dữ liệu hiện đại.
+
+---
+
+### [Bài 9: Nền tảng streaming phân tán Apache Kafka](/blog/nen-tang-streaming-phan-tan-apache-kafka)
+
+Apache Kafka là nền tảng streaming phân tán được thiết kế để xử lý dữ liệu theo thời gian thực với độ tin cậy và thông lượng rất cao. Kafka hoạt động như một hệ thống hàng đợi nhật ký (commit log), nơi dữ liệu được ghi vào các topics và lưu trữ bền vững, cho phép nhiều ứng dụng tiêu thụ song song. Nhờ khả năng mở rộng tuyến tính, chịu lỗi tốt và độ trễ thấp, Kafka trở thành thành phần cốt lõi trong các hệ thống phân tích thời gian thực, event-driven architecture và pipeline dữ liệu lớn.

@@ -1,9 +1,9 @@
 ---
-time: 09/09/2021
-title: Giới thiệu về Hadoop Map Reduce
-description:
-banner_url: 
-tags: [big-data]
+time: 10/31/2022
+title: Framework xử lý dữ liệu Hadoop Map Reduce
+description: Hadoop MapReduce là mô hình và framework xử lý dữ liệu lớn theo phương thức song song và phân tán trên cụm máy chủ. Nhờ tận dụng tài nguyên từ toàn bộ cụm máy, MapReduce cho phép xử lý khối lượng dữ liệu rất lớn theo dạng batch với khả năng chịu lỗi cao. Đây là nền tảng truyền thống cho nhiều ứng dụng phân tích dữ liệu trong hệ sinh thái Hadoop.
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/banner.jpeg
+tags: [big-data, hadoop]
 is_highlight: false
 is_published: true
 ---

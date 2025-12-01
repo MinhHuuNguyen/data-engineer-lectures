@@ -1,9 +1,9 @@
 ---
-time: 09/09/2021
-title: Giới thiệu về Yet Another Resource Negotiator (YARN)
-description:
-banner_url: 
-tags: [big-data]
+time: 11/02/2022
+title: Lớp quản lý tài nguyên Hadoop Yet Another Resource Negotiator (YARN)
+description: Hadoop YARN (Yet Another Resource Negotiator) là lớp quản lý tài nguyên và lập lịch trung tâm trong hệ sinh thái Hadoop, chịu trách nhiệm phân phối tài nguyên tính toán cho các ứng dụng chạy trên cụm. Nhờ cơ chế tách biệt giữa quản lý tài nguyên và mô hình xử lý, YARN cho phép nhiều framework như MapReduce, Spark, Tez cùng hoạt động linh hoạt trên cùng hạ tầng.
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/banner.jpeg
+tags: [big-data, hadoop]
 is_highlight: false
 is_published: true
 ---

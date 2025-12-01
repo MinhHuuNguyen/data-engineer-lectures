@@ -1,9 +1,9 @@
 ---
-time: 09/09/2021
-title: Giới thiệu về Apache Kafka
-description:
-banner_url: 
-tags: [big-data]
+time: 11/09/2022
+title: Nền tảng streaming phân tán Apache Kafka
+description: Apache Kafka là nền tảng streaming phân tán được thiết kế để xử lý dữ liệu theo thời gian thực với độ tin cậy và thông lượng rất cao. Kafka hoạt động như một hệ thống hàng đợi nhật ký (commit log), nơi dữ liệu được ghi vào các topics và lưu trữ bền vững, cho phép nhiều ứng dụng tiêu thụ song song. Nhờ khả năng mở rộng tuyến tính, chịu lỗi tốt và độ trễ thấp, Kafka trở thành thành phần cốt lõi trong các hệ thống phân tích thời gian thực, event-driven architecture và pipeline dữ liệu lớn.
+banner_url: https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/banner.jpeg
+tags: [big-data, hadoop]
 is_highlight: false
 is_published: true
 ---
