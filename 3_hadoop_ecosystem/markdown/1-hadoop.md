@@ -108,7 +108,7 @@ Pig giúp lập trình viên không phải viết hàng trăm dòng Java cho Map
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_alex_holmes.pdf), mô tả kiến trúc của Pig.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/pig.jpeg" style="width: 600px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/pig.jpeg" style="width: 400px;"/>
 
 *Note: DSL – Domain-Specific Language là ngôn ngữ lập trình hoặc ngôn ngữ mô tả được thiết kế chỉ để giải quyết một nhóm vấn đề cụ thể, thay vì dùng cho mục đích chung.*
 *Ví dụ: Pig Latin dùng cho ETL và xử lý dữ liệu batch trên Hadoop, SQL dùng cho truy vấn cơ sở dữ liệu quan hệ, Terraform HCL dùng cho khai báo hạ tầng, Regex dùng cho xử lý chuỗi ký tự ...*
@@ -234,7 +234,7 @@ Một số cơ chế điều phối quan trọng mà ZooKeeper cung cấp như k
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả kiến trúc của ZooKeeper.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/zookeeper.jpeg" style="width: 600px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/zookeeper.jpeg" style="width: 400px;"/>
 
 ZooKeeper không loại bỏ được lỗi một phần (partial failure) vốn là tính chất của hệ phân tán, nhưng cung cấp các công cụ an toàn và đã được kiểm chứng để xử lý các tình huống đó, giúp nhà phát triển tránh những điểm đơn lẻ gây mất tin cậy và giảm độ phức tạp khi triển khai các giao thức điều phối.
 
@@ -248,7 +248,7 @@ Nhờ khả năng mở rộng và tốc độ vượt trội, Spark trở thành
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Spark.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/architecture.jpeg" style="width: 600px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/architecture.jpeg" style="width: 800px;"/>
 
 Để hiểu rõ hơn về cơ chế hoạt động và các câu lệnh trong Spark, bạn có thể tham khảo bài viết chi tiết [Nền tảng xử lý dữ liệu lớn Apache Spark](/blog/nen-tang-xu-ly-du-lieu-lon-apache-spark).
 
@@ -261,6 +261,6 @@ Nhờ khả năng mở rộng tuyến tính, chịu lỗi tốt và độ trễ 
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Kafka.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/architecture.jpeg" style="width: 600px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/architecture.jpeg" style="width: 800px;"/>
 
 Để hiểu rõ hơn về cơ chế hoạt động và các câu lệnh trong Kafka, bạn có thể tham khảo bài viết chi tiết [Nền tảng streaming phân tán Apache Kafka](/blog/nen-tang-streaming-phan-tan-apache-kafka).

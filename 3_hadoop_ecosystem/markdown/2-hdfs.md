@@ -64,7 +64,7 @@ Nếu NameNode gặp sự cố, toàn bộ hệ thống HDFS có thể bị tắ
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả các bước đọc dữ liệu giữa client, NameNode và DataNode trong HDFS.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/2-hdfs/read_data.jpeg" style="width: 900px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/2-hdfs/read_data.jpeg" style="width: 800px;"/>
 
 ### DataNode
 
@@ -95,7 +95,7 @@ NameNode gửi danh sách các DataNode chứa bản sao của mỗi block, đư
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả các bước hoạt động của Secondary NameNode trong HDFS.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/2-hdfs/secondary_name_node.jpeg" style="width: 900px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/2-hdfs/secondary_name_node.jpeg" style="width: 600px;"/>
 
 Secondary NameNode không phải là một sao lưu thay thế cho NameNode, mà thực hiện các nhiệm vụ hỗ trợ.
 Secondary NameNode thường được chạy trên một máy vật lý riêng biệt để tránh gây ảnh hưởng đến hiệu suất của NameNode.
