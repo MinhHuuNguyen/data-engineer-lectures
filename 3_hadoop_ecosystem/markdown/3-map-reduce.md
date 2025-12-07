@@ -76,7 +76,7 @@ Kết quả đầu ra từ hàm Map sẽ là: ```("Alice", 30) ("Charlie", 35)``
 
 Những bản ghi có tuổi 28 trở xuống (Bob, David, Eve) sẽ không tạo ra cặp key/value nào, do đó chúng bị loại bỏ trong quá trình xử lý.
 
-### Giai đoạn Shuffle và Sort
+### 1.2. Giai đoạn Shuffle và Sort
 
 Sau khi Map hoàn tất, Shuffle và Sort đảm nhận nhiệm vụ bảo đảm rằng dữ liệu trung gian được chuyển đến đúng nơi để thực hiện Reduce một cách hiệu quả.
 Mục tiêu chính của giai đoạn này là:
@@ -98,7 +98,7 @@ Trước khi reducer nhận dữ liệu, hệ thống thực hiện Sort, sắp 
 Nhờ sorting, reducer có thể xử lý từng khóa theo từng nhóm mà không cần tìm kiếm hay tổ chức lại dữ liệu.
 Sorting theo khóa là bước bắt buộc, vì reduce xử lý theo đơn vị khóa, không phải từng bản ghi rời rạc.
 
-### Hàm Reduce
+### 1.3. Hàm Reduce
 
 Reduce tổng hợp dữ liệu theo khóa (gọi là aggregation) và chịu trách nhiệm xử lý **một lần cho mỗi khóa duy nhất**, thực hiện các phép tổng hợp, gom nhóm, tính toán cuối cùng theo khóa đó.
 
@@ -196,6 +196,8 @@ reducer computes count = 1
 reduce input for "goodbye": [1]
 reducer computes count = 1
 ```
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/map_reduce.jpeg" style="width: 800px;"/>
 
 ## 3. Ví dụ: Tính giá trị trung bình nhiệt độ theo sensor
 

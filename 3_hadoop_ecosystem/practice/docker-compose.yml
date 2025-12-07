@@ -148,7 +148,6 @@ services:
     networks:
       - bigdata
 
-
 volumes:
   namenode-data:
   datanode1-data:
