@@ -4,4 +4,7 @@
 __pycache__
 *.parquet
 *.csv
-0_practice_coding/hadoop_demo/mapreduce_data/*
+
+# Output files
+3_hadoop_ecosystem/practice/map_reduce_demo/mapper_output.txt
+3_hadoop_ecosystem/practice/map_reduce_demo/reducer_output.txt
