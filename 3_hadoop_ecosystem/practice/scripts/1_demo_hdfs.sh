@@ -28,6 +28,8 @@ hdfs dfs -cat /lab/hdfs-demo/demo.txt
 
 # Copy file lớn
 sudo docker cp data/dummy_parquet_dataset/mapreduce_data/wordcount_dataset namenode:/
+sudo docker exec -it namenode bash
+ls
 hdfs dfs -mkdir /wordcount_dataset
 hdfs dfs -put /wordcount_dataset/small_500k.txt /wordcount_dataset/small_500k.txt
 hdfs dfs -put /wordcount_dataset/big_5M.txt /wordcount_dataset/big_5M.txt
@@ -64,7 +66,7 @@ hdfs dfs -rm /wordcount_dataset/small_500k.txt
 hdfs dfs -ls /wordcount_dataset
 hdfs dfs -mkdir -p /test_dir/input_level_1/input_level_2/input_level_3
 hdfs dfs -rmdir /test_dir/input_level_1/input_level_2/input_level_3
-hdfs dfs -get /wordcount_dataset/small_500k.txt /tmp
+hdfs dfs -get /wordcount_dataset/big_5M.txt /big_5M.txt
 hdfs dfs -count /
 hdfs dfs -df
 hdfs dfs -head /wordcount_dataset/small_500k.txt
