@@ -62,17 +62,33 @@ Hệ sinh thái Hadoop là một nền tảng xử lý dữ liệu lớn đượ
 
 HDFS (Hadoop Distributed File System) là hệ thống tệp phân tán được thiết kế để lưu trữ dữ liệu dung lượng rất lớn trên cụm máy chủ phổ thông, đồng thời đảm bảo khả năng chịu lỗi cao và thông lượng truy cập lớn. Nhờ khả năng mở rộng tuyến tính và cơ chế tự phục hồi, HDFS trở thành lớp lưu trữ cốt lõi trong các hệ thống phân tích dữ liệu lớn và xử lý song song trong Hadoop.
 
+###### 1. Distributed File System (DFS) và Hadoop Distributed File System (HDFS)
+
+###### 2. Kiến trúc của HDFS
+
 ---
 
 ### [Bài 6: Framework xử lý dữ liệu Hadoop Map Reduce](/blog/framework-xu-ly-du-lieu-hadoop-map-reduce)
 
 Hadoop MapReduce là mô hình và framework xử lý dữ liệu lớn theo phương thức song song và phân tán trên cụm máy chủ. Nhờ tận dụng tài nguyên từ toàn bộ cụm máy, MapReduce cho phép xử lý khối lượng dữ liệu rất lớn theo dạng batch với khả năng chịu lỗi cao. Đây là nền tảng truyền thống cho nhiều ứng dụng phân tích dữ liệu trong hệ sinh thái Hadoop.
 
+###### 1. Kiến trúc tổng quát của MapReduce
+
+###### 2. Ví dụ: Đếm từ trong văn bản - Word Count
+
+###### 3. Ví dụ: Tính giá trị trung bình nhiệt độ theo sensor
+
 ---
 
 ### [Bài 7: Lớp quản lý tài nguyên Hadoop Yet Another Resource Negotiator (YARN)](/blog/lop-quan-ly-tai-nguyen-hadoop-yet-another-resource-negotiator-yarn)
 
 Hadoop YARN (Yet Another Resource Negotiator) là lớp quản lý tài nguyên và lập lịch trung tâm trong hệ sinh thái Hadoop, chịu trách nhiệm phân phối tài nguyên tính toán cho các ứng dụng chạy trên cụm. Nhờ cơ chế tách biệt giữa quản lý tài nguyên và mô hình xử lý, YARN cho phép nhiều framework như MapReduce, Spark, Tez cùng hoạt động linh hoạt trên cùng hạ tầng.
+
+###### 1. Kiến trúc tổng quát của YARN
+
+###### 2. Các bước hoạt động của YARN
+
+###### 3. Ví dụ YARN quản lý tài nguyên cho ứng dụng MapReduce
 
 ---
 
