@@ -27,7 +27,7 @@ Các framework như MapReduce v2 (MRv2), Spark (in cluster mode), Tez, Flink (on
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_alex_holmes.pdf), so sánh giữa Hadoop 1 và Hadoop 2 với YARN.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/hadoop_1_vs_2.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/4-yarn/hadoop_1_vs_2.jpeg" style="width: 800px;"/>
 
 Một cách tổng quát, YARN thực hiện hai công việc chính:
 - Phản hồi yêu cầu của người dùng thông qua việc phân bổ tài nguyên cho các ứng dụng.
@@ -52,7 +52,7 @@ Một số thuật toán lập lịch phổ biến bao gồm:
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_alex_holmes.pdf), mô tả vị trí của ResourceManager và NodeManager trong kiến trúc YARN.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/resource_manager_node_manager.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/4-yarn/resource_manager_node_manager.jpeg" style="width: 800px;"/>
 
 Vì ResourceManager là thành phần quan trọng, nên trong các triển khai sản xuất thường có cơ chế dự phòng (High Availability - HA) để tránh điểm lỗi đơn lẻ (Single Point of Failure - SPOF).
 
@@ -71,7 +71,7 @@ Nó không xử lý nghiệp vụ trực tiếp mà chịu trách nhiệm quản
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_alex_holmes.pdf), mô tả kiến trúc master-slave và các thành phần chính của YARN.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/architecture.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/4-yarn/architecture.jpeg" style="width: 800px;"/>
 
 ApplicationMaster gửi yêu cầu cấp tài nguyên lên ResourceManager và làm việc với NodeManager để thực sự khởi tạo container.
 Trong quá trình này, ApplicationMaster phải chỉ rõ yêu cầu tài nguyên của từng container, gồm vị trí node, bộ nhớ và CPU cần thiết. Khả năng mô tả và yêu cầu tài nguyên chính xác của ApplicationMaster giúp ResourceManager lập lịch linh hoạt và tối ưu việc sử dụng tài nguyên giữa nhiều node trong cluster.
@@ -91,7 +91,7 @@ Chính khả năng tạo và quản lý các tiến trình tùy ý trên toàn c
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_alex_holmes.pdf), mô tả vị trí của Container trong kiến trúc YARN.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/container.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/4-yarn/container.jpeg" style="width: 800px;"/>
 
 Mỗi node trong cluster có thể chạy một hoặc nhiều container, tùy thuộc vào tài nguyên sẵn có và yêu cầu của ứng dụng.
 Mỗi container được cấp phát một lượng tài nguyên nhất định (CPU, bộ nhớ) và NodeManager giám sát việc sử dụng tài nguyên này để đảm bảo không vượt quá giới hạn đã định.
@@ -119,7 +119,7 @@ Khi hệ thống đã sẵn sàng và nhận yêu cầu từ người dùng, quy
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả luồng hoạt động của YARN trong quá trình thực thi một ứng dụng MapReduce.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/workflow.jpeg" style="width: 700px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/4-yarn/workflow.jpeg" style="width: 800px;"/>
 
 - **Bước 9:** Các tác vụ của ứng dụng chạy trên các máy chủ khác nhau, có thể đọc dữ liệu cần thiết từ HDFS và gửi trạng thái của chúng cho ApplicationMaster.
 - **Bước 10:** ApplicationMaster gửi trạng thái của các tác vụ cho ResourceManager và ResourceManager gửi trạng thái của các tác vụ cho YARN Client để hiển thị cho người dùng.

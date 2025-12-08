@@ -84,11 +84,11 @@ Hadoop MapReduce là mô hình và framework xử lý dữ liệu lớn theo ph�
 
 Hadoop YARN (Yet Another Resource Negotiator) là lớp quản lý tài nguyên và lập lịch trung tâm trong hệ sinh thái Hadoop, chịu trách nhiệm phân phối tài nguyên tính toán cho các ứng dụng chạy trên cụm. Nhờ cơ chế tách biệt giữa quản lý tài nguyên và mô hình xử lý, YARN cho phép nhiều framework như MapReduce, Spark, Tez cùng hoạt động linh hoạt trên cùng hạ tầng.
 
-###### 1. Kiến trúc tổng quát của YARN
+###### 1. Vấn đề của Hadoop 1 khi không có YARN
 
-###### 2. Các bước hoạt động của YARN
+###### 2. Kiến trúc và các thành phần chính của YARN
 
-###### 3. Ví dụ YARN quản lý tài nguyên cho ứng dụng MapReduce
+###### 3. Luồng hoạt động của YARN
 
 ---
 
