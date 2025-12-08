@@ -23,7 +23,7 @@ Một số ưu điểm của DFS:
 HDFS (Hadoop Distributed File System) là một hệ thống tệp phân tán và là một trong những thành phần quan trọng nhất của hệ sinh thái Hadoop.
 HDFS được thiết kế để lưu trữ và quản lý dữ liệu lớn trên một tập hợp các máy chủ phân tán, và nó cung cấp tính đáng tin cậy và khả năng mở rộng cao.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của HDFS.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của HDFS.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/2-hdfs/architecture.jpeg" style="width: 900px;"/>
 
@@ -62,7 +62,7 @@ NameNode cũng theo dõi tất cả các hoạt động đọc và ghi dữ li�
 Trong một Hadoop cluster, chỉ có một NameNode duy nhất, do đó, điều này làm cho NameNode trở thành một điểm yếu tiềm ẩn.
 Nếu NameNode gặp sự cố, toàn bộ hệ thống HDFS có thể bị tắt.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả các bước đọc dữ liệu giữa client, NameNode và DataNode trong HDFS.
+Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả các bước đọc dữ liệu giữa client, NameNode và DataNode trong HDFS.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/2-hdfs/read_data.jpeg" style="width: 800px;"/>
 
@@ -93,7 +93,7 @@ NameNode gửi danh sách các DataNode chứa bản sao của mỗi block, đư
 
 ### Secondary NameNode
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả các bước hoạt động của Secondary NameNode trong HDFS.
+Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả các bước hoạt động của Secondary NameNode trong HDFS.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/2-hdfs/secondary_name_node.jpeg" style="width: 600px;"/>
 

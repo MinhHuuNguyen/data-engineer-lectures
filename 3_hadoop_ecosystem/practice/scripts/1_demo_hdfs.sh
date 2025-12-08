@@ -1,4 +1,8 @@
-# 1. Vào container NameNode
+# 0. Bật cluster Hadoop (nếu chưa bặt)
+sudo docker compose up -d
+
+# 1. Copy dữ liệu vào container NameNode và vào bên trong container
+sudo docker cp data/dummy_parquet_dataset/mapreduce_data/wordcount_dataset namenode:/
 sudo docker exec -it namenode bash
 
 # 2. Kiểm tra tổng quan HDFS
@@ -27,7 +31,6 @@ hdfs dfs -ls /lab/hdfs-demo
 hdfs dfs -cat /lab/hdfs-demo/demo.txt
 
 # Copy file lớn
-sudo docker cp data/dummy_parquet_dataset/mapreduce_data/wordcount_dataset namenode:/
 sudo docker exec -it namenode bash
 ls
 hdfs dfs -mkdir /wordcount_dataset

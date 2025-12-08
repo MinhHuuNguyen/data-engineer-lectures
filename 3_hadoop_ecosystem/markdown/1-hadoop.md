@@ -16,7 +16,7 @@ Apache Hadoop là một khung phần mềm mã nguồn mở được thiết k�
 Thiết kế của Hadoop hướng đến mở rộng quy mô và chịu lỗi: nó ưu tiên thông lượng đọc ghi cao và chạy các phép tính gần dữ liệu (data locality) để tránh nghẽn mạng.
 Kết quả là Hadoop cho phép xử lý song song hàng petabyte dữ liệu, linh hoạt nâng cấp thêm máy khi cần mà không đòi hỏi phần cứng đắt tiền.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf) của tác giả Alex Holmes, mô tả tổng quan về đặc điểm của hệ sinh thái Hadoop.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf) của tác giả Alex Holmes, mô tả tổng quan về đặc điểm của hệ sinh thái Hadoop.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/idea.jpeg" style="width: 600px;"/>
 
@@ -27,7 +27,7 @@ Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Secon
 
 ## 2. Các thành phần cốt lõi trong hệ sinh thái Hadoop
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), giới thiệu về các thành phần trong hệ sinh thái Hadoop.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), giới thiệu về các thành phần trong hệ sinh thái Hadoop.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/ecosystem.jpeg" style="width: 1000px;"/>
 
@@ -40,7 +40,7 @@ Cách tiếp cận này giúp Hadoop lưu trữ và xử lý dữ liệu theo ch
 
 HDFS (Hadoop Distributed File System) là hệ thống tệp phân tán được thiết kế để lưu trữ dữ liệu dung lượng rất lớn trên cụm máy chủ phổ thông, đồng thời đảm bảo khả năng chịu lỗi cao và thông lượng truy cập lớn.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của HDFS.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của HDFS.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/2-hdfs/architecture.jpeg" style="width: 900px;"/>
 
@@ -55,7 +55,7 @@ Nhờ khả năng mở rộng tuyến tính và cơ chế tự phục hồi, HDF
 
 Hadoop MapReduce là mô hình và framework xử lý dữ liệu lớn theo phương thức song song và phân tán trên cụm máy chủ.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Hadoop MapReduce.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Hadoop MapReduce.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/architecture.jpeg" style="width: 700px;"/>
 
@@ -70,7 +70,7 @@ Nhờ tận dụng tài nguyên từ toàn bộ cụm máy, MapReduce cho phép 
 
 Hadoop YARN (Yet Another Resource Negotiator) là lớp quản lý tài nguyên và lập lịch trung tâm trong hệ sinh thái Hadoop, chịu trách nhiệm phân phối tài nguyên tính toán cho các ứng dụng chạy trên cụm.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của YARN.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của YARN.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/4-yarn/architecture.jpeg" style="width: 900px;"/>
 
@@ -93,7 +93,7 @@ Người dùng viết câu lệnh HiveQL (một biến thể của SQL) để th
 Nhờ đó, các nhà phân tích và kỹ sư dữ liệu có thể thao tác với petabyte dữ liệu trên HDFS mà không cần lập trình MapReduce trực tiếp.
 Hive thường được dùng để xây dựng Data Warehouse trên Hadoop, ví dụ lưu trữ thông tin bán hàng, log người dùng, hoặc tích hợp dữ liệu từ nhiều nguồn (quản lý bằng các bảng Hive).
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Hive.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Hive.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/hive.jpeg" style="width: 600px;"/>
 
@@ -106,7 +106,7 @@ Các tập lệnh lớn có thể được lên lịch bằng Oozie hoặc workf
 Apache Pig là nền tảng xử lý dữ liệu dạng batch chạy trên Hadoop, sử dụng ngôn ngữ Pig Latin – một DSL ở mức cao trừu tượng hóa khỏi MapReduce.
 Pig giúp lập trình viên không phải viết hàng trăm dòng Java cho MapReduce.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_alex_holmes.pdf), mô tả kiến trúc của Pig.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_alex_holmes.pdf), mô tả kiến trúc của Pig.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/pig.jpeg" style="width: 400px;"/>
 
@@ -117,7 +117,7 @@ Pig Latin sẽ được biên dịch thành DAG các job MapReduce hoặc chạy
 
 *Note: DAG – Directed Acyclic Graph là đồ thị có hướng và không có chu trình, được sử dụng để mô hình hóa dòng dữ liệu hoặc chuỗi tác vụ nơi một tác vụ phụ thuộc vào tác vụ trước đó.*
 
-Pig ngày nay ít được dùng do Spark đã thay thế, tuy nhiên, nếu bạn muốn học Pig Latin, bạn có thể tham khảo cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf) của tác giả Tom White.
+Pig ngày nay ít được dùng do Spark đã thay thế, tuy nhiên, nếu bạn muốn học Pig Latin, bạn có thể tham khảo cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf) của tác giả Tom White.
 
 Ví dụ dưới đây được trích từ cuốn sách trên, minh hoạ việc sử dụng Pig so sánh với việc viết MapReduce thuần tuý:
 
@@ -213,7 +213,7 @@ DUMP max_temp;
 
 HBase là cơ sở dữ liệu dạng cột phân tán được xây dựng trên HDFS, tối ưu cho việc truy cập đọc / ghi ngẫu nhiên theo thời gian thực trên các tập dữ liệu rất lớn.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả kiến trúc của HBase.
+Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả kiến trúc của HBase.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/hbase.jpeg" style="width: 600px;"/>
 
@@ -232,7 +232,7 @@ Dù không hỗ trợ SQL hay các đặc trưng quan hệ phức tạp, HBase c
 ZooKeeper là một dịch vụ điều phối cho các ứng dụng phân tán, cung cấp các chức năng như đồng bộ hóa, quản lý cấu hình và đặt tên trong môi trường phân tán.
 Một số cơ chế điều phối quan trọng mà ZooKeeper cung cấp như khóa phân tán (distributed locks), hàng đợi phân tán (distributed queues), bầu cử (leader election).
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả kiến trúc của ZooKeeper.
+Hình dưới đây được lấy từ cuốn sách [Hadoop: The Definitive Guide, 4th Edition (2015)](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_the_definitive_guide_4th_edition_2015_tom_white.pdf), mô tả kiến trúc của ZooKeeper.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/1-hadoop/zookeeper.jpeg" style="width: 400px;"/>
 
@@ -246,7 +246,7 @@ Apache Spark là nền tảng xử lý dữ liệu lớn in-memory được thi�
 Khác với MapReduce chỉ hoạt động theo mô hình batch, Spark giữ dữ liệu trong bộ nhớ qua nhiều bước tính toán, giúp tăng tốc đáng kể các tác vụ lặp như học máy, phân tích biểu đồ và xử lý tương tác. 
 Nhờ khả năng mở rộng và tốc độ vượt trội, Spark trở thành lựa chọn phổ biến trong các hệ thống phân tích dữ liệu hiện đại.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Spark.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Spark.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/architecture.jpeg" style="width: 800px;"/>
 
@@ -259,7 +259,7 @@ Apache Kafka là nền tảng streaming phân tán được thiết kế để x
 Kafka hoạt động như một hệ thống hàng đợi nhật ký (commit log), nơi dữ liệu được ghi vào các topics và lưu trữ bền vững, cho phép nhiều ứng dụng tiêu thụ song song.
 Nhờ khả năng mở rộng tuyến tính, chịu lỗi tốt và độ trễ thấp, Kafka trở thành thành phần cốt lõi trong các hệ thống phân tích thời gian thực, event-driven architecture và pipeline dữ liệu lớn.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Kafka.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Kafka.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/architecture.jpeg" style="width: 800px;"/>
 

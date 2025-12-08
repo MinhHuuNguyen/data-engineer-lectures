@@ -18,7 +18,7 @@ Những tác vụ, vốn có thể mất hàng ngày hoặc lâu hơn nếu dùn
 Mô hình MapReduce đơn giản hóa việc xử lý song song bằng cách che giấu những phức tạp liên quan đến hệ thống phân tán, như song song hóa tính toán, phân phối công việc và xử lý lỗi phần cứng hoặc phần mềm.
 Nhờ lớp trừu tượng này, MapReduce giúp lập trình viên tập trung vào việc giải quyết yêu cầu nghiệp vụ thay vì bị cuốn vào các vấn đề của hệ thống phân tán.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc tổng quát của MapReduce.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc tổng quát của MapReduce.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/architecture.jpeg" style="width: 600px;"/>
 
@@ -37,7 +37,7 @@ Mục tiêu chính của hàm Map là:
 - Tách lọc, tiền xử lý và cấu trúc lại thông tin để phục vụ cho giai đoạn Reduce.
 - Phân rã dữ liệu lớn thành các đơn vị độc lập, giúp xử lý phân tán đạt hiệu quả tối đa.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả hàm Map trong MapReduce.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả hàm Map trong MapReduce.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/map_function.jpeg" style="width: 900px;"/>
 
@@ -87,7 +87,7 @@ Tất cả dữ liệu mang cùng một khóa phải được đưa đến cùng
 
 Nhờ đó, Shuffle và Sort là cầu nối giữa Map và Reduce, bảo đảm dữ liệu trung gian được tổ chức chính xác và tối ưu cho giai đoạn tổng hợp cuối cùng.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả giai đoạn Shuffle và Sort trong MapReduce.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả giai đoạn Shuffle và Sort trong MapReduce.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/shuffle_sort_phase.jpeg" style="width: 900px;"/>
 
@@ -106,7 +106,7 @@ Reduce biến dữ liệu trung gian thành kết quả cuối cùng: Các giá 
 
 Reduce còn chịu trách nhiệm ghi kết quả ra hệ thống đích như file HDFS, database NoSQL, hoặc bất kỳ nơi nào khác.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả hàm Reduce trong MapReduce.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả hàm Reduce trong MapReduce.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/reduce_function.jpeg" style="width: 700px;"/>
 
@@ -118,7 +118,7 @@ Hàm reduce có thể trả về: Không có output (ví dụ: lọc toàn bộ 
 - **Sử dụng iterator/stream:** Hàm reduce thường dùng iterator để duyệt các giá trị thay vì nạp toàn bộ vào bộ nhớ, giúp xử lý giá trị lớn mà không vượt bộ nhớ.
 - **Ghi kết quả vào đầu ra:** Output của reducer được ghi vào hệ thống đích như file HDFS, database NoSQL, hoặc bất kỳ nơi nào khác.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/ai-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả luồng tương tác giữa các thành phần trong quá trình MapReduce.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_alex_holmes.pdf), mô tả luồng tương tác giữa các thành phần trong quá trình MapReduce.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/process.jpeg" style="width: 800px;"/>
 
