@@ -6,9 +6,20 @@ services:
     image: bde2020/hadoop-namenode:latest
     container_name: namenode
     environment:
-      - CLUSTER_NAME=lab-cluster
+      - CLUSTER_NAME=demo-cluster
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
       - HDFS_CONF_dfs_replication=2
+      # CẤU HÌNH YARN (tạo yarn-site.xml)
+      - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+      - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+      - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+      - YARN_CONF_yarn_resourcemanager_resource__tracker_address=resourcemanager:8031
+      - YARN_CONF_yarn_nodemanager_aux__services=mapreduce_shuffle
+      # CẤU HÌNH MAPRED (tạo mapred-site.xml)
+      - MAPRED_CONF_mapreduce_framework_name=yarn
+      - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
     ports:
       - "9870:9870"   # Web UI NameNode
       - "8020:8020"   # RPC NameNode
@@ -52,7 +63,17 @@ services:
     container_name: resourcemanager
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+      # CẤU HÌNH YARN (tạo yarn-site.xml)
       - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+      - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+      - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+      - YARN_CONF_yarn_resourcemanager_resource__tracker_address=resourcemanager:8031
+      - YARN_CONF_yarn_nodemanager_aux___services=mapreduce_shuffle
+      # CẤU HÌNH MAPRED (tạo mapred-site.xml)
+      - MAPRED_CONF_mapreduce_framework_name=yarn
+      - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
     ports:
       - "8088:8088"   # YARN ResourceManager UI
     depends_on:
@@ -65,7 +86,17 @@ services:
     container_name: nodemanager1
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+      # CẤU HÌNH YARN (tạo yarn-site.xml)
       - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+      - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+      - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+      - YARN_CONF_yarn_resourcemanager_resource__tracker_address=resourcemanager:8031
+      - YARN_CONF_yarn_nodemanager_aux___services=mapreduce_shuffle
+      # CẤU HÌNH MAPRED (tạo mapred-site.xml)
+      - MAPRED_CONF_mapreduce_framework_name=yarn
+      - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
     depends_on:
       - resourcemanager
     networks:
@@ -76,7 +107,17 @@ services:
     container_name: nodemanager2
     environment:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:8020
+      # CẤU HÌNH YARN (tạo yarn-site.xml)
       - YARN_CONF_yarn_resourcemanager_hostname=resourcemanager
+      - YARN_CONF_yarn_resourcemanager_address=resourcemanager:8032
+      - YARN_CONF_yarn_resourcemanager_scheduler_address=resourcemanager:8030
+      - YARN_CONF_yarn_resourcemanager_resource__tracker_address=resourcemanager:8031
+      - YARN_CONF_yarn_nodemanager_aux___services=mapreduce_shuffle
+      # CẤU HÌNH MAPRED (tạo mapred-site.xml)
+      - MAPRED_CONF_mapreduce_framework_name=yarn
+      - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+      - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
     depends_on:
       - resourcemanager
     networks:

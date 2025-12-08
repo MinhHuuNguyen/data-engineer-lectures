@@ -62,6 +62,19 @@ python3 map_reduce_demo/wordcount.py \
     -r hadoop \
     --python-bin python3 \
     --no-bootstrap-mrjob \
-    hdfs:////wordcount_dataset/small_500k.txt \
+    hdfs:///wordcount_dataset/small_500k.txt \
     --output-dir hdfs:///output_wordcount_small_500k
-python3 map_reduce_demo/wordcount.py -r hadoop hdfs:////wordcount_dataset/big_5M.txt --output-dir hdfs:///output_wordcount_big_5M
+
+python3 map_reduce_demo/wordcount.py \
+    -r hadoop \
+    --python-bin python3 \
+    --no-bootstrap-mrjob \
+    hdfs:///wordcount_dataset/big_5M.txt \
+    --output-dir hdfs:///output_wordcount_big_5M
+
+python3 map_reduce_demo/wordcount.py \
+    -r hadoop \
+    --python-bin python3 \
+    --no-bootstrap-mrjob \
+    hdfs:///wordcount_dataset/huge_50M.txt \
+    --output-dir hdfs:///output_wordcount_huge_50M
