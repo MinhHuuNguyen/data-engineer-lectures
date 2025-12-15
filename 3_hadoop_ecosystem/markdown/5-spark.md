@@ -8,13 +8,27 @@ is_highlight: false
 is_published: true
 ---
 
-# Spark
-
 ## 1. Giới thiệu chung về Spark
 
-Apache Spark là một hệ thống xử lý dữ liệu phân tán mã nguồn mở được phát triển bởi Apache Software Foundation.
+Apache Spark là một hệ thống xử lý phân tán mã nguồn mở được thiết kế cho các bài toán dữ liệu lớn được phát triển bởi Apache Software Foundation.
 
-<img src="https://techvccloud.mediacdn.vn/280518386289090560/2021/7/26/apache-spark-16272742352401372840332-60-0-397-600-crop-16272743360081603829654.jpg" style="width: 1200px;"/>
+Spark hỗ trợ đa ngôn ngữ lập trình (Java, Scala, Python, R) và nhiều loại workload như xử lý theo lô (batch-based), xử lý theo thời gian thực (streaming), học máy (machine learning) và xử lý đồ thị (graph processing), truy vấn SQL ...
+
+Điểm nổi bật của Spark là thực thi tính toán trong bộ nhớ (in-memory) kết hợp với tối ưu hóa truy vấn, giúp xử lý dữ liệu nhanh hơn nhiều so với mô hình MapReduce truyền thống.
+Do vậy, Spark đã trở thành công cụ quan trọng trong hệ sinh thái xử lý dữ liệu phân tán hiện đại.
+
+Spark có thể chạy trên nhiều hệ thống quản lý cụm khác nhau (cluster manager) như Hadoop YARN, Apache Mesos hoặc Spark Standalone Scheduler.
+Spark cũng tích hợp tốt với HDFS và các nguồn lưu trữ phân tán khác.
+
+
+What’s the difference between Spark SQL and Shark? Shark was the first Spark
+system that provided SQL abilities in Spark. Shark uses Hive for query plan-
+ning and Spark for query execution. Spark SQL, on the other hand, doesn’t
+use the Hive query planner and instead uses its own planner (and execu-
+tion) engine. The goal is to keep Shark as the Hive-compatible part of Spark,
+but there are plans to move to Spark SQL for query planning once Spark
+SQL has stabilized
+
 
 
 Các đặc trưng của Spark:
@@ -42,22 +56,43 @@ Spark sử dụng bộ nhớ đệm và tối ưu hóa xử lý dữ liệu, gi�
 - **Xử lý sự cố và khả năng mở rộng**:
 Spark có khả năng xử lý lỗi và khả năng mở rộng tốt, cho phép tăng cường khả năng chịu tải khi cần thiết.
 
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả cách tạo Spark Session trong Spark.
 
-<img src="https://drive.google.com/uc?id=1MsNZkbkPqWPlc-zM-MtnwSnWLEBALXa7" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/spark_session.jpeg" style="width: 800px;"/>
+
+## 2. Kiến trúc chung của Spark
+
+### 2.1. Các thành phần trong Spark
+
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả các thành phần chính trong kiến trúc của Apache Spark.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/components.jpeg" style="width: 800px;"/>
+
+### 2.2. Kiến trúc của Spark
+
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Apache Spark.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/architecture.jpeg" style="width: 800px;"/>
+
+### 2.3. Spark tương tác với YARN
+
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả cách Spark tương tác với YARN để quản lý tài nguyên và thực thi công việc.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/spark_yarn.jpeg" style="width: 800px;"/>
 
 
-## 2. Chi tiết các thành phần trong Spark
+## 3. Thành phần cốt lõi Spark Core
 
-<img src="https://drive.google.com/uc?id=1GAImR0WdOwbaaZ7NTeW0W6d5PU7mE_0g" style="width: 1200px;"/>
+Spark Core là một phần quan trọng và cốt lõi của Spark, là một cơ sở cho toàn bộ hệ thống.
+Nó cung cấp các chức năng cơ bản cho xử lý dữ liệu phân tán và quản lý tài nguyên trong cụm máy tính và là nền tảng cho các thành phần cấp cao của Apache Spark như Spark SQL, Spark Streaming, Spark MLlib và Spark GraphX.
 
-### 2.1. Spark Core
+### 3.1. Resilient Distributed Dataset (RDD)
 
-Apache Spark Core là một phần quan trọng và cốt lõi của Apache Spark, là một cơ sở cho toàn bộ hệ thống.
-Nó cung cấp các chức năng cơ bản cho xử lý dữ liệu phân tán và quản lý tài nguyên trong cụm máy tính và là nền tảng cho các thành phần khác của Apache Spark như Spark SQL, Spark Streaming, Spark MLlib và Spark GraphX.
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả sự phân tán dữ liệu trên các server trong cụm Spark.
 
-<img src="https://drive.google.com/uc?id=1YBj4Hm2RHCsiqC4QrNCKJ-BxTeRSS_Ms" style="width: 1200px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/data_across_server.jpeg" style="width: 800px;"/>
 
-#### Resilient Distributed Dataset (RDD)
+Spark Core còn định nghĩa cấu trúc dữ liệu quan trọng nhất – Resilient Distributed Dataset (RDD) – là tập hợp dữ liệu bất biến được phân tán trên các node của cụm, cho phép xử lý song song.
 
 RDD là một khái niệm quan trọng trong Spark Core được sử dụng để lưu trữ và xử lý dữ liệu trên một cụm máy tính phân tán.
 - **Phân phối dữ liệu**:
@@ -74,7 +109,25 @@ RDD sử dụng cơ chế Lazy evaluation, cho phép xây dựng và tối ưu c
 RDD có khả năng lưu trữ dữ liệu trong bộ nhớ, giúp tối ưu hóa hiệu suất xử lý dữ liệu.
 Khi dữ liệu đã được lưu trữ trong bộ nhớ, các phép tính toán sau này trên RDD có thể được thực hiện nhanh hơn vì không cần đọc dữ liệu từ đĩa.
 
-#### Cơ chế Lazy evaluation
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả sự so sánh giữa Narrow transformations và Wide transformations trong RDD.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/narrow_wide_transformations.jpeg" style="width: 800px;"/>
+
+Có hai loại toán tử tương tác với RDD:
+- **Transformation** là các toán tử trả đầu ra là một RDD mới sau khi thực hiện biến đổi RDD
+    - **Narrow transformations**
+        - là các phép biến đổi mà mỗi phần tử đầu ra chỉ phụ thuộc vào một vài phần tử đầu vào và không cần truy cập đến tất cả các phần tử trong các phân vùng (partitions) của RDD.
+        - thực hiện song song trên từng phân vùng riêng lẻ mà không cần giao tiếp hoặc trao đổi dữ liệu giữa các phân vùng.
+        Do đó, chúng có hiệu suất cao hơn và không yêu cầu nhiều bước tính toán phức tạp.
+        - ví dụ: select, map, filter ...
+    - **Wide transformations**: Dữ liệu cần để thực hiện biến đổi nằm trên các partition khác nhau
+        - là các phép biến đổi mà mỗi phần tử đầu ra có thể phụ thuộc vào tất cả các phần tử trong các phân vùng của RDD hoặc có khả năng giao tiếp và trao đổi dữ liệu giữa các phân vùng.
+        - thường gây ra sự di chuyển dữ liệu giữa các phân vùng, đòi hỏi nhiều bước tính toán và có thể làm giảm hiệu suất
+        - ví dụ: groupBy, join, sort, ...
+- **Action** là các toán tử trả đầu ra là các giá trị sau khi thực hiện tính toán trên RDD
+Ví dụ: show, count, first, save, ...
+
+### 3.2. Cơ chế Lazy evaluation
 
 Lazy evaluation không phải là cơ chế được sáng tạo bởi nhà phát triển của Spark nhưng được ứng dụng vào Spark giúp tăng tốc hiệu quả xử lý dữ liệu lớn.
 
@@ -112,22 +165,7 @@ print("Kết quả sau khi tính toán:", result)  # Kết quả đã được t
 ```
 
 Trong Spark, Lazy evaluation cho phép ta định nghĩa nhiều phép biến đổi dữ liệu (Transformation) trước khi chúng được thực sự tiến hành khi một hành động (Action) được gọi.
-**Do đó, Transformations are lazy but actions are eager.**
-
-Có hai loại toán tử tương tác với RDD:
-- **Transformation** là các toán tử trả đầu ra là một RDD mới sau khi thực hiện biến đổi RDD
-    - **Narrow transformations**
-        - là các phép biến đổi mà mỗi phần tử đầu ra chỉ phụ thuộc vào một vài phần tử đầu vào và không cần truy cập đến tất cả các phần tử trong các phân vùng (partitions) của RDD.
-        - thực hiện song song trên từng phân vùng riêng lẻ mà không cần giao tiếp hoặc trao đổi dữ liệu giữa các phân vùng.
-        Do đó, chúng có hiệu suất cao hơn và không yêu cầu nhiều bước tính toán phức tạp.
-        - ví dụ: select, map, filter ...
-    - **Wide transformations**: Dữ liệu cần để thực hiện biến đổi nằm trên các partition khác nhau
-        - là các phép biến đổi mà mỗi phần tử đầu ra có thể phụ thuộc vào tất cả các phần tử trong các phân vùng của RDD hoặc có khả năng giao tiếp và trao đổi dữ liệu giữa các phân vùng.
-        - thường gây ra sự di chuyển dữ liệu giữa các phân vùng, đòi hỏi nhiều bước tính toán và có thể làm giảm hiệu suất
-        - ví dụ: groupBy, join, sort, ...
-- **Action** là các toán tử trả đầu ra là các giá trị sau khi thực hiện tính toán trên RDD
-Ví dụ: show, count, first, save, ...
-
+**Do đó, transformations are lazy but actions are eager.**
 
 Ví dụ: Ta có một RDD chứa dữ liệu của các học sinh trong một lớp học.
 Ta muốn tính tổng điểm của tất cả các học sinh trong lớp.
@@ -166,14 +204,63 @@ total_score = students.map(lambda student: student.score).reduce(lambda x, y: x 
 total_score = students.filter(lambda student: student.score > 8).map(lambda student: student.score).reduce(lambda x, y: x + y)
 ```
 
-#### Spark’s Catalyst Optimizer
+### 3.3. Catalyst Optimizer
+
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Catalyst Optimizer.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/catalyst_optimizer.jpeg" style="width: 800px;"/>
+
+
+
+
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Logical Plan trong Catalyst Optimizer.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/logical_plan.jpeg" style="width: 800px;"/>
+
+
+
+
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Physical Plan trong Catalyst Optimizer.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/physical_plan.jpeg" style="width: 800px;"/>
+
+## 4. Các thành phần cấp cao của Spark
+
+### 4.1. Shark (SparkSQL + Hive)
+
+### 4.2. Spark Streaming
+
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Spark Streaming.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/spark_streaming.jpeg" style="width: 800px;"/>
+
+
+
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Spark Streaming.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/dstream.jpeg" style="width: 800px;"/>
+
+
+
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Spark Streaming.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/dstream_with_transformations.jpeg" style="width: 800px;"/>
+
+### 4.3. Spark MLlib
+
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Spark MLlib.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/machine_learning.jpeg" style="width: 800px;"/>
+
+### 4.4. Spark GraphX
+
+
 
 Apache Spark's Catalyst Optimizer là một trong những thành phần quan trọng của Spark.
 
 Catalyst là một bộ tối ưu hóa truy vấn được sử dụng để cải thiện hiệu suất và tối ưu hóa kế hoạch thực hiện truy vấn.
 Nó là một bộ tối ưu hóa dựa trên quy tắc (rule-based optimizer) và được sử dụng để biến đổi câu truy vấn và kế hoạch thực hiện câu truy vấn để tạo ra kế hoạch thực hiện hiệu quả hơn.
 
-<img src="https://miro.medium.com/v2/0*cWEUvlErq9Mf3pdr" style="width: 1200px;"/>
 
 Các bước biến đổi trong Catalyst Optimizer:
 - **Preprocessing**:
@@ -197,7 +284,6 @@ Kế hoạch này thể hiện cấu trúc thực hiện truy vấn sau khi tấ
 Kế hoạch thực hiện cuối cùng sau bước tối ưu hóa được sử dụng để thực hiện truy vấn trên dữ liệu thực tế.
 Trong quá trình này, dữ liệu được đọc, biến đổi và tính toán dựa trên kế hoạch tối ưu hóa đã xây dựng.
 
-<img src="https://miro.medium.com/v2/resize:fit:828/0*8jymyiQyW1D3lS-0" style="width: 1200px;"/>
 
 Ví dụ:
 ```sql
@@ -244,8 +330,6 @@ Spark SQL hỗ trợ nhiều ngôn ngữ lập trình, bao gồm Scala, Java, Py
 Spark SQL có thể tích hợp với các công cụ Business Intelligence (BI) như Tableau, QlikView, và Power BI để trực quan hóa và trình bày dữ liệu.
 - **Hỗ trợ cho MLlib và GraphX**:
 Dữ liệu có thể được trực tiếp chuyển đổi thành các đối tượng sử dụng trong thư viện MLlib và GraphX của Spark để thực hiện học máy và xử lý đồ thị.
-
-<img src="https://drive.google.com/uc?id=1epRfkR7EHlyw_p36reBp_0TuBjcrZ-7-" style="width: 1200px;"/>
 
 #### DataFrame DSL (Domain-Specific Language)
 
@@ -295,8 +379,6 @@ Có thể sử dụng các thư viện khác của Spark như Spark SQL, MLlib, 
 - **Windowed Processing**:
 Spark Streaming cho phép bạn thực hiện xử lý dữ liệu trong cửa sổ thời gian, giúp bạn tính toán tổng hợp và thống kê trên dữ liệu trong khoảng thời gian nhất định.
 
-<img src="https://drive.google.com/uc?id=1MYQ3SRohKQTpkGEjQK2oJ_lPi5HnD-ht" style="width: 1200px;"/>
-
 ### 2.4. Spark MLlib
 
 Apache Spark MLlib (Machine Learning Library) là một thư viện machine learning mã nguồn mở và phân tán được tích hợp chặt chẽ với Apache Spark.
@@ -341,8 +423,6 @@ Có khả năng mở rộng và tối ưu hóa hiệu suất, cho phép xử lý
 GraphX có thể tích hợp với Spark MLlib, cho phép bạn sử dụng machine learning để phân tích dữ liệu đồ thị và xây dựng các mô hình học máy dựa trên thông tin từ đồ thị.
 - **Hỗ trợ cho Spark Streaming và Spark SQL**:
 GraphX có thể được tích hợp với Spark Streaming và Spark SQL để xử lý và phân tích dữ liệu đồ thị trong các ứng dụng thời gian thực và các truy vấn SQL.
-
-<img src="https://drive.google.com/uc?id=1UU-AgvHOHQ6Lf_SQTKFV9c9HuBHYPrkj" style="width: 1200px;"/>
 
 
 <!-- ## 3. Phân biệt một số khái niệm
