@@ -17,52 +17,27 @@ Spark hỗ trợ đa ngôn ngữ lập trình (Java, Scala, Python, R) và nhi�
 Điểm nổi bật của Spark là thực thi tính toán trong bộ nhớ (in-memory) kết hợp với tối ưu hóa truy vấn, giúp xử lý dữ liệu nhanh hơn nhiều so với mô hình MapReduce truyền thống.
 Do vậy, Spark đã trở thành công cụ quan trọng trong hệ sinh thái xử lý dữ liệu phân tán hiện đại.
 
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/in_memory.jpeg" style="width: 800px;"/>
+
 Spark có thể chạy trên nhiều hệ thống quản lý cụm khác nhau (cluster manager) như Hadoop YARN, Apache Mesos hoặc Spark Standalone Scheduler.
 Spark cũng tích hợp tốt với HDFS và các nguồn lưu trữ phân tán khác.
-
-
-What’s the difference between Spark SQL and Shark? Shark was the first Spark
-system that provided SQL abilities in Spark. Shark uses Hive for query plan-
-ning and Spark for query execution. Spark SQL, on the other hand, doesn’t
-use the Hive query planner and instead uses its own planner (and execu-
-tion) engine. The goal is to keep Shark as the Hive-compatible part of Spark,
-but there are plans to move to Spark SQL for query planning once Spark
-SQL has stabilized
-
-
-
-Các đặc trưng của Spark:
-- **Xử lý dữ liệu lớn**:
-Spark được thiết kế để xử lý và phân tích dữ liệu lớn.
-Nó có khả năng phân phối dữ liệu trên nhiều nút và xử lý dữ liệu trên toàn cụm máy tính.
-- **Resilient Distributed Dataset (RDD)**:
-RDD là cấu trúc dữ liệu cốt lõi trong Spark, cho phép lưu trữ dữ liệu phân tán và thực hiện các phép biến đổi trên dữ liệu.
-RDD có khả năng chịu lỗi và có thể phục hồi dễ dàng.
-- **API Đa ngôn ngữ**:
-Spark cung cấp API cho nhiều ngôn ngữ lập trình, bao gồm Scala, Java, Python (PySpark) và R (SparkR).
-Điều này giúp người dùng có sự linh hoạt trong lựa chọn ngôn ngữ ưa thích của họ.
-- **Hỗ trợ Machine Learning**:
-Spark MLlib là một thư viện học máy tích hợp giúp xây dựng và triển khai các mô hình học máy trên dữ liệu lớn.
-- **Xử lý luồng dữ liệu thời gian thực**:
-Spark Streaming cho phép xử lý và phân tích dữ liệu luồng thời gian thực, giúp ứng dụng theo dõi và phản ứng đối với dữ liệu đang tạo ra.
-- **Hỗ trợ đồ thị**:
-Spark có thư viện GraphX cho xử lý đồ thị và phân tích mạng xã hội, đồ thị con người, và các ứng dụng liên quan đến đồ thị.
-- **Hỗ trợ SQL và DataFrames**:
-Spark SQL cho phép truy vấn dữ liệu bằng SQL trên các RDD, cùng với DataFrames, giúp làm việc với dữ liệu có cấu trúc một cách hiệu quả.
-- **Tích hợp với Hadoop**:
-Spark có tích hợp với Hadoop, cho phép sử dụng Hadoop Distributed File System (HDFS) và quản lý tài nguyên thông qua Apache Hadoop YARN.
-- **Hiệu suất cao**:
-Spark sử dụng bộ nhớ đệm và tối ưu hóa xử lý dữ liệu, giúp tăng hiệu suất so với các hệ thống truyền thống như Hadoop MapReduce.
-- **Xử lý sự cố và khả năng mở rộng**:
-Spark có khả năng xử lý lỗi và khả năng mở rộng tốt, cho phép tăng cường khả năng chịu tải khi cần thiết.
-
-Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả cách tạo Spark Session trong Spark.
-
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/spark_session.jpeg" style="width: 800px;"/>
 
 ## 2. Kiến trúc chung của Spark
 
 ### 2.1. Các thành phần trong Spark
+
+Các thành phần trong Spark gồm:
+- **Spark Core (API + Execution Engine):** lõi cung cấp API cơ bản và engine thực thi chịu trách nhiệm phân phối và thực thi công việc.
+- **Thư viện chuẩn (Built-in libraries):** các thành phần cấp cao xây dựng trên lõi để cung cấp các khả năng xử lý dữ liệu chuyên biệt, bao gồm:
+    - **Spark SQL:** xử lý dữ liệu có cấu trúc và bán cấu trúc, hỗ trợ truy vấn SQL.
+    - **Spark Streaming:** xử lý dữ liệu luồng thời gian thực.
+    - **MLlib:** thư viện học máy cung cấp các thuật toán và công cụ học máy.
+    - **GraphX:** xử lý và phân tích dữ liệu đồ thị.
+- **Hệ thống mở rộng (higher-level systems):** các thành phần phía trên lõi cung cấp khả năng xử lý chuyên biệt (ví dụ: thiết kế pipeline xử lý luồng).
+    - **PySpark:** API chính thức cho Python
+    - **SparkR:** API chính thức cho R
+    - **Scala API:** API chính thức cho Scala
+    - **Java API:** API chính thức cho Java
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả các thành phần chính trong kiến trúc của Apache Spark.
 
@@ -70,66 +45,83 @@ Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Secon
 
 ### 2.2. Kiến trúc của Spark
 
+Cụm máy mà Spark sử dụng để thực thi các tác vụ được quản lý bởi một trình quản lý cụm.
+Chúng ta gửi các Ứng dụng Spark (Spark Applications) tới những trình quản lý cụm này; các trình quản lý sẽ cấp tài nguyên cho ứng dụng của chúng ta để hoàn thành công việc.
+
+Kiến trúc của Spark được chia làm ba thành phần chính:
+- **Trình quản lý cụm (Cluster Manager):** Quản lý máy vật lý và tài nguyên (ví dụ: Spark Standalone, YARN, Mesos).
+- **Ứng dụng Spark (Spark Application):** Gồm một driver và nhiều executor.
+    - **Driver:** Chạy main(), duy trì trạng thái ứng dụng, nhận/đáp ứng đầu vào, phân tích và lập lịch công việc.
+    - **Executor:** Thực thi mã do driver giao, lưu trữ và báo cáo trạng thái tính toán.
+
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc của Apache Spark.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/architecture.jpeg" style="width: 800px;"/>
 
+Spark hoạt động phân tách rõ ràng giữa thành phần điều phối (driver), thành phần thực thi (executors) và lớp quản lý tài nguyên (cluster manager), cho phép thực thi phân tán, linh hoạt và có thể chạy nhiều ứng dụng đồng thời trên cùng một cụm.
+
+Tasks được lập lịch và phân phối bởi driver tới các executors, tận dụng tài nguyên được cấp phát bởi cluster manager.
+Cache là bộ nhớ đệm phân tán trên các executors để lưu trữ dữ liệu tạm thời, giúp tăng tốc độ truy cập dữ liệu trong các tác vụ lặp lại.
+
+Driver có thể được điều khiển từ nhiều ngôn ngữ thông qua các API (Scala/Java/Python/R), trong khi executors chịu trách nhiệm thực thi công việc.
+
 ### 2.3. Spark tương tác với YARN
+
+Spark hỗ trợ nhiều trình quản lý cụm, trong đó có YARN.
+Ở chế độ này, các executor của Spark là các container do YARN quản lý, và ApplicationMaster của Spark chịu trách nhiệm quản lý các executor đó và gửi lệnh cho chúng.
 
 Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả cách Spark tương tác với YARN để quản lý tài nguyên và thực thi công việc.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/spark_yarn.jpeg" style="width: 800px;"/>
 
+Driver của Spark có thể nằm trong tiến trình client hoặc bên trong ApplicationMaster, tùy thuộc vào việc bạn chạy ở client mode hay cluster mode:
+- **Client mode:** driver nằm trong tiến trình client; do đó, nếu tiến trình client bị dừng thì việc thực thi chuỗi các tác vụ Spark sẽ bị gián đoạn.
+Chế độ này phù hợp cho môi trường development với dữ liệu nhỏ, dùng trong quá trình debug, quan sát log và trạng thái driver dễ dàng.
+- **Cluster mode:** driver chạy bên trong ApplicationMaster và không phụ thuộc vào tiến trình client để thực thi các tác vụ.
+Chế độ này phù hợp cho môi trường production với dữ liệu lớn, giúp tăng tính ổn định và khả năng chịu lỗi.
+
+Cài đặt mặc định của Spark được cấu hình cho chế độ standalone, nên bạn cần cấu hình Spark để nó hoạt động với YARN.
+Các script và công cụ Spark không thay đổi khi chạy trên YARN; vì vậy một khi đã cấu hình để dùng YARN, bạn có thể chạy Spark shell giống như trước.
 
 ## 3. Thành phần cốt lõi Spark Core
 
-Spark Core là một phần quan trọng và cốt lõi của Spark, là một cơ sở cho toàn bộ hệ thống.
-Nó cung cấp các chức năng cơ bản cho xử lý dữ liệu phân tán và quản lý tài nguyên trong cụm máy tính và là nền tảng cho các thành phần cấp cao của Apache Spark như Spark SQL, Spark Streaming, Spark MLlib và Spark GraphX.
+Spark Core là “trái tim” của Spark, cung cấp nền tảng thực thi và các cơ chế cốt lõi cho mọi ứng dụng Spark.
+Một số công nghệ quan trọng trong Spark Core bao gồm Kiểu dữ liệu RDD, Cơ chế đánh giá lười (Lazy evaluation) và Bộ tối ưu hóa Catalyst (Catalyst Optimizer).
 
 ### 3.1. Resilient Distributed Dataset (RDD)
 
+Resilient Distributed Dataset (RDD) là cấu trúc dữ liệu quan trọng nhất trong Apache Spark, là tập hợp dữ liệu bất biến được phân tán trên các node của cụm, cho phép xử lý song song.
+RDD là một khái niệm quan trọng trong Spark Core được sử dụng để lưu trữ và xử lý dữ liệu trên một cụm máy tính phân tán.
+
 Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả sự phân tán dữ liệu trên các server trong cụm Spark.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/data_across_server.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/data_across_server.jpeg" style="width: 600px;"/>
 
-Spark Core còn định nghĩa cấu trúc dữ liệu quan trọng nhất – Resilient Distributed Dataset (RDD) – là tập hợp dữ liệu bất biến được phân tán trên các node của cụm, cho phép xử lý song song.
+RDD chia dữ liệu thành các phần nhỏ và phân tán chúng trên các nút trong cụm, trong đó, mỗi phần dữ liệu được lưu trữ trên một nút và có thể xử lý một cách độc lập.
 
-RDD là một khái niệm quan trọng trong Spark Core được sử dụng để lưu trữ và xử lý dữ liệu trên một cụm máy tính phân tán.
-- **Phân phối dữ liệu**:
-RDD chia dữ liệu thành các phần nhỏ và phân tán chúng trên các nút trong cụm.
-Mỗi phần dữ liệu được lưu trữ trên một nút và có thể xử lý một cách độc lập.
-- **Khả năng chịu lỗi và phục hồi**:
-RDD có khả năng tự phục hồi khi có lỗi xảy ra trên một phần dữ liệu.
-Điều này đạt được bằng cách lưu trạng thái gốc và sử dụng dữ liệu gốc để tái tính toán dữ liệu bị mất.
-Ngoài ra, RDD là không thay đổi, nghĩa là sau khi tạo ra một RDD, bạn không thể thay đổi nó.
-Thay vào đó, bạn tạo các RDD mới từ RDD gốc bằng cách sử dụng các phép biến đổi.
-- **Lazy evaluation**:
-RDD sử dụng cơ chế Lazy evaluation, cho phép xây dựng và tối ưu các phân tích dữ liệu phức tạp.
-- **In-memory caching**:
-RDD có khả năng lưu trữ dữ liệu trong bộ nhớ, giúp tối ưu hóa hiệu suất xử lý dữ liệu.
+Ngoài ra, RDD có khả năng lưu trữ dữ liệu trong bộ nhớ RAM, giúp tối ưu hóa hiệu suất xử lý dữ liệu.
 Khi dữ liệu đã được lưu trữ trong bộ nhớ, các phép tính toán sau này trên RDD có thể được thực hiện nhanh hơn vì không cần đọc dữ liệu từ đĩa.
 
 Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả sự so sánh giữa Narrow transformations và Wide transformations trong RDD.
 
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/narrow_wide_transformations.jpeg" style="width: 800px;"/>
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/narrow_wide_transformations.jpeg" style="width: 600px;"/>
 
 Có hai loại toán tử tương tác với RDD:
 - **Transformation** là các toán tử trả đầu ra là một RDD mới sau khi thực hiện biến đổi RDD
     - **Narrow transformations**
-        - là các phép biến đổi mà mỗi phần tử đầu ra chỉ phụ thuộc vào một vài phần tử đầu vào và không cần truy cập đến tất cả các phần tử trong các phân vùng (partitions) của RDD.
-        - thực hiện song song trên từng phân vùng riêng lẻ mà không cần giao tiếp hoặc trao đổi dữ liệu giữa các phân vùng.
+        - Là các phép biến đổi mà mỗi phần tử đầu ra chỉ phụ thuộc vào một vài phần tử đầu vào và không cần truy cập đến tất cả các phần tử trong các phân vùng (partitions) của RDD.
+        - Thực hiện song song trên từng phân vùng riêng lẻ mà không cần giao tiếp hoặc trao đổi dữ liệu giữa các phân vùng.
         Do đó, chúng có hiệu suất cao hơn và không yêu cầu nhiều bước tính toán phức tạp.
-        - ví dụ: select, map, filter ...
+        - Ví dụ: select, map, filter ...
     - **Wide transformations**: Dữ liệu cần để thực hiện biến đổi nằm trên các partition khác nhau
-        - là các phép biến đổi mà mỗi phần tử đầu ra có thể phụ thuộc vào tất cả các phần tử trong các phân vùng của RDD hoặc có khả năng giao tiếp và trao đổi dữ liệu giữa các phân vùng.
-        - thường gây ra sự di chuyển dữ liệu giữa các phân vùng, đòi hỏi nhiều bước tính toán và có thể làm giảm hiệu suất
-        - ví dụ: groupBy, join, sort, ...
-- **Action** là các toán tử trả đầu ra là các giá trị sau khi thực hiện tính toán trên RDD
-Ví dụ: show, count, first, save, ...
+        - Là các phép biến đổi mà mỗi phần tử đầu ra có thể phụ thuộc vào tất cả các phần tử trong các phân vùng của RDD hoặc có khả năng giao tiếp và trao đổi dữ liệu giữa các phân vùng.
+        - Thường gây ra sự di chuyển dữ liệu giữa các phân vùng, đòi hỏi nhiều bước tính toán và có thể làm giảm hiệu suất
+        - Ví dụ: groupBy, join, sort, ...
+- **Action** là các toán tử trả đầu ra là các giá trị sau khi thực hiện tính toán trên RDD. Ví dụ: show, count, first, save, ...
 
 ### 3.2. Cơ chế Lazy evaluation
 
-Lazy evaluation không phải là cơ chế được sáng tạo bởi nhà phát triển của Spark nhưng được ứng dụng vào Spark giúp tăng tốc hiệu quả xử lý dữ liệu lớn.
+Lazy evaluation không phải là cơ chế được sáng tạo bởi nhà phát triển của Spark nhưng được ứng dụng vào RDD của Spark giúp tăng tốc hiệu quả xử lý dữ liệu lớn.
 
 Có hai chiến lược đối nghịch nhau là Lazy Evaluation và Eager Evaluation:
 - **Lazy Evaluation**:
@@ -165,7 +157,7 @@ print("Kết quả sau khi tính toán:", result)  # Kết quả đã được t
 ```
 
 Trong Spark, Lazy evaluation cho phép ta định nghĩa nhiều phép biến đổi dữ liệu (Transformation) trước khi chúng được thực sự tiến hành khi một hành động (Action) được gọi.
-**Do đó, transformations are lazy but actions are eager.**
+**Do đó, Transformations are LAZY but Actions are EAGER.**
 
 Ví dụ: Ta có một RDD chứa dữ liệu của các học sinh trong một lớp học.
 Ta muốn tính tổng điểm của tất cả các học sinh trong lớp.
@@ -206,238 +198,215 @@ total_score = students.filter(lambda student: student.score > 8).map(lambda stud
 
 ### 3.3. Catalyst Optimizer
 
+Catalyst là một bộ tối ưu hóa được sử dụng để cải thiện hiệu suất và tối ưu hóa kế hoạch thực hiện các đoạn code logic xử lý dữ liệu.
+Nó là một bộ tối ưu hóa dựa trên quy tắc (rule-based optimizer) và được sử dụng để biến đổi đoạn code logic xử lý dữ liệu tạo ra các kế hoạch thực hiện hiệu quả hơn.
+
 Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Catalyst Optimizer.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/catalyst_optimizer.jpeg" style="width: 800px;"/>
 
+Quá trình tối ưu hóa trong Catalyst bao gồm hai giai đoạn chính: Logical Planning và Physical Planning.
+Catalyst Optimizer chia quá trình xử lý thành hai tầng rõ ràng, giúp Spark đạt hiệu năng cao và linh hoạt.
+- Logical planning tối ưu “cái gì cần làm”.
+- Physical planning quyết định “làm như thế nào” trên cluster.
 
-
+Đối với Logical Planning (lập kế hoạch logic):
+- **Bước 1:** Spark chuyển mã người dùng thành **unresolved logical plan**.
+Kế hoạch này được gọi là “chưa được phân giải” vì mặc dù mã có thể hợp lệ về mặt cú pháp, nhưng các bảng hoặc cột mà nó tham chiếu có thể tồn tại hoặc không tồn tại.
+- **Bước 2:** Spark sử dụng **catalog** — kho lưu trữ thông tin về tất cả các bảng và DataFrame — để phân giải tên bảng và cột.
+Ở đây, Spark có thể từ chối **unresolved logical plan** nếu bảng hoặc cột không tồn tại trong catalog.
+Nếu có thể phân giải, kế hoạch sẽ được gọi là **logical plan** và chuyển sang Catalyst Optimizer.
+- **Bước 3:** Catalyst áp dụng một loạt các quy tắc tối ưu hóa để biến đổi **logical plan** thành **optimized logical plan** như đẩy điều kiện lọc (predicate pushdown), sắp xếp lại các phép nối (join reordering), loại bỏ các cột dư thừa (projection pruning) và loại bỏ các bước trung gian không cần thiết.
+Các gói mở rộng có thể bổ sung thêm luật tối ưu riêng cho những bài toán chuyên biệt.
+- **Bước 4:** Kế hoạch logic tối ưu **optimized logical plan** sẽ được chuyển sang giai đoạn lập kế hoạch vật lý.
 
 Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Logical Plan trong Catalyst Optimizer.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/logical_plan.jpeg" style="width: 800px;"/>
 
+Physical plan (thường được gọi là Spark plan) mô tả cách **optimized logical plan** sẽ được thực thi trên cluster bằng cách sinh ra nhiều chiến lược thực thi vật lý khác nhau và so sánh chúng thông qua một mô hình chi phí (cost model).
 
+Kết quả của physical planning là một chuỗi các RDD và các phép biến đổi tương ứng.
+Đây là lý do Spark thường được xem như một “trình biên dịch”: nó nhận các truy vấn ở mức DataFrame, Dataset hoặc SQL và biên dịch chúng thành các phép biến đổi RDD.
+Sau khi chọn physical plan, Spark thực thi mã này trên RDD — giao diện lập trình mức thấp của Spark.
 
+Trong quá trình chạy, Spark tiếp tục thực hiện các tối ưu ở thời gian thực, sinh bytecode Java gốc có thể loại bỏ toàn bộ tác vụ hoặc stage không cần thiết.
+Cuối cùng, kết quả được trả về cho người dùng.
 
 Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Physical Plan trong Catalyst Optimizer.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/physical_plan.jpeg" style="width: 800px;"/>
 
+Ví dụ: Giả sử ta có một truy vấn SQL như sau:
+
+```sql
+SELECT c.customer_id, c.name, o.order_id, o.amount
+FROM customers c
+JOIN orders o
+  ON c.customer_id = o.customer_id
+WHERE o.amount > 100 AND c.country = 'US';
+```
+
+Kết quả tối ưu của câu truy vấn trên như sau:
+
+```
+Project [c.customer_id#10, c.name#11, o.order_id#20, o.amount#21]
++- Join Inner, (c.customer_id#10 = o.customer_id#22)
+   :- Project [customer_id#10, name#11]
+   :  +- Filter (country#12 = US)
+   :     +- Relation customers [customer_id#10, name#11, country#12]   -- projection pruning
+   +- Project [order_id#20, customer_id#22, amount#21]
+      +- Filter (amount#21 > 100)
+         +- Relation orders [order_id#20, customer_id#22, amount#21]  -- projection pruning
+```
+
+Những thay đổi chính so với kế hoạch đã phân giải:
+- **Predicate pushdown:** c.country = 'US' được đẩy xuống phía customers relation; o.amount > 100 được đẩy xuống orders relation. Điều này giảm lượng dữ liệu truyền đến bước Join.
+- **Projection pruning:** chỉ giữ các cột cần thiết (ví dụ signup_date, age, status, created_at bị loại khỏi scan).
+- Catalyst optimizer có thể quyết định thứ tự join hoặc chọn thuật toán join phù hợp (thường xuất hiện ở physical planning).
+
 ## 4. Các thành phần cấp cao của Spark
 
-### 4.1. Shark (SparkSQL + Hive)
+### 4.1. SparkSQL
+
+Spark SQL đóng vai trò là lớp xử lý dữ liệu có cấu trúc trong hệ sinh thái Spark.
+Spark SQL có thể nạp dữ liệu từ nhiều nguồn dữ liệu có cấu trúc khác nhau (ví dụ: JSON, Hive và Parquet).
+
+Spark SQL cho phép người dùng truy vấn dữ liệu bằng SQL, cả ở bên trong chương trình Spark lẫn từ các công cụ bên ngoài kết nối tới Spark SQL thông qua các chuẩn kết nối cơ sở dữ liệu (như Chuẩn kết nối cơ sở dữ liệu dành cho ngôn ngữ Java: Java Database Connectivity - JDBC hay Chuẩn kết nối cơ sở dữ liệu độc lập ngôn ngữ lập trình: Open Database Connectivity - ODBC).
+Từ đó, các công cụ phân tích nghiệp vụ (Business Intelligence) như Tableau, QlikView và Power BI có thể kết nối trực tiếp tới Spark SQL để truy vấn và trực quan hóa dữ liệu.
+
+Hình dưới đây được lấy từ cuốn sách [Learning Spark: LIGHTNING-FAST DATA ANALYSIS](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/learning_spark_lightning_fast_big_data_analysis_holden_karau_andy_konwinski_patrick_wendell_matei_zaharia.pdf), mô tả luồng hoạt động cơ bản của Machine Learning.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/spark_sql.jpeg" style="width: 800px;"/>
+
+Khi được sử dụng bên trong một chương trình Spark, Spark SQL cung cấp khả năng tích hợp chặt chẽ giữa SQL và mã Python/Java/Scala, bao gồm việc cho phép join giữa RDD và các bảng SQL, định nghĩa và sử dụng các hàm tùy biến trong SQL, cùng nhiều khả năng mở rộng khác.
+Nhiều tác vụ xử lý dữ liệu trở nên dễ triển khai hơn nhờ sự kết hợp này.
+
+#### So sánh giữa Spark SQL và Hive
+
+| Tiêu chí           | **Hive**                                   | **Spark SQL**                        |
+| ------------------ | ------------------------------------------ | ------------------------------------ |
+| Mục tiêu chính     | Data warehouse trên Hadoop                 | Xử lý dữ liệu có cấu trúc trên Spark |
+| Engine thực thi    | MapReduce / Tez / Spark                    | Spark engine (in-memory)             |
+| Hiệu năng          | Trung bình → thấp (đặc biệt với MapReduce) | Cao, độ trễ thấp                     |
+| Độ trễ truy vấn    | Cao (phút)                                 | Thấp (giây)                          |
+| Xử lý trong bộ nhớ | Không / hạn chế                            | Có                                   |
+| Ngôn ngữ           | HiveQL                                     | SQL chuẩn + DataFrame/Dataset API    |
+| Tích hợp với code  | Hạn chế                                    | Rất chặt chẽ (Python/Scala/Java)     |
+| Quản lý metadata   | Hive Metastore                             | Thường dùng chung Hive Metastore     |
+| Khả năng mở rộng   | Tốt cho batch lớn                          | Tốt cho batch và interactive         |
+| Tính linh hoạt     | Thấp hơn                                   | Cao hơn                              |
+
+- **Hive:** phù hợp cho lưu trữ và phân tích batch quy mô lớn, ít yêu cầu thời gian phản hồi.
+- **Spark SQL:** phù hợp cho xử lý nhanh, tương tác, và phân tích nâng cao.
+
+**Thực tế triển khai phổ biến: 👉 Hive Metastore + Spark SQL làm engine xử lý.**
+
+#### So sánh giữa RDD, DataFrame, Dataset và Database/Metastore
+
+| Tiêu chí           | **RDD**                       | **DataFrame**          | **Dataset**              | **Database / Metastore** |
+| ------------------ | ----------------------------- | ---------------------- | ------------------------ | ------------------------ |
+| Bản chất           | Tập dữ liệu phân tán mức thấp | Bảng dữ liệu có schema | DataFrame có type-safety | Lớp quản lý metadata     |
+| Mức trừu tượng     | Thấp                          | Trung bình             | Trung bình–cao           | Cao                      |
+| Schema             | Không                         | Có                     | Có                       | Quản lý schema           |
+| Type-safety        | Có (Scala/Java)               | Không                  | Có (Scala/Java)          | Không áp dụng            |
+| Catalyst Optimizer | Không                         | Có                     | Có                       | Không                    |
+| API chính          | map, filter, reduce           | select, groupBy, SQL   | Typed ops + SQL          | SQL DDL, catalog         |
+| Hiệu năng          | Thấp hơn                      | Cao                    | Cao                      | Không xử lý trực tiếp    |
+| Mục đích sử dụng   | Xử lý tùy biến, low-level     | ETL, analytics, BI     | Pipeline typed (Scala)   | Quản lý bảng & schema    |
+| Quan hệ với Spark  | Nền tảng xử lý                | Lớp xử lý chính        | Lớp xử lý nâng cao       | Hỗ trợ truy vấn          |
+
+- **RDD:** kiểm soát thấp tầng, ít tối ưu
+- **DataFrame:** bảng dữ liệu, hiệu năng cao
+- **Dataset:** DataFrame + type-safety
+- **Database:** nơi quản lý schema và bảng, không trực tiếp xử lý dữ liệu
 
 ### 4.2. Spark Streaming
 
-Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Spark Streaming.
+Spark Streaming là một thành phần quan trọng của hệ sinh thái Apache Spark, được thiết kế để xử lý và phân tích dữ liệu trực tiếp (real-time data) với tốc độ và khả năng mở rộng cao.
+Spark Streaming tích hợp chặt chẽ với Apache Spark, Spark Streaming có thể sử dụng API của Java và Scala ở bản Spark 1.1, và bổ sung thêm API cho Python (PySpark) và R (SparkR) ở các bản sau đó.
+
+Spark Streaming xử lý dữ liệu trực tiếp từ nhiều nguồn như streaming data (logs, sự kiện, dữ liệu sensor), batch data, và hệ thống hàng đợi tin nhắn (message queues) như Apache Kafka.
+
+Hình dưới đây được lấy từ cuốn sách [Learning Spark: LIGHTNING-FAST DATA ANALYSIS](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/learning_spark_lightning_fast_big_data_analysis_holden_karau_andy_konwinski_patrick_wendell_matei_zaharia.pdf), mô tả ý tưởng của Spark Streaming.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/spark_streaming.jpeg" style="width: 800px;"/>
 
+Spark Streaming không xử lý từng bản ghi (record) riêng lẻ, mà xử lý dữ liệu theo các lô nhỏ (micro-batch).
+Spark Streaming sử dụng kiến trúc “micro-batch”, trong đó việc xử lý dữ liệu luồng được xem như một chuỗi liên tục các phép xử lý theo lô (batch) trên những tập dữ liệu nhỏ.
+Spark Streaming nhận dữ liệu từ nhiều nguồn đầu vào khác nhau và gom chúng thành các lô nhỏ. Các lô mới được tạo ra theo những khoảng thời gian đều đặn.
 
+Mỗi batch tương ứng với một RDD, và được xử lý bằng các phép biến đổi của Spark giống như xử lý batch truyền thống.
+Việc xử lý diễn ra tuần tự theo từng batch, tạo thành một chuỗi các Spark job liên tiếp.
+Kết quả xử lý được xuất ra các hệ thống lưu trữ hoặc dịch vụ bên ngoài theo từng batch.
 
-Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Spark Streaming.
-
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/dstream.jpeg" style="width: 800px;"/>
-
-
-
-Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Spark Streaming.
-
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/dstream_with_transformations.jpeg" style="width: 800px;"/>
+Bản chất, Spark Streaming biến bài toán xử lý dữ liệu thời gian thực thành bài toán xử lý batch liên tục với độ trễ thấp (near real-time) tận dụng trực tiếp mô hình và engine xử lý của Spark Core.
 
 ### 4.3. Spark MLlib
-
-Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả ý tưởng của Spark MLlib.
-
-<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/machine_learning.jpeg" style="width: 800px;"/>
-
-### 4.4. Spark GraphX
-
-
-
-Apache Spark's Catalyst Optimizer là một trong những thành phần quan trọng của Spark.
-
-Catalyst là một bộ tối ưu hóa truy vấn được sử dụng để cải thiện hiệu suất và tối ưu hóa kế hoạch thực hiện truy vấn.
-Nó là một bộ tối ưu hóa dựa trên quy tắc (rule-based optimizer) và được sử dụng để biến đổi câu truy vấn và kế hoạch thực hiện câu truy vấn để tạo ra kế hoạch thực hiện hiệu quả hơn.
-
-
-Các bước biến đổi trong Catalyst Optimizer:
-- **Preprocessing**:
-Trước khi bắt đầu quá trình tối ưu hóa, Catalyst thực hiện một số bước tiền xử lý cơ bản.
-Điều này bao gồm việc phân tích cú pháp của truy vấn, xây dựng cây truy vấn Logic Plan và kiểm tra cú pháp.
-- **Apply Optimization Rules**:
-Catalyst sử dụng danh sách các quy tắc tối ưu hóa (optimization rules) để biến đổi cây truy vấn Logic Plan.
-Mỗi quy tắc tối ưu hóa thực hiện một biến đổi cụ thể trên cây truy vấn.
-- **Rule Application Order**:
-Catalyst quyết định thứ tự áp dụng các quy tắc tối ưu hóa.
-Thông thường, các quy tắc hiệu quả hơn được áp dụng trước.
-Ví dụ, các quy tắc liên quan đến lọc có thể được áp dụng trước khi xem xét join hoặc sắp xếp.
-- **Plan Optimization**:
-Catalyst có thể cải thiện kế hoạch thực hiện truy vấn bằng cách biến đổi kế hoạch để sử dụng các phép toán thích hợp hơn, giảm bước trung gian không cần thiết và cải thiện hiệu suất tổng thể của truy vấn.
-- **Expression Optimization**:
-Catalyst cũng tối ưu hóa các biểu thức trong truy vấn bằng cách sử dụng trình biên dịch (Expression Compiler) để biên dịch các biểu thức thành mã máy hiệu quả.
-- **Final Physical Plan**:
-Sau khi tất cả các biến đổi và tối ưu hóa đã được áp dụng, Catalyst xây dựng kế hoạch thực hiện truy vấn cuối cùng.
-Kế hoạch này thể hiện cấu trúc thực hiện truy vấn sau khi tất cả tối ưu hóa đã hoàn thành.
-- **Query Execution**:
-Kế hoạch thực hiện cuối cùng sau bước tối ưu hóa được sử dụng để thực hiện truy vấn trên dữ liệu thực tế.
-Trong quá trình này, dữ liệu được đọc, biến đổi và tính toán dựa trên kế hoạch tối ưu hóa đã xây dựng.
-
-
-Ví dụ:
-```sql
-SELECT employees.name, departments.department_name
-FROM employees
-JOIN employee_departments ON employees.employee_id = employee_departments.employee_id
-JOIN departments ON employee_departments.department_id = departments.department_id
-WHERE employees.salary > 50000 AND departments.location = 'New York'
-```
-- Preprocessing: Tạo cây truy vấn Logic Plan.
-- Apply Optimization Rules:
-Quy tắc có thể bao gồm "PushDownPredicate" để đẩy điều kiện lọc "salary > 50000" xuống càng gần dữ liệu và "PushDownJoin" để xác định thứ tự thực hiện các phép nối.
-- Rule Application Order:
-Quy tắc "PushDownPredicate" được áp dụng trước để đẩy điều kiện lọc xuống gần với dữ liệu.
-Sau đó, quy tắc "PushDownJoin" có thể xác định thứ tự thực hiện các phép nối sao cho hiệu suất tối ưu.
-- Plan Optimization:
-Catalyst có thể cải thiện kế hoạch bằng cách loại bỏ các bước trung gian không cần thiết và cải thiện hiệu suất tổng thể.
-- Expression Optimization:
-Catalyst cũng tối ưu hóa các biểu thức trong truy vấn, ví dụ: "salary > 50000" có thể được biên dịch thành mã máy hiệu quả.
-- Final Physical Plan:
-Áp dụng tất cả các quy tắc tối ưu hóa và biến đổi có thể biểu diễn bằng một kế hoạch thực hiện truy vấn cụ thể.
-- Query Execution:
-Kế hoạch thực hiện cuối cùng được sử dụng để thực hiện truy vấn trên dữ liệu thực tế, với tất cả các tối ưu hóa và biến đổi đã áp dụng.
-
-### 2.2. Spark SQL
-
-Spark SQL là một thành phần quan trọng của Apache Spark, cung cấp khả năng thực thi truy vấn SQL trên dữ liệu phân tán.
-
-- **Hỗ trợ SQL truyền thống**:
-Spark SQL cho phép bạn thực hiện truy vấn SQL truyền thống trên dữ liệu phân tán.
-Có thể sử dụng các truy vấn SELECT, JOIN, GROUP BY, và nhiều lệnh SQL khác để truy vấn và xử lý dữ liệu.
-- **Tích hợp dữ liệu cấu trúc và bán cấu trúc**:
-Spark SQL cho phép làm việc với dữ liệu cấu trúc (Structured Data) thông qua các DataFrame, cũng như dữ liệu bán cấu trúc (Semi-structured Data) bằng cách sử dụng các RDD (Resilient Distributed Datasets).
-- **Tương thích với nhiều nguồn dữ liệu**:
-Spark SQL có khả năng làm việc với nhiều nguồn dữ liệu khác nhau, bao gồm Parquet, JSON, CSV, và cơ sở dữ liệu HDFS, Hive, và nhiều hệ thống lưu trữ dữ liệu khác.
-- **Catalyst Optimizer**:
-Spark SQL sử dụng Catalyst Optimizer để tối ưu hóa các truy vấn SQL.
-Catalyst là một bộ tối ưu hóa dựa trên quy tắc (rule-based optimizer) giúp cải thiện hiệu suất truy vấn.
-- **Hỗ trợ cho UDFs (User-Defined Functions)**:
-Có thể định nghĩa và sử dụng các hàm người dùng (UDFs) trong truy vấn SQL để thực hiện tính toán tùy chỉnh trên dữ liệu.
-- **Lập trình bằng nhiều ngôn ngữ**:
-Spark SQL hỗ trợ nhiều ngôn ngữ lập trình, bao gồm Scala, Java, Python và R, giúp bạn làm việc với dữ liệu trong ngôn ngữ mà bạn thoải mái.
-- **Hỗ trợ cho BI Tools**:
-Spark SQL có thể tích hợp với các công cụ Business Intelligence (BI) như Tableau, QlikView, và Power BI để trực quan hóa và trình bày dữ liệu.
-- **Hỗ trợ cho MLlib và GraphX**:
-Dữ liệu có thể được trực tiếp chuyển đổi thành các đối tượng sử dụng trong thư viện MLlib và GraphX của Spark để thực hiện học máy và xử lý đồ thị.
-
-#### DataFrame DSL (Domain-Specific Language)
-
-DataFrame DSL (Domain-Specific Language) là một ngôn ngữ cụ thể cho việc làm việc với DataFrame trong Apache Spark.
-
-Nó không phải là một ngôn ngữ riêng lẻ, mà thay vào đó, nó là một tập hợp các phương thức và toán tử được cung cấp bởi Spark để thực hiện các thao tác trên DataFrame một cách dễ dàng và mạnh mẽ.
-
-DataFrame DSL được thiết kế để cho phép người lập trình sử dụng Spark SQL để truy vấn và biến đổi dữ liệu dưới dạng DataFrame bằng cách sử dụng một ngôn ngữ dễ đọc và dễ hiểu.
-
-Ví dụ:
-```scala
-// Tạo một DataFrame từ một nguồn dữ liệu
-val df = spark.read.json("data.json")
-
-// Hiển thị 10 dòng đầu tiên của DataFrame
-df.show(10)
-
-// Lọc dữ liệu dựa trên một điều kiện
-val filteredDF = df.filter(df("age") > 25)
-
-// Nhóm dữ liệu và tính tổng trên một cột
-val groupByDF = df.groupBy("gender").agg(sum("salary"))
-
-// Kết hợp hai DataFrame
-val joinedDF = df1.join(df2, "employee_id")
-```
-
-#### HQL (Hive Query Language)
-HQL, hay còn gọi là HiveQL, là một ngôn ngữ truy vấn sử dụng trong hệ sinh thái Apache Hive.
-Hive là một lớp trừu tượng trên Hadoop HDFS và cung cấp cách truy vấn dữ liệu có cấu trúc sử dụng ngôn ngữ SQL-similar gọi là HQL.
-
-
-### 2.3. Spark Streaming
-
-Apache Spark Streaming là một thành phần quan trọng của hệ sinh thái Apache Spark, được thiết kế để xử lý và phân tích dữ liệu trực tiếp (real-time data) với tốc độ và khả năng mở rộng cao.
-
-- **Hỗ trợ cho các nguồn dữ liệu đa dạng**:
-Xử lý dữ liệu trực tiếp từ nhiều nguồn như streaming data (logs, sự kiện, dữ liệu sensor), batch data, và hệ thống hàng đợi tin nhắn (message queues) như Apache Kafka.
-- **API đồng nhất với Spark**:
-Tích hợp chặt chẽ với Apache Spark, giúp bạn sử dụng cùng một API.
-- **Khả năng mở rộng**: 
-Có khả năng mở rộng ngang (horizontal scaling), cho phép xử lý dữ liệu để đối phó với tải công việc cao và dữ liệu đầu vào lớn.
-- **Near Real-Time**:
-Mặc dù Spark Streaming không đạt đến thời gian thực (real-time) chính xác, nó cung cấp khả năng xử lý dữ liệu gần thời gian thực (near real-time) với độ trễ thấp.
-- **Tích hợp với thư viện Spark**:
-Có thể sử dụng các thư viện khác của Spark như Spark SQL, MLlib, và GraphX để xử lý dữ liệu trực tiếp.
-- **Windowed Processing**:
-Spark Streaming cho phép bạn thực hiện xử lý dữ liệu trong cửa sổ thời gian, giúp bạn tính toán tổng hợp và thống kê trên dữ liệu trong khoảng thời gian nhất định.
-
-### 2.4. Spark MLlib
 
 Apache Spark MLlib (Machine Learning Library) là một thư viện machine learning mã nguồn mở và phân tán được tích hợp chặt chẽ với Apache Spark.
 MLlib cung cấp một loạt các mô hình machine learning và công cụ cho việc xây dựng, đào tạo và triển khai mô hình học máy trên dữ liệu lớn.
 
-- **Tích hợp với Apache Spark**:
-Tích hợp chặt chẽ với Apache Spark, cho phép sử dụng ngôn ngữ Scala, Java, Python hoặc R để làm việc với dữ liệu và thực hiện machine learning trên cụm Spark.
+Hình dưới đây được lấy từ cuốn sách [Learning Spark: LIGHTNING-FAST DATA ANALYSIS](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/learning_spark_lightning_fast_big_data_analysis_holden_karau_andy_konwinski_patrick_wendell_matei_zaharia.pdf), mô tả luồng hoạt động cơ bản của Machine Learning.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/machine_learning.jpeg" style="width: 800px;"/>
+
+Spark MLlib tích hợp chặt chẽ với Apache Spark, cho phép sử dụng ngôn ngữ Scala, Java, Python hoặc R để làm việc với dữ liệu và thực hiện machine learning trên cụm Spark.
 Điều này mang lại sự mạnh mẽ và khả năng mở rộng của Spark cho việc xử lý dữ liệu lớn.
-- **Mô hình Machine Learning**:
-Cung cấp một loạt các mô hình machine learning khác nhau bao gồm cả machine learning cổ điển và deep learning như: classification, regression, clustering.
+
+Spark MLlib cung cấp một loạt các mô hình machine learning khác nhau bao gồm cả machine learning cổ điển và deep learning như: classification, regression, clustering.
 Các mô hình này đã được tối ưu hóa để hoạt động trên cụm và xử lý dữ liệu phân tán.
-- **Các công cụ và tính năng liên quan đến ML**:
-Cung cấp các công cụ và tính năng liên quan đến machine learning như model evaluation, data pipeline, model pipeline.
-- **Khả năng mở rộng**:
-Có khả năng mở rộng và có thể xử lý cả dữ liệu lớn và cụm máy tính phân tán, cho phép bạn đào tạo mô hình trên dữ liệu lớn và tận dụng các tài nguyên cụm.
-- **Hỗ trợ cho Spark Streaming và Spark SQL**:
-Tích hợp với Spark Streaming và Spark SQL, cho phép bạn xây dựng ứng dụng thực hiện machine learning trên dữ liệu trực tiếp và dữ liệu cấu trúc.
-- **Sự phát triển và cộng đồng mạnh mẽ**:
-Là một dự án mã nguồn mở phát triển mạnh mẽ và có sự đóng góp từ cộng đồng rộng rãi. Điều này đảm bảo tính cập nhật, sửa lỗi và bổ sung mới liên tục.
 
-<img src="https://drive.google.com/uc?id=1OXiPvRFYB6cc_-XaaZjntl_m14eSppP3" style="width: 1200px;"/>
+Ngoài ra, Spark MLlib cung cấp các công cụ và tính năng liên quan đến machine learning như model evaluation, data pipeline, model pipeline.
 
-### 2.5. Spark GraphX
+### 4.4. Spark GraphX
 
-Apache Spark GraphX là một thư viện mã nguồn mở trong hệ sinh thái Apache Spark, được thiết kế để xử lý và phân tích dữ liệu đồ thị.
+Spark GraphX là một thư viện mã nguồn mở trong hệ sinh thái Apache Spark, được thiết kế để xử lý và phân tích dữ liệu đồ thị.
 Thư viện này cung cấp các cấu trúc dữ liệu và các thuật toán đồ thị để giúp bạn nghiên cứu, phân tích mạng xã hội, xử lý dữ liệu đồ thị trong lĩnh vực khai thác dữ liệu và học máy.
 
-- **Xử lý dữ liệu đồ thị**:
-Xử lý dữ liệu đồ thị, trong đó các đỉnh và cạnh của đồ thị có thể đại diện cho các thực thể và mối quan hệ giữa chúng.
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả một đồ thị.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/graph.jpeg" style="width: 800px;"/>
+
+Spark GraphX xử lý dữ liệu đồ thị, trong đó các đỉnh và cạnh của đồ thị có thể đại diện cho các thực thể và mối quan hệ giữa chúng.
 Điều này phù hợp cho việc nghiên cứu các mạng xã hội, mạng lưới, mạng thông tin, và nhiều ứng dụng khác.
-- **API đồng nhất với Spark**:
-Tích hợp chặt chẽ với Apache Spark, giúp bạn sử dụng cùng một API để xử lý dữ liệu đồ thị và dữ liệu lớn.
-Điều này giúp tận dụng sức mạnh của Spark trong việc xử lý phân tán.
-- **Cấu trúc dữ liệu linh hoạt**:
-Cung cấp cấu trúc dữ liệu linh hoạt để biểu diễn dữ liệu đồ thị, bao gồm đồ thị hướng và đồ thị không hướng.
+
+Spark GraphX cung cấp cấu trúc dữ liệu linh hoạt để biểu diễn dữ liệu đồ thị, bao gồm đồ thị hướng và đồ thị không hướng.
 Điều này cho phép bạn biểu diễn một loạt các dữ liệu đồ thị phức tạp.
-- **Các thuật toán đồ thị tích hợp**:
-Cung cấp một loạt các thuật toán đồ thị như duyệt đồ thị (graph traversal), tính toán đường đi ngắn nhất (shortest path), tìm kiếm đồ thị (graph search), tính toán bậc và thuật toán phân cụm (clustering algorithms) để phân tích và khám phá thông tin từ dữ liệu đồ thị.
-- **Khả năng mở rộng**:
-Có khả năng mở rộng và tối ưu hóa hiệu suất, cho phép xử lý các đồ thị lớn trên cụm máy tính phân tán.
-- **Hỗ trợ cho tích hợp với MLlib**:
-GraphX có thể tích hợp với Spark MLlib, cho phép bạn sử dụng machine learning để phân tích dữ liệu đồ thị và xây dựng các mô hình học máy dựa trên thông tin từ đồ thị.
-- **Hỗ trợ cho Spark Streaming và Spark SQL**:
-GraphX có thể được tích hợp với Spark Streaming và Spark SQL để xử lý và phân tích dữ liệu đồ thị trong các ứng dụng thời gian thực và các truy vấn SQL.
 
+Spark GraphX cung cấp một loạt các thuật toán đồ thị như duyệt đồ thị (graph traversal), tính toán đường đi ngắn nhất (shortest path), tìm kiếm đồ thị (graph search), tính toán bậc và thuật toán phân cụm (clustering algorithms) để phân tích và khám phá thông tin từ dữ liệu đồ thị.
 
-<!-- ## 3. Phân biệt một số khái niệm
+### 4.5. Các API trên các ngôn ngữ lập trình
 
-### 3.1. SparkContext và SparkSession
+Các API đa ngôn ngữ của Spark cho phép nhiều nhóm người dùng khác nhau (kỹ sư hệ thống, data engineer, data scientist, nhà phân tích) khai thác cùng một engine xử lý phân tán, với mức độ trừu tượng và độ phức tạp phù hợp.
 
-Đối với SparkContext:
-- SparkContext được sử dụng trong phiên bản Spark trước 2.0.
-- SparkContext làm việc với dữ liệu phi cấu trúc thông qua RDD.
-- SparkContext là một đối tượng chính của SparkCore giúp quản lý tài nguyên và phân phối các nhiệm vụ trên cụm.
+| Ngôn ngữ    | Vai trò chính                                         | Đặc điểm nổi bật                                           | Đối tượng / Trường hợp sử dụng                        |
+| ----------- | ----------------------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------- |
+| **Scala**   | API gốc, đầy đủ nhất của Spark                        | Hiệu năng cao, hỗ trợ toàn bộ tính năng Spark              | Phát triển hệ thống Spark lõi, ứng dụng hiệu năng cao |
+| **Java**    | Cung cấp khả năng sử dụng Spark trong môi trường Java | Ổn định, tương thích tốt với hệ sinh thái doanh nghiệp     | Ứng dụng doanh nghiệp, hệ thống legacy                |
+| **PySpark** | Đơn giản hóa việc sử dụng Spark cho phân tích dữ liệu | Cú pháp ngắn gọn, dễ học, phổ biến trong Data Science & ML | Phân tích dữ liệu và machine learning                 |
+| **SparkR**  | Hỗ trợ phân tích thống kê trên dữ liệu lớn            | Tích hợp với hệ sinh thái R                                | Phân tích thống kê, nghiên cứu                        |
 
-Đối với SparkSession:
-- SparkSession được giới thiệu từ phiên bản Spark 2.0 trở lên.
-- SparkSession làm việc với dữ liệu có cấu trúc thông qua DataFrame.
-- SparkSession hoạt động với Spark SQL và Hive, tổng hợp các tính năng của SparkContext, SQLContext và HiveContext.
+#### So sánh giữa Spark Context và Spark Session
 
-### 3.2. RDD và DataFrame
- -->
+Hình dưới đây được lấy từ cuốn sách [Spark: The definitive Guide](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/spark_the_definitive_guide_bill_chambers_matei_zaharia.pdf), mô tả cách tạo Spark Session trong Spark.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/spark_session.jpeg" style="width: 800px;"/>
+
+Spark Context (SC) là điểm khởi đầu để tương tác với Spark.
+Nó chịu trách nhiệm thiết lập kết nối với cụm Spark, quản lý tài nguyên và cung cấp các phương thức để tạo RDD và thực thi các tác vụ phân tán.
+Spark Context là thành phần cốt lõi trong các phiên bản Spark trước 2.0.
+
+Spark Session (SS) được giới thiệu từ Spark 2.0 như một lớp trừu tượng cao hơn, cung cấp một giao diện thống nhất để làm việc với dữ liệu có cấu trúc và không cấu trúc, bao gồm cả DataFrame và Dataset.
+Spark Session đơn giản hóa việc cấu hình và quản lý các thành phần Spark.
+
+| Khía cạnh         | SparkContext                                                | SparkSession                                                              |
+| ----------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Mục đích          | Kết nối cluster, thao tác RDD, cấu hình executor            | Entry point thống nhất cho DataFrame/Dataset/SQL và truy cập SparkContext |
+| Ra đời/phiên bản  | Có từ đầu (Spark core)                                      | Từ Spark 2.0 trở đi                                                       |
+| Thao tác chính    | RDD, low-level API, submit job                              | Read/Write (DataFrame), SQL, Catalog, cấu hình session                    |
+| Tạo/khởi tạo      | `new SparkContext(conf)` (thấp cấp)                         | `SparkSession.builder().appName(...).getOrCreate()`                       |
+| Khi nên dùng      | Khi cần thao tác RDD trực tiếp hoặc config cluster cấp thấp | Hầu hết trường hợp hiện đại — tạo DataFrame, truy vấn SQL, ML, Streaming  |
+
+Đối với ứng dụng hiện đại dùng DataFrame/Dataset/SQL: dùng SparkSession làm entry point.
+Nếu cần thao tác RDD thấp cấp hoặc cấu hình chi tiết ở mức core: vẫn có thể sử dụng spark.sparkContext.

@@ -96,6 +96,14 @@ Hadoop YARN (Yet Another Resource Negotiator) là lớp quản lý tài nguyên 
 
 Apache Spark là nền tảng xử lý dữ liệu lớn in-memory được thiết kế cho hiệu năng cao và khả năng xử lý linh hoạt. Khác với MapReduce chỉ hoạt động theo mô hình batch, Spark giữ dữ liệu trong bộ nhớ qua nhiều bước tính toán, giúp tăng tốc đáng kể các tác vụ lặp như học máy, phân tích biểu đồ và xử lý tương tác. Nhờ khả năng mở rộng và tốc độ vượt trội, Spark trở thành lựa chọn phổ biến trong các hệ thống phân tích dữ liệu hiện đại.
 
+###### 1. Giới thiệu chung về Spark
+
+###### 2. Kiến trúc chung của Spark
+
+###### 3. Thành phần cốt lõi Spark Core
+
+###### 4. Các thành phần cấp cao của Spark
+
 ---
 
 ### [Bài 9: Nền tảng streaming phân tán Apache Kafka](/blog/nen-tang-streaming-phan-tan-apache-kafka)
