@@ -10,7 +10,7 @@ yarn version
 # Kiểm tra trạng thái cluster YARN
 yarn node -list -all
 # Hiển thị thông tin chi tiết về một NodeManager cụ thể
-yarn node -status <node_id>
+yarn node -status <node_id> # host:port
 
 # Hiển thị các ứng dụng đang chạy trên YARN
 # Nếu không có job đang chạy, sẽ trống.

@@ -25,6 +25,7 @@ services:
       - "8020:8020"   # RPC NameNode
     volumes:
       - namenode-data:/hadoop/dfs/name
+      - hadoop-conf:/etc/hadoop
     networks:
       - bigdata
 
@@ -76,6 +77,8 @@ services:
       - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
     ports:
       - "8088:8088"   # YARN ResourceManager UI
+    volumes:
+      - hadoop-conf:/etc/hadoop
     depends_on:
       - namenode
     networks:
@@ -97,6 +100,8 @@ services:
       - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
       - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
       - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+    volumes:
+      - hadoop-conf:/etc/hadoop
     depends_on:
       - resourcemanager
     networks:
@@ -118,6 +123,8 @@ services:
       - MAPRED_CONF_yarn_app_mapreduce_am_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
       - MAPRED_CONF_mapreduce_map_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
       - MAPRED_CONF_mapreduce_reduce_env=HADOOP_MAPRED_HOME=/opt/hadoop-3.2.1/
+    volumes:
+      - hadoop-conf:/etc/hadoop
     depends_on:
       - resourcemanager
     networks:
@@ -143,9 +150,13 @@ services:
     container_name: spark-master
     environment:
       - INIT_DAEMON_STEP=setup_spark
+      - HADOOP_CONF_DIR=/etc/hadoop
+      - YARN_CONF_DIR=/etc/hadoop
     ports:
       - "8080:8080"   # Spark Master UI
       - "7077:7077"   # Spark Master Port
+    volumes:
+      - hadoop-conf:/etc/hadoop:ro
     depends_on:
       - namenode
     networks:
@@ -193,6 +204,7 @@ volumes:
   namenode-data:
   datanode1-data:
   datanode2-data:
+  hadoop-conf:
 
 networks:
   bigdata:

@@ -4,7 +4,6 @@ sudo docker compose up -d
 # 1. Copy dữ liệu vào container NameNode và vào bên trong container
 sudo docker cp data/dummy_parquet_dataset/mapreduce_data/wordcount_dataset namenode:/
 sudo docker cp map_reduce_demo namenode:/
-sudo docker cp scripts/setup_python.sh namenode:/setup_python.sh
 sudo docker exec -it namenode bash
 
 # 2. Chuẩn bị dữ liệu
@@ -43,17 +42,17 @@ hdfs dfs -cat /wordcount_mapreduce_output/huge_50M_wc_output/part-r-00000 | head
 
 # 6. Cài đặt Python và thư viện cần thiết
 # Trên container NameNode
-bash /setup_python.sh
+bash /map_reduce_demo/setup_python39_debian.sh
 # Trên container NodeManager
 # Mapper/Reducer không chạy trên namenode mà chạy trong các container NodeManager (chạy YARN containers).
-# Nên bạn phải cài Python ở đó nữa, nếu không Hadoop Streaming sẽ lỗi python3: command not found trên worker.
-sudo docker cp scripts/setup_python.sh nodemanager1:/setup_python.sh
+# Nên bạn phải cài Python ở đó nữa, nếu không sẽ lỗi python3: command not found trên worker.
+sudo docker cp map_reduce_demo nodemanager1:/
 sudo docker exec -it nodemanager1 bash
-bash /setup_python.sh
+bash /map_reduce_demo/setup_python39_debian.sh
 exit
-sudo docker cp scripts/setup_python.sh nodemanager2:/setup_python.sh
+sudo docker cp map_reduce_demo nodemanager2:/
 sudo docker exec -it nodemanager2 bash
-bash /setup_python.sh
+bash /map_reduce_demo/setup_python39_debian.sh
 exit
 
 # 7. Chạy MapReduce WordCount bằng code Python
