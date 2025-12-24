@@ -3,6 +3,7 @@ sudo docker compose up -d
 
 # 1. Copy dữ liệu vào container NameNode và vào bên trong container
 sudo docker cp data/dummy_parquet_dataset/mapreduce_data/wordcount_dataset namenode:/
+sudo docker cp data/dummy_parquet_dataset/mapreduce_data/movie_rating_dataset namenode:/
 sudo docker cp spark_demo spark-master:/
 
 # 2. Chuẩn bị dữ liệu
@@ -12,6 +13,10 @@ hdfs dfs -put /wordcount_dataset/small_500k.txt /wordcount_dataset/small_500k.tx
 hdfs dfs -put /wordcount_dataset/big_5M.txt /wordcount_dataset/big_5M.txt
 hdfs dfs -put /wordcount_dataset/huge_50M.txt /wordcount_dataset/huge_50M.txt
 hdfs dfs -ls /wordcount_dataset
+
+hdfs dfs -mkdir /movie_rating_dataset
+hdfs dfs -put /movie_rating_dataset/movie_data.txt /movie_rating_dataset/movie_data.txt
+hdfs dfs -ls /movie_rating_dataset
 
 # 3. Cài đặt Python và thư viện cần thiết
 # Trên container NodeManager
@@ -35,3 +40,16 @@ bash /spark_demo/setup_python39_alpine.sh
   --deploy-mode client \
   --name spark-wordcount-big5M \
   /spark_demo/wordcount.py
+
+/spark/bin/spark-submit \
+  --master yarn \
+  --deploy-mode cluster \
+  --name spark-wordcount-big5M-cluster \
+  /spark_demo/wordcount.py
+
+# 5. Chạy Spark Movie High Rating bằng code Python
+/spark/bin/spark-submit \
+  --master yarn \
+  --deploy-mode client \
+  --name spark-movie-high-rating \
+  /spark_demo/movie_high_rating.py
