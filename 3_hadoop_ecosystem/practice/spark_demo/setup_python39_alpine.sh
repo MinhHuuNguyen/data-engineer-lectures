@@ -68,3 +68,7 @@ apk add --no-cache \
     xz
 
 echo "==> Python ${PYVER} installation completed successfully."
+
+# # Serve Spark MLlib
+# pip3 install numpy
+# pip3 install pyspark
