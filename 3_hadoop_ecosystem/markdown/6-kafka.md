@@ -8,63 +8,173 @@ is_highlight: false
 is_published: true
 ---
 
-# Streaming data Kafka
+## 1. Vai trò của hệ thống Publish/Subscribe (pub/sub)
 
-## 1. Giới thiệu về streaming data
+### 1.1. Vấn đề đặt ra
 
-Dữ liệu trực tiếp (streaming data) là một loại dữ liệu mà dữ liệu được truyền đi và nhận trong thời gian thực, thay vì được tải về và lưu trữ trước khi xử lý.
+Vấn đề được đặt ra từ một hệ thống đơn giản và một nhu cầu đơn giản.
 
-Điều này có nghĩa rằng dữ liệu được truyền từ nguồn gốc đến máy tính hoặc thiết bị khác một cách liên tục và không bị ngắt quãng.
+Ví dụ: Ta có một hệ thống nào đó và ta cần theo dõi các chỉ số metrics của hệ thống đó để phục vụ cho việc giám sát và cảnh báo nếu có sự cố xảy ra.
+Để làm được điều này, ta mở một kết nối trực tiếp từ ứng dụng đang cần phải theo dõi tới một ứng dụng hiển thị số liệu trên dashboard và đẩy số liệu qua kết nối đó.
+Đây là một giải pháp đơn giản cho một vấn đề đơn giản, và hoạt động tốt khi bạn mới bắt đầu giám sát một ứng dụng nào đó.
 
-<img src="https://static.packt-cdn.com/products/9781787281202/graphics/7799ffa6-f240-4c4e-8cd4-d2c70dc9aadd.jpeg" style="width: 1200px;"/>
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả về cách tương tác giữa thành phần tạo ra số liệu và thành phần sử dụng số liệu trong một hệ thống đơn giản.
 
-### 1.1. Batch Processing (Xử lý theo lô):
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/problem_simple.jpeg" style="width: 600px;"/>
 
-- Tính chất:
-    - Xử lý dữ liệu theo từng lô hoặc khối dữ liệu cố định tại một thời điểm.
-    - Dữ liệu được lưu trữ và xử lý trong các chu kỳ rõ ràng.
-    - Độ phức tạp thấp hơn.
-- Thời gian xử lý:
-    - Xử lý trong khoảng thời gian cố định và không yêu cầu xử lý ngay lập tức sau khi nó xuất hiện.
-    - Thời gian phản hồi chậm hơn.
-- Ứng dụng:
-    - Phù hợp cho các tác vụ có thể được lên kế hoạch và không cần phản hồi ngay lập tức, các nhiệm vụ đòi hỏi xử lý toàn bộ tập dữ liệu hoặc tập dữ liệu lớn.
+Sau đó, ta cần phân tích số liệu trong thời gian dài hơn, ta có thêm một ứng dụng mới có thể nhận, lưu trữ và phân tích số liệu.
+Lúc này, ứng dụng ban đầu cần phải mở hai kết nối trực tiếp tới hai ứng dụng khác nhau (một để hiển thị số liệu trên dashboard và một để phân tích).
+Tiếp theo, ngoài ứng dụng ban đầu, ta còn có thêm nhiều ứng dụng khác cần phải gửi số liệu tới hai ứng dụng này và ngoài hai ứng dụng này, ta còn có thêm các ứng dụng khác cần nhận số liệu để phục vụ cho các mục đích khác nhau.
 
-### 1.2. Stream Processing (Xử lý dữ liệu trực tiếp):
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả vấn đề phát sinh khi có nhiều thành phần tạo ra số liệu và nhiều thành phần sử dụng số liệu trong một hệ thống phức tạp.
 
-- Tính chất:
-    - Xử lý dữ liệu ngay lập tức khi nó xuất hiện, không chờ đợi cho đến khi có một lô dữ liệu đầy đủ.
-    - Độ phức tạp cao hơn.
-- Thời gian xử lý:
-    - Xử lý liên tục và theo thời gian thực, cho phép phản hồi ngay lập tức khi có dữ liệu mới.
-    - Thời gian phản hồi nhanh hơn.
-- Ứng dụng:
-    - Phù hợp cho các ứng dụng đòi hỏi xử lý dữ liệu ngay lập tức, ví dụ: dữ liệu cảm biến, dữ liệu truyền phát trực tiếp, dữ liệu tài chính, crypto.
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/problem_complex.jpeg" style="width: 600px;"/>
+
+### 1.2. Hệ thống Publish/Subscribe (pub/sub)
+
+Từ vấn đề trên, ta cần một giải pháp để tách biệt giữa thành phần tạo ra số liệu và thành phần sử dụng số liệu.
+Nôm na là ta cần tìm giải pháp để giảm số lượng kết nối trực tiếp giữa các thành phần trong hệ thống.
+
+Từ hệ thống phức tạp ở trên, ta xây dựng một ứng dụng trung gian ở giữa vừa đóng vai trò nhận số liệu từ các thành phần tạo ra số liệu, vừa đóng vai trò phát số liệu tới các thành phần sử dụng số liệu.
+Kết quả là ta đã xây dựng được một hệ thống messaging theo mẫu Publish/Subscribe!
+
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả vị trí của hệ thống pub/sub trong kiến trúc tổng thể.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/solution_pub_sub.jpeg" style="width: 600px;"/>
+
+Publish/subscribe (pub/sub) là một mô hình đặc trưng bởi việc người gửi (publisher) của một mẩu dữ liệu (message) không gửi trực tiếp đến một người nhận cụ thể.
+Thay vào đó, publisher phân loại message theo một cách nào đó, và người nhận (subscriber) đăng ký để nhận các lớp message nhất định.
+Hệ thống pub/sub thường có một broker — một điểm tập trung nơi messages được publish — để hỗ trợ mô hình này.
+
+Sau khi có hệ thống pub/sub phục vụ việc lưu trữ tạm và truyền tải các metrics, ta có thể dễ dàng thêm các hệ thống pub/sub tiếp theo để phục vụ mục đích như truyền tải logs, truyền tải hành vi người dùng ...
+
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả giải pháp sử dụng nhiều hệ thống pub/sub cho nhiều mục đích khác nhau trong một hệ thống phức tạp.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/solution_multiple_pub_sub.jpeg" style="width: 600px;"/>
+
+Với các hệ thống pub/sub, kiến trúc tổng thể của hệ thống trở nên linh hoạt hơn rất nhiều so với việc xây dựng các kết nối point-to-point giữa các thành phần trong hệ thống.
+
+Pub/sub chuyển kiến trúc từ mô hình kết nối trực tiếp nhiều-nhiều, phân mảnh và dễ phát sinh nợ kỹ thuật, sang mô hình có điểm trung tâm, tách rời các bên tham gia và linh hoạt mở rộng — từ đó giảm độ phức tạp, tăng khả năng tái sử dụng và đơn giản hóa vận hành cho các luồng dữ liệu trong doanh nghiệp.
+
+Tóm lại, hệ thống pub/sub giúp:
+- **Tách rời publisher và subscriber:** Publisher không cần biết ai sẽ tiêu thụ message; subscriber đăng ký các lớp message mình quan tâm. Điều này giảm phụ thuộc cứng giữa thành phần.
+- **Điểm tập trung để quản lý:** Broker trung tâm thu nhận và phân phối message, giúp giảm số lượng kết nối trực tiếp giữa các hệ thống và làm cho luồng dữ liệu dễ theo dõi hơn.
+- **Giảm trùng lặp và đơn giản hóa vận hành:** Thay vì nhiều hệ thống queue độc lập, dùng một nền tảng pub/sub chung giảm chi phí vận hành, cập nhật và sửa lỗi một lần cho nhiều trường hợp sử dụng.
+- **Dễ mở rộng và mở rộng chức năng:** Khi có yêu cầu mới (ví dụ analytics, alerting, ML), chỉ cần thêm subscriber hoặc topic mới thay vì sửa mọi publisher.
+- **Tăng khả năng tái sử dụng dữ liệu:** Một message có thể được tiêu thụ đồng thời bởi nhiều subscriber với mục đích khác nhau (báo cáo, lưu trữ, ML), tránh sao chép dữ liệu giữa hệ thống.
 
 ## 2. Giới thiệu về Apache Kafka
 
-### 2.1. Giới thiệu chung
-
 Apache Kafka được phát triển bởi LinkedIn vào năm 2011 và sau đó được chuyển giao cho Apache Software Foundation vào năm 2012 và trở thành một dự án mã nguồn mở.
 
-Kafka là công cụ giúp quản lý và lưu trữ các thông điệp (message) trong thời gian thực.
+Apache Kafka được phát triển như một hệ thống nhắn tin theo mô hình publish/subscribe, nhằm giải quyết các vấn đề về truyền tải và xử lý dữ liệu trong thời gian thực với độ tin cậy cao và khả năng mở rộng linh hoạt.
 
-Một số đặc điểm quan trọng của Kafka bao gồm:
-- Kiến trúc Publisher-Subscriber:
-Kafka thực hiện kiến trúc publisher-subscriber, cho phép các ứng dụng sản xuất (publish) dữ liệu vào Kafka và các ứng dụng khác tiêu dùng (consume) dữ liệu từ Kafka.
-Điều này tạo ra sự tách biệt giữa việc sản xuất và tiêu dùng dữ liệu, giúp tăng tính linh hoạt và tái sử dụng của hệ thống.
-- Chủ đề (Topic) và Phân đoạn (Partition):
-Dữ liệu trong Kafka được phân chia thành các topic, mỗi topic có thể chia thành nhiều partition.
-Topic là nơi dữ liệu được đăng và partition cho phép Kafka phân tải và phân phối dữ liệu một cách hiệu quả.
-- Bảo đảm độ tin cậy:
-Kafka đảm bảo độ tin cậy bằng cách lưu trữ dữ liệu trong một kho lưu trữ phân tán và sao lưu dữ liệu theo nhiều bản sao.
-Điều này đảm bảo rằng dữ liệu không bị mất khi có sự cố.
-- Khả năng mở rộng:
-Kafka có khả năng mở rộng dễ dàng, cho phép bạn thêm máy chủ Kafka mới để tăng khả năng xử lý dữ liệu.
-- Xử lý dữ liệu thời gian thực:
-Kafka được sử dụng để xử lý dữ liệu thời gian thực và phản hồi nhanh chóng đối với dữ liệu mới xuất hiện.
+Kafka thường được mô tả là một "commit log phân tán" hoặc một "nền tảng streaming phân tán".
+Dữ liệu trong Kafka được lưu trữ một cách bền vững, theo thứ tự, và có thể đọc một cách xác định.
+Ngoài ra, dữ liệu có thể được phân phối trong hệ thống để cung cấp khả năng bảo vệ bổ sung trước lỗi, đồng thời tạo ra những cơ hội đáng kể để mở rộng hiệu năng.
 
-<img src="https://images.viblo.asia/eabf0b4b-2cf2-4398-a20e-9dd312a93fb7.jpeg" style="width: 1200px;"/>
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), thể hiện các loại ứng dụng chính của Apache Kafka trong hệ sinh thái dữ liệu hiện đại.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/kafka_role.jpeg" style="width: 600px;"/>
+
+Tóm lại, Kafka cung cấp một cơ chế lưu trữ và phân phối sự kiện có thứ tự, bền vững và dễ mở rộng, giúp xây dựng các hệ thống phân tán đáng tin cậy, có khả năng phục hồi và hỗ trợ xử lý dữ liệu thời gian thực.
+
+## 3. Các thành phần của Apache Kafka
+
+### 3.1. Messages và Batches
+
+Message là đơn vị dữ liệu cơ bản trong Kafka, tương tự như một bản ghi (record) hoặc một dòng (row) trong cơ sở dữ liệu thông thường.
+Kafka nhìn nhận message như một chuỗi byte, cho phép lưu trữ bất kỳ loại dữ liệu nào, từ văn bản đơn giản đến các cấu trúc phức tạp hơn.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/.jpeg" style="width: 600px;"/>
+
+Trong một message, Key là một chuỗi byte tùy chọn được sử dụng để xác định message và thường chứa các metadata của message.
+Key của một message chứa thông tin về phân vùng mà message sẽ được lưu trữ `partition_id = hash(key) mod num_partitions`.
+Cách này đảm bảo các thông điệp có cùng khóa luôn được ghi vào cùng một phân vùng (khi số phân vùng giữ nguyên).
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/.jpeg" style="width: 600px;"/>
+
+Để tăng hiệu quả, các thông điệp được ghi vào Kafka theo lô (batch) thay vì từng thông điệp riêng lẻ vì chi phí overhead sẽ rất lớn; gom các thông điệp lại thành batch sẽ giảm thiểu điều này.
+Một batch chỉ đơn giản là một tập hợp các thông điệp, tất cả đều được sản xuất tới cùng một topic và cùng một partition.
+
+Tất nhiên đây là một đánh đổi giữa độ trễ và thông lượng: batch càng lớn thì càng nhiều thông điệp được xử lý trên một đơn vị thời gian (thông lượng cao), nhưng thời gian để một thông điệp riêng lẻ lan truyền trong hệ thống sẽ tăng (độ trễ cao hơn).
+Các batch thường được nén (compression), giúp truyền và lưu trữ dữ liệu hiệu quả hơn nhưng đổi lại tiêu tốn thêm tài nguyên xử lý (CPU).
+
+### 3.2. Schemas
+
+Mặc dù Kafka nhìn nhận message như một chuỗi byte không có cấu trúc, trong thực tế, ta nên áp dụng thêm cấu trúc hoặc schema cho message để dễ hiểu và xử lý dữ liệu hơn.
+Có nhiều lựa chọn cho schema của tin nhắn, tùy theo nhu cầu riêng của ứng dụng như JavaScript Object Notation (JSON) và Extensible Markup Language (XML) hoặc sử dụng một framework định dạng dữ liệu nhị phân như Apache Avro.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/.jpeg" style="width: 600px;"/>
+
+Một định dạng dữ liệu nhất quán rất quan trọng trong Kafka vì nó cho phép việc ghi và đọc tin nhắn được tách rời độc lập.
+Nếu hai việc này không tách rời, nếu ta cần update format message mới, các consumers phải được cập nhật trước để xử lý định dạng dữ liệu mới song song với định dạng cũ trước khi ta cập nhật producers để sử dụng định dạng mới.
+Bằng cách sử dụng các schema được định nghĩa rõ ràng và lưu chúng trong một kho chung, các tin nhắn trong Kafka có thể được hiểu mà không cần phối hợp chặt chẽ giữa producers và consumers.
+
+### 3.3. Topics và Partitions
+
+Các messages trong Kafka được tổ chức thành các chủ đề (topics), tương tự như các bảng trong cơ sở dữ liệu truyền thống hoặc các thư mục trong hệ thống tệp.
+Các topics được chia nhỏ thành các phân vùng (partitions) để tăng khả năng mở rộng và hiệu suất, trong đó, mỗi partition có được host trên một server riêng biệt.
+
+Từ đó, hiệu suất đọc ghi của một topic có thể được tăng lên bằng cách thêm nhiều partitions và phân phối chúng trên nhiều servers.
+Hơn nữa, các partitions cũng có thể được sao chép (replicated) để đảm bảo độ tin cậy và khả năng chịu lỗi.
+
+Một topic có thể có một hoặc nhiều partitions, thứ tự của các messages trong một topic không được đảm bảo, nhưng thứ tự trong mỗi partition thì được đảm bảo.
+
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả mối quan hệ giữa topics và partitions.
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/topic_partition.jpeg" style="width: 600px;"/>
+
+Stream là một khái niệm thường được sử dụng trong các hệ thống như Kafka, để mô tả luồng dữ liệu liên tục từ producers đến một topic của Kafka đến consumers mà không quan tâm cụ thể đến các partitions trong topic đó.
+
+### 3.4. Producers và Consumers
+
+Producers và Consumers có thể được coi là các khách hàng (clients) của hệ thống Kafka.
+
+#### Producers
+
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/producer.jpeg" style="width: 600px;"/>
+
+
+#### Consumers
+
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/consumer.jpeg" style="width: 600px;"/>
+
+### 3.5. Brokers và Clusters
+
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/architecture.jpeg" style="width: 600px;"/>
+
+
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/broker.jpeg" style="width: 600px;"/>
+
+
+
+
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/multi_clusters.jpeg" style="width: 600px;"/>
+
+
+
+## 4. Mối quan hệ giữa Apache Kafka và Apache Zookeeper
+
+
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả
+
+<img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/with_zookeeper.jpeg" style="width: 600px;"/>
+
+
+
+## 2. Giới thiệu về Apache Kafka
+
 
 ### 2.2. Producer - Broker - Consumer
 
@@ -97,150 +207,3 @@ Kafka được sử dụng để xử lý dữ liệu thời gian thực và ph�
     Mỗi partition có thể tồn tại trên một máy chủ riêng biệt và xử lý dữ liệu riêng lẻ.
     - Mỗi partition có thể có nhiều bản sao để đảm bảo độ tin cậy và không bao giờ bị mất dữ liệu.
     Kafka quản lý sự phân tải của dữ liệu trên các partition và sao lưu thông điệp theo cách mà bạn không cần phải lo lắng về điều đó.
-
-## 3. Giới thiệu về Apache Spark Streaming
-
-### 3.1. So sánh giữa Apache Spark Streaming và Apache Kafka
-
-Apache Spark Streaming và Apache Kafka là hai công nghệ quan trọng và thường được sử dụng trong lĩnh vực xử lý dữ liệu thời gian thực và xử lý dữ liệu lớn.
-Tuy cả hai đều có vai trò quan trọng trong hệ thống xử lý streaming data, nhưng chúng có mục tiêu và tính năng khác nhau.
-
-- Apache Kafka:
-    - Là hệ thống hàng đợi tin nhắn phân tán, được thiết kế để truyền tải và lưu trữ dữ liệu thời gian thực.
-    - Không phải là một công cụ xử lý streaming data mà thay vào đó tập trung vào việc truyền tải dữ liệu giữa các hệ thống.
-- Apache Spark Streaming:
-    - Là một thành phần của Apache Spark, chủ yếu được sử dụng cho việc xử lý và biến đổi dữ liệu thời gian thực.
-    - Cung cấp khả năng tích hợp với các phần khác của Spark như Spark SQL và MLlib để thực hiện xử lý phức tạp trên dữ liệu thời gian thực.
-- Sự kết hợp:
-Kafka và Spark Streaming được sử dụng cùng nhau trong các ứng dụng xử lý dữ liệu thời gian thực.
-Kafka được sử dụng để truyền tải dữ liệu đến Spark Streaming, nơi dữ liệu được xử lý và phản hồi trong thời gian thực.
-
-### 3.2. Giới thiệu chung
-
-Apache Spark Streaming là một mô-đun của Apache Spark, một hệ thống xử lý dữ liệu phân tán mã nguồn mở.
-
-Spark Streaming giúp xử lý streaming data, cho phép bạn xử lý dữ liệu khi nó được tạo ra hoặc truyền tải đến hệ thống mà không cần lưu trữ và xử lý dữ liệu sau khi nó được nhận.
-Nó cho phép việc giám sát thời gian thực, phát hiện sự cố, và tạo ra báo cáo thời gian thực.
-
-<img src="https://dezyre.gumlet.io/images/blog/spark-streaming-example/image_795716530101640689003007.jpeg" style="width: 1200px;"/>
-
-- Xử lý dữ liệu thời gian thực:
-Spark Streaming cho phép bạn xử lý dữ liệu thời gian thực mà không cần đợi đến khi dữ liệu được tập trung và lưu trữ hoặc xử lý sau này.
-Điều này rất quan trọng trong các tình huống đòi hỏi phản hồi nhanh và quyết định dựa trên thông tin mới.
-- Biến đổi và tính toán dữ liệu:
-Spark Streaming cung cấp các công cụ để biến đổi và tính toán dữ liệu theo từng micro-batch.
-Điều này cho phép bạn thực hiện các phân tích, lọc, và tính toán trên streaming data.
-- Kết hợp với dữ liệu tĩnh:
-Spark Streaming có tích hợp với Apache Spark, cho phép bạn kết hợp xử lý streaming data với dữ liệu tĩnh, giúp tạo ra các ứng dụng phức tạp và mạnh mẽ.
-
-<img src="https://spark.apache.org/docs/2.2.0/img/streaming-flow.jpeg" style="width: 1200px;"/>
-
-### 3.3. Kiến trúc của Apache Spark Streaming
-
-Spark Streaming là một mô-đun của Apache Spark và sử dụng kiến trúc dựa trên micro-batch để xử lý streaming data.
-- Xem dữ liệu streaming dưới góc nhìn là chuỗi nhiều batch dữ liệu
-- Mỗi batch dữ liệu được sinh ra sau một khoảng thời gian nào đó
-- Độ lớn của khoảng thời gian để sinh ra batch dữ liệu được gọi là batch interval
-- Batch interval thường nằm trong khoảng từ 500ms đến vài giây
-
-<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/11/vQp083.jpeg" style="width: 1200px;"/>
-
-<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/11/an6Nl4.jpeg" style="width: 1200px;"/>
-
-Spark Streaming gồm các thành phần:
-- Input Data:
-    - Streaming data được gửi đến Spark Streaming từ các nguồn như Kafka, Flume, socket, HDFS, và nhiều nguồn khác.
-    - Dữ liệu này được chia thành các đợt nhỏ gọi là micro-batch và sau đó được xử lý.
-- Spark Streaming Context:
-    - Spark Streaming bắt đầu bằng việc tạo một StreamingContext, đây là điểm khởi đầu cho ứng dụng Spark Streaming.
-    - StreamingContext được cấu hình để xác định thời gian của mỗi micro-batch và cách xử lý dữ liệu.
-- DStream (Discretized Stream): là một khái niệm quan trọng trong Spark Streaming.
-    - Đại diện cho dữ liệu trực tiếp được chia thành các RDD (Resilient Distributed Dataset) nhỏ trong từng micro-batch.
-    - DStream cho phép bạn thực hiện các phép biến đổi và tính toán trên dữ liệu.
-- Xử lý DStream: DStream hỗ trợ các phép biến đổi dựa trên trạng thái và không có trạng thái.
-    - Phép biến đổi dựa trên trạng thái (stateful transformations):
-        - Đòi hỏi lưu trữ trạng thái của dữ liệu qua các micro-batch liền kề.
-        - Cần duyệt qua nhiều micro-batch để tính toán thông tin trạng thái
-        - Ví dụ: tính tổng cộng tích lũy, đếm sự kiện trong một khoảng thời gian, sự thay đổi theo thời gian ...
-    - Phép biến đổi không có trạng thái (stateless transformations):
-        - Không lưu trữ thông tin về trạng thái trước đó và chỉ xử lý dữ liệu trong mỗi micro-batch riêng lẻ.
-        - Chỉ cần thực hiện tính toán trên dữ liệu trong từng micro-batch mà không quan tâm đến thông tin lịch sử.
-- Output Operations: Sau khi xử lý, có thể gửi kết quả xử lý đến nhiều đích khác nhau:
-    - HDFS
-    - Database
-    - Logging
-    - Apache Kafka
-    - ...
-- Driver Program:
-Spark Streaming Context chạy trên driver program của ứng dụng Spark, và nó tạo ra các công việc (jobs) để xử lý dữ liệu trực tiếp trên các executor.
-- Windows Operations:
-Spark Streaming hỗ trợ các phép biến đổi trên cửa sổ dữ liệu, cho phép bạn thực hiện các phép biến đổi trên một khoảng thời gian cố định.
-    - Window size: là khoảng thời gian trong đó bạn muốn thực hiện xử lý dữ liệu.
-        - Ví dụ, nếu bạn muốn tính toán tổng cộng của dữ liệu trong mỗi giờ, thì kích thước cửa sổ sẽ là 1 giờ.
-    - Sliding interval: là khoảng thời gian sau mỗi lần thực hiện xử lý trong cửa sổ.
-    Khoảng thời gian này thường ngắn hơn kích thước cửa sổ.
-        - Ví dụ, nếu bạn muốn tính toán tổng cộng mỗi giờ và mỗi 15 phút, khoảng thời gian trượt sẽ là 15 phút.
-
-<img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2020/11/i8ChIj.jpeg" style="width: 1200px;"/>
-
-### 3.4. Bước hoạt động của Spark Streaming
-
-- Bước 1: Tạo và cấu hình StreamingContext:
-    - StreamingContext được tạo bằng cách truyền SparkContext và batch interval cho nó.
-    - Batch interval là khoảng thời gian để sinh ra một micro-batch.
-    - StreamingContext cũng có thể được tạo bằng cách khôi phục từ checkpoint.
-- Bước 2: Tiếp nhận data và tạo DStream:
-    - Dữ liệu được nhận từ các nguồn khác nhau như Kafka, Flume, socket, HDFS, và nhiều nguồn khác.
-    - Mỗi micro-batch dữ liệu trực tiếp được biến đổi thành một DStream, là một chuỗi các RDD.
-    - DStream là đơn vị cơ bản để xử lý dữ liệu trực tiếp.
-- Bước 3: Xử lý DStream:
-    - DStream được xử lý bằng cách áp dụng các phép biến đổi và tính toán trên từng micro-batch.
-    - Phép biến đổi này có thể làm thay đổi cấu trúc dữ liệu, tính toán tổng hợp, lọc, hoặc thực hiện các phân tích trên dữ liệu.
-- Bước 4: Gửi Kết Quả:
-    -  Kết quả xử lý có thể được gửi đến các đích khác nhau như lưu trữ dữ liệu hoặc gửi thông báo thời gian thực.
-
-Ví dụ:
-Bước 1: Tạo và cấu hình StreamingContext
-
-```python
-from pyspark import SparkContext
-from pyspark.streaming import StreamingContext
-
-# Tạo một SparkContext
-sc = SparkContext("local[2]", "SparkStreamingExample")
-
-# Tạo một StreamingContext với chu kỳ 1 giây
-ssc = StreamingContext(sc, 1)
-```
-
-Bước 2: Tạo DStream từ Kafka
-```python
-from pyspark.streaming.kafka import KafkaUtils
-
-# Thiết lập thông tin Kafka
-kafka_params = {
-    "metadata.broker.list": "localhost:9092",  # Địa chỉ máy chủ Kafka
-    "auto.offset.reset": "smallest"  # Xác định điểm bắt đầu
-}
-
-# Tạo một DStream từ Kafka topic "my-topic"
-kafka_stream = KafkaUtils.createStream(
-    ssc,
-    "localhost:2181",  # Địa chỉ máy chủ ZooKeeper
-    "my-consumer-group",
-    {"my-topic": 1},  # Số luồng xử lý
-    kafka_params
-)
-```
-
-Bước 3: Xử lý DStream
-```python
-# Xử lý dữ liệu trực tiếp: Ví dụ đơn giản - đếm số lượng từ trong mỗi micro-batch
-word_counts = kafka_stream.flatMap(lambda x: x[1].split(" ")).countByValue()
-```
-
-Bước 4: Gửi Kết Quả
-```python
-# Gửi kết quả đến Kafka topic "result-topic"
-word_counts.foreachRDD(lambda rdd: rdd.foreachPartition(send_to_kafka))
-```
