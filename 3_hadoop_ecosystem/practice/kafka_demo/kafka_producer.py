@@ -3,7 +3,7 @@ import json
 import time
 
 
-IP = '172.21.0.4'  # Thay bằng IP của container Kafka
+IP = '172.21.0.6'  # Thay bằng IP của container Kafka
 
 
 class ProducerServer(KafkaProducer):

@@ -1,27 +1,28 @@
 from pyspark.sql import SparkSession
 
-IP = '172.21.0.4'  # Thay bằng IP của container Kafka
+
+# Define Kafka parameters
+IP = '172.21.0.6'  # Thay bằng IP của container Kafka
+KAFKA_BOOTSTRAP_SERVERS = f"{IP}:9092"
+KAFKA_TOPIC = "movie_data_topic"
+
 
 # Create a Spark session
 spark = SparkSession.builder \
     .appName("KafkaConsumerExample") \
     .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.13:4.1.0") \
     .getOrCreate()
-print("Spark:", spark.version)
 
-# Scala version từ JVM mà Spark đang chạy
+print("Spark:", spark.version)
 print("Scala:", spark.sparkContext._jvm.scala.util.Properties.versionNumberString())
 
-# Define Kafka parameters
-kafka_bootstrap_servers = f"{IP}:9092"
-kafka_topic = "movie_data_topic"
 
 # Define the input DataFrame with the Kafka source
 df = spark \
     .readStream \
     .format("kafka") \
-    .option("kafka.bootstrap.servers", kafka_bootstrap_servers) \
-    .option("subscribe", kafka_topic) \
+    .option("kafka.bootstrap.servers", KAFKA_BOOTSTRAP_SERVERS) \
+    .option("subscribe", KAFKA_TOPIC) \
     .load()
 
 # Convert the value column from Kafka message into a string
@@ -41,7 +42,7 @@ query = value_str \
 #     .writeStream \
 #     .outputMode("append") \
 #     .format("kafka") \
-#     .option("kafka.bootstrap.servers", kafka_bootstrap_servers) \
+#     .option("kafka.bootstrap.servers", KAFKA_BOOTSTRAP_SERVERS) \
 #     .option("topic", "second_topic") \
 #     .option("checkpointLocation", "kafka_checkpoint") \
 #     .start()

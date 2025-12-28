@@ -3,7 +3,6 @@ sudo docker compose up -d
 
 # 1. Copy dữ liệu vào container Kafka và vào bên trong container
 sudo docker cp data/dummy_parquet_dataset/mapreduce_data kafka:/
-sudo docker cp kafka_demo kafka:/
 sudo docker exec -it kafka bash
 
 # 1. Tạo topic / Liệt kê các topic / Xem chi tiết topic
@@ -20,6 +19,7 @@ kafka-topics --bootstrap-server localhost:9092 --describe --topic ABC_topic
 kafka-topics --bootstrap-server localhost:9092 --alter --topic ABC_topic --partitions 5
 kafka-topics --bootstrap-server localhost:9092 --describe --topic ABC_topic
 kafka-topics --bootstrap-server localhost:9092 --delete --topic ABC_topic
+kafka-topics --bootstrap-server localhost:9092 --list
 
 # 3. Produce và consume messages
 kafka-topics --bootstrap-server localhost:9092 --topic DEF_topic --create --partitions 3 --replication-factor 1
@@ -37,7 +37,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic DEF_topic --fro
 kafka-console-producer --bootstrap-server localhost:9092 --topic DEF_topic < /mapreduce_data/movie_rating_dataset/movie_data.txt
 kafka-console-consumer --bootstrap-server localhost:9092 --topic DEF_topic --from-beginning > DEF_topic-output.txt
 
-# 7. Produce và consume messages từ code Python
+# 5. Produce và consume messages từ code Python
 # Tạo topic movie_data_topic
 kafka-topics --bootstrap-server localhost:9092 --topic movie_data_topic --create --partitions 3 --replication-factor 1
 kafka-topics --bootstrap-server localhost:9092 --list
