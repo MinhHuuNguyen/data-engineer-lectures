@@ -4,6 +4,8 @@
 __pycache__
 *.parquet
 *.csv
+!4_rdbms/notebook/1-sql-basic/data/*.csv
+*.db
 
 # Output files
 3_hadoop_ecosystem/practice/map_reduce_demo/mapper_output.txt
