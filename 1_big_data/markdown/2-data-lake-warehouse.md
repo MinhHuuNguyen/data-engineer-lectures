@@ -14,7 +14,7 @@ is_published: true
 
 Để lưu trữ dữ liệu có cấu trúc, chúng ta thường sử dụng các hệ quản trị cơ sở dữ liệu quan hệ (RDBMS - Relational Database Management System) như MySQL, PostgreSQL, Oracle, SQL Server.
 
-Để hiểu rõ hơn về các hệ quản trị cơ sở dữ liệu quan hệ (RDBMS), bạn có thể tham khảo bài viết về [Hệ quản trị cơ sở dữ liệu quan hệ (RDBMS)](/blog/he-quan-tri-co-so-du-lieu-quan-he-rdbms/).
+Để hiểu rõ hơn về các hệ quản trị cơ sở dữ liệu quan hệ (RDBMS), bạn có thể tham khảo bài viết về [Hệ quản trị cơ sở dữ liệu quan hệ (RDBMS)](/blog/he-quan-tri-co-so-du-lieu-quan-he-rdbms).
 
 ### 1.2. Dữ liệu bán cấu trúc
 
@@ -229,10 +229,10 @@ Google Cloud Storage cung cấp khả năng lưu trữ đối tượng có tính
 Dịch vụ hỗ trợ nhiều lớp lưu trữ, tích hợp tốt với hệ sinh thái dữ liệu của Google như BigQuery hay Dataflow, đồng thời đảm bảo hiệu quả về chi phí cho nhiều nhóm khối lượng công việc khác nhau.
 
 Để hiểu rõ hơn về các công cụ trên, bạn có thể tham khảo bài viết:
-- [Giới thiệu về Hadoop Distributed File System (HDFS)](/blog/gioi-thieu-ve-hadoop-distributed-file-system-hdfs/)
-- [Tổng quan về Amazon S3 - Dịch vụ lưu trữ đám mây của AWS](/blog/tong-quan-ve-amazon-s3-dich-vu-luu-tru-dam-may-cua-aws/)
-- [Tổng quan về Google Cloud Storage - Dịch vụ lưu trữ đám mây của Google](/blog/tong-quan-ve-google-cloud-storage-dich-vu-luu-tru-dam-may-cua-google/)
-- [Tổng quan về Azure Data Lake Storage - Dịch vụ lưu trữ đám mây của Microsoft](/blog/tong-quan-ve-azure-data-lake-storage-dich-vu-luu-tru-dam-may-cua-microsoft/)
+- [Giới thiệu về Hadoop Distributed File System (HDFS)](/blog/gioi-thieu-ve-hadoop-distributed-file-system-hdfs)
+- [Tổng quan về Amazon S3 - Dịch vụ lưu trữ đám mây của AWS](/blog/tong-quan-ve-amazon-s3-dich-vu-luu-tru-dam-may-cua-aws)
+- [Tổng quan về Google Cloud Storage - Dịch vụ lưu trữ đám mây của Google](/blog/tong-quan-ve-google-cloud-storage-dich-vu-luu-tru-dam-may-cua-google)
+- [Tổng quan về Azure Data Lake Storage - Dịch vụ lưu trữ đám mây của Microsoft](/blog/tong-quan-ve-azure-data-lake-storage-dich-vu-luu-tru-dam-may-cua-microsoft)
 
 ### 2.2. Data Warehouse - Kho dữ liệu
 
@@ -272,10 +272,10 @@ Azure Synapse Analytics là nền tảng phân tích hợp nhất, kết hợp k
 Synapse cho phép thực thi truy vấn theo mô hình kho dữ liệu truyền thống hoặc Spark phân tán, đồng thời tích hợp liền mạch với Power BI và Data Factory để xây dựng quy trình phân tích đầu cuối.
 
 Để hiểu rõ hơn về các công cụ trên, bạn có thể tham khảo bài viết:
-- [Tổng quan về Amazon Redshift - Dịch vụ kho dữ liệu của AWS](/blog/tong-quan-ve-amazon-redshift-dich-vu-kho-du-lieu-cua-aws/)
-- [Tổng quan về Google BigQuery - Dịch vụ kho dữ liệu của Google](/blog/tong-quan-ve-google-bigquery-dich-vu-kho-du-lieu-cua-google/)
-- [Tổng quan về Snowflake - Nền tảng kho dữ liệu đám mây](/blog/tong-quan-ve-snowflake-nen-tang-kho-du-lieu-dam-may/)
-- [Tổng quan về Microsoft Azure Synapse Analytics - Nền tảng phân tích hợp nhất của Microsoft](/blog/tong-quan-ve-microsoft-azure-synapse-analytics-nen-tang-phan-tich-hop-nhat-cua-microsoft/)
+- [Tổng quan về Amazon Redshift - Dịch vụ kho dữ liệu của AWS](/blog/tong-quan-ve-amazon-redshift-dich-vu-kho-du-lieu-cua-aws)
+- [Tổng quan về Google BigQuery - Dịch vụ kho dữ liệu của Google](/blog/tong-quan-ve-google-bigquery-dich-vu-kho-du-lieu-cua-google)
+- [Tổng quan về Snowflake - Nền tảng kho dữ liệu đám mây](/blog/tong-quan-ve-snowflake-nen-tang-kho-du-lieu-dam-may)
+- [Tổng quan về Microsoft Azure Synapse Analytics - Nền tảng phân tích hợp nhất của Microsoft](/blog/tong-quan-ve-microsoft-azure-synapse-analytics-nen-tang-phan-tich-hop-nhat-cua-microsoft)
 
 Hình ảnh dưới đây được lấy từ tài liệu của DataBricks mô tả chi tiết sự khác biệt giữa Data Lake và Data Warehouse:
 
