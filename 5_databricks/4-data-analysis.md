@@ -264,7 +264,7 @@ AND order_date <= to_date('2021-01-01');
 
 **10. C** vì trong kiến trúc huy chương (Medallion Architecture), dữ liệu từ một bảng ở lớp bạc (Silver) có thể được chuyển hóa thành nhiều bảng khác nhau ở lớp vàng (Gold) để phục vụ các mục đích kinh doanh khác nhau.
 
-**11. D** vì lớp vàng (Gold) trong kiến trúc Medallion được tối ưu hóa để cung cấp góc nhìn tổng thể về doanh nghiệp bằng cách tổng hợp dữ liệu từ nhiều nguồn khác nhau, giúp phục vụ báo cáo chiến lược và phân tích nâng cao.
+**11. A** vì lớp vàng (Gold) trong kiến trúc Medallion chứa dữ liệu tổng hợp đã được làm sạch, sẵn sàng sử dụng trong sản xuất cho một trường hợp cụ thể, phục vụ báo cáo chiến lược và phân tích nâng cao. Phương án D mô tả lớp bạc (Silver).
 
 **12. D** vì lớp đồng (Bronze) trong kiến trúc Delta Lake lưu trữ dữ liệu thô mà không cần xử lý, giúp đảm bảo dữ liệu luôn sẵn sàng để sử dụng khi cần và giữ nguyên tính toàn vẹn của dữ liệu gốc.
 
