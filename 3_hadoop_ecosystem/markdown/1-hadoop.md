@@ -34,7 +34,7 @@ Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Secon
 Cấu trúc tổng quan của Hadoop gồm bốn thành phần chính hợp tác với nhau: **HDFS** (lưu trữ phân tán), **MapReduce** (mô hình xử lý phân tán), **YARN** (bộ điều phối tài nguyên), và **Hadoop Common** (thư viện dùng chung).
 Trong đó, HDFS chịu trách nhiệm lưu trữ dữ liệu dưới dạng các khối (blocks) phân tán trên nhiều máy chủ, MapReduce chia nhỏ công việc xử lý thành các tác vụ song song, còn YARN quản lý tài nguyên và điều phối các tác vụ trong cụm.
 
-Cách tiếp cận này giúp Hadoop lưu trữ và xử lý dữ liệu theo chiều ngang trên nhiều nút, đảm bảo dữ liệu an toàn ngay cả khi một số máy hỏng nhờ vào cơ chế nhân bản dữ liệu
+Cách tiếp cận này giúp Hadoop lưu trữ và xử lý dữ liệu theo chiều ngang trên nhiều nút, đảm bảo dữ liệu an toàn ngay cả khi một số máy hỏng nhờ vào cơ chế nhân bản dữ liệu.
 
 ### 2.1. Hadoop Distributed File System (HDFS)
 
@@ -59,7 +59,7 @@ Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Secon
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/architecture.jpeg" style="width: 700px;"/>
 
-Cơ chế hoạt động gồm hai giai đoạn: Map để phân tách dữ liệu đầu vào thành các cặp khóa–giá trị và xử lý chúng độc lập trên nhiều node, sau đó Reduce để tổng hợp, nhóm và kết xuất kết quả cuối cùng
+Cơ chế hoạt động gồm hai giai đoạn: Map để phân tách dữ liệu đầu vào thành các cặp khóa–giá trị và xử lý chúng độc lập trên nhiều node, sau đó Reduce để tổng hợp, nhóm và kết xuất kết quả cuối cùng.
 Nhờ tận dụng tài nguyên từ toàn bộ cụm máy, MapReduce cho phép xử lý khối lượng dữ liệu rất lớn theo dạng batch với khả năng chịu lỗi cao. 
 
 Đây là nền tảng truyền thống cho nhiều ứng dụng phân tích dữ liệu trong hệ sinh thái Hadoop.

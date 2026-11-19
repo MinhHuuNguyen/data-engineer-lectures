@@ -61,10 +61,10 @@ BI Genie Spaces mang lại khả năng:
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/sql_genie_spaces.jpeg" style="width: 1200px;"/>
 
 Sử dụng AI để tăng trải nghiệm người dùng:
-- Tài liệu do Al tạo ra để tìm kiếm và khám phá dữ liệu dễ dàng hơn.
-- Trợ lý Al để sửa code nhanh, truy vấn và mô tả.
-- Trợ lý Al để tạo hình ảnh trực quan nhanh chóng.
-- Genie Spaces do Al cung cấp để nhanh chóng hiểu dữ liệu của bạn bằng ngôn ngữ tự nhiên.
+- Tài liệu do AI tạo ra để tìm kiếm và khám phá dữ liệu dễ dàng hơn.
+- Trợ lý AI để sửa code nhanh, truy vấn và mô tả.
+- Trợ lý AI để tạo hình ảnh trực quan nhanh chóng.
+- Genie Spaces do AI cung cấp để nhanh chóng hiểu dữ liệu của bạn bằng ngôn ngữ tự nhiên.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/4-data-analysis/sql_dashboard_genie_menu.jpeg" style="width: 300px;"/>
 

@@ -99,7 +99,7 @@ HGET user:1001 name
 #### Apache Cassandra - Nhóm Wide-column Store
 
 Apache Cassandra là CSDL NoSQL phân tán mã nguồn mở, dùng mô hình wide-column.
-Apache Cassandra dược thiết kế để xử lý khối lượng dữ liệu rất lớn và chạy trên nhiều node, nhiều datacenter, chịu lỗi tốt
+Apache Cassandra được thiết kế để xử lý khối lượng dữ liệu rất lớn và chạy trên nhiều node, nhiều datacenter, chịu lỗi tốt
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/2-data-lake-warehouse/wide_column_store.jpeg" style="width: 500px;"/>
 
@@ -309,7 +309,7 @@ Hình ảnh dưới đây được lấy từ tài liệu của DataBricks mô t
     - Vẫn còn là một khái niệm mới, do đó, có thể gặp phải các thách thức trong việc triển khai và quản lý.
     - Chi phí ban đầu có thể cao do cần đầu tư vào công nghệ và hạ tầng mới.
 
-Một trong số những công nghệ phổ biến để xây dựng Data Lakehouse là D**atabricks Intelligent Data Lakehouse Platform**.
+Một trong số những công nghệ phổ biến để xây dựng Data Lakehouse là **Databricks Intelligent Data Lakehouse Platform**.
 Là nền tảng hợp nhất giữa data lake và data warehouse, hỗ trợ lưu trữ, quản trị và phân tích dữ liệu trên cùng một kiến trúc.
 Nền tảng cung cấp khả năng xử lý dữ liệu mạnh mẽ thông qua Apache Spark, tích hợp AI/ML, đồng thời đảm bảo tính nhất quán, hiệu năng truy vấn cao và quản lý dữ liệu ở quy mô lớn.
 

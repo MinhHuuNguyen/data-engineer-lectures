@@ -68,7 +68,7 @@ Mặc định, định dạng bảng là Delta
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/3-data-engineering/ingestion_create.jpeg" style="width: 500px;"/>
 
-Nhoài ra, DataBricks còn cung cấp UPLOAD UI, là giao diện point-and-click để tải dữ liệu lên:
+Ngoài ra, DataBricks còn cung cấp UPLOAD UI, là giao diện point-and-click để tải dữ liệu lên:
 - UPLOAD UI cho phép người dùng tải dữ liệu với các định dạng file CSV, TSV, JSON, Avro, Parquet, hoặc file text để tạo ra các bảng dữ liệu có cấu trúc.
 - UPLOAD UI cũng cho phép người dùng tải dữ liệu lên trực tiếp vào các ổ cứng trong Unity Catalog, giúp người dùng lưu trữ, quản lý và tương tác với dữ liệu phi cấu trúc như trong các máy tính bình thường.
 
@@ -146,7 +146,7 @@ Data Orchestration trong DataBricks bao gồm Delta Live Tables (DLT) và Databr
 | 4. Dùng trong quá trình Data Ingestion và Transformation. | 4. Các pipeline của DLT có thể là một tác vụ trong Workflow. |
 |  | 5. Dùng với các công việc phụ thuộc lẫn nhau hoặc theo lịch. |
 |  | 6. Dùng với các công việc liên quan đến Machine Learning với MLFlow notebook. |
-|  | 7. Dùng với API bên ngoài, các đoạn code và các tác cụ tuỳ chỉnh. |
+|  | 7. Dùng với API bên ngoài, các đoạn code và các công cụ tuỳ chỉnh. |
 
 ### 5.1. Delta Live Tables (DLT)
 
@@ -165,7 +165,7 @@ Trực quan hoá pipeline với DLT, giúp người dùng dễ dàng theo dõi q
 Jobs trong Databricks Workflows có thể được chạy trên nhiều nền tảng tính toán khác nhau:
 - Serverless compute:
     - Là nền tảng tính toán mặc định của workflows.
-    - Mang lại khả năng mở rộng nhanh chóng, cải thiện khả độ tin cậy và đơn giản hoá trải nghiệm người dùng.
+    - Mang lại khả năng mở rộng nhanh chóng, cải thiện độ tin cậy và đơn giản hoá trải nghiệm người dùng.
     - Tối ưu chi phí.
 - Interactive clusters (all-purpose cluster):
     - Có thể được chia sẻ, dùng chung bởi nhiều người dùng.
@@ -300,7 +300,7 @@ Jobs trong Databricks Workflows có thể được chạy trên nhiều nền t�
 
 **D.** Dùng làm bản sao lưu dữ liệu lịch sử để khôi phục khi hệ thống gặp sự cố
 
-**12.Trong Databricks, công cụ nào thường được sử dụng để điều phối một pipeline đầu-cuối bao gồm nhập dữ liệu, chuyển đổi dữ liệu và thực thi thuật toán ML?**
+**12. Trong Databricks, công cụ nào thường được sử dụng để điều phối một pipeline đầu-cuối bao gồm nhập dữ liệu, chuyển đổi dữ liệu và thực thi thuật toán ML?**
 
 **A.** Databricks Workflows
 

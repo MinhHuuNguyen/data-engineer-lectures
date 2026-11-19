@@ -275,7 +275,7 @@ Spark SQL có thể nạp dữ liệu từ nhiều nguồn dữ liệu có cấu
 Spark SQL cho phép người dùng truy vấn dữ liệu bằng SQL, cả ở bên trong chương trình Spark lẫn từ các công cụ bên ngoài kết nối tới Spark SQL thông qua các chuẩn kết nối cơ sở dữ liệu (như Chuẩn kết nối cơ sở dữ liệu dành cho ngôn ngữ Java: Java Database Connectivity - JDBC hay Chuẩn kết nối cơ sở dữ liệu độc lập ngôn ngữ lập trình: Open Database Connectivity - ODBC).
 Từ đó, các công cụ phân tích nghiệp vụ (Business Intelligence) như Tableau, QlikView và Power BI có thể kết nối trực tiếp tới Spark SQL để truy vấn và trực quan hóa dữ liệu.
 
-Hình dưới đây được lấy từ cuốn sách [Learning Spark: LIGHTNING-FAST DATA ANALYSIS](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/learning_spark_lightning_fast_big_data_analysis_holden_karau_andy_konwinski_patrick_wendell_matei_zaharia.pdf), mô tả luồng hoạt động cơ bản của Machine Learning.
+Hình dưới đây được lấy từ cuốn sách [Learning Spark: LIGHTNING-FAST DATA ANALYSIS](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/learning_spark_lightning_fast_big_data_analysis_holden_karau_andy_konwinski_patrick_wendell_matei_zaharia.pdf), mô tả kiến trúc và luồng hoạt động cơ bản của Spark SQL.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/5-spark/spark_sql.jpeg" style="width: 800px;"/>
 

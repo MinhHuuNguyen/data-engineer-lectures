@@ -42,7 +42,7 @@ Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Secon
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/3-map-reduce/map_function.jpeg" style="width: 900px;"/>
 
 Cơ chế hoạt động của hàm Map:
-- **Nhận dữ liệu đầu vào dưới dạng cặp key-value:** Mỗi bản ghi từ nguồn dữ liệu đầu vào được biểu diễn dưới dạng một cặp (key, value).
+- **Nhận dữ liệu đầu vào dưới dạng cặp key/value:** Mỗi bản ghi từ nguồn dữ liệu đầu vào được biểu diễn dưới dạng một cặp (key, value).
 Mỗi hàm Map xử lý từng cặp một cách độc lập, không chia sẻ trạng thái với các hàm Map khác.
 - **Biến đổi dữ liệu và tạo ra 0 hoặc 1 hoặc nhiều cặp key/value mới:** Từ một cặp đầu vào, hàm Map có thể sinh ra:
     - **Không có cặp nào:** khi dữ liệu không thỏa điều kiện xử lý (ví dụ: thao tác lọc).

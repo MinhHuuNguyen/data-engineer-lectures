@@ -245,7 +245,7 @@ HTTP định nghĩa cách thức client (thường là trình duyệt) và serve
 ### 3.2. Hypertext transfer protocol secure (HTTPS)
 
 HTTPS (HyperText Transfer Protocol Secure) là phiên bản bảo mật của HTTP, hoạt động thông qua cơ chế mã hoá bổ sung.
-Chữ S trong HTTPS là là "Secure".
+Chữ S trong HTTPS là "Secure".
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/2_tools/images/1-restful-api/https.jpeg" style="width: 300px;"/>
 
@@ -290,8 +290,8 @@ thành
 \x17\x03\x03\x00\x8c\x02\x00\x00\x88\x03... (dữ liệu đã mã hoá)
 ```
 
-HTTPs đã trở thành tiêu chuẩn mặc định cho mọi website và được trình duyệt đánh giá độ tin cậy; các site HTTP thường bị cảnh báo “Not secure”.
-HTTPs bảo vệ người dùng trước các tấn công phổ biến như Man-in-the-Middle.
+HTTPS đã trở thành tiêu chuẩn mặc định cho mọi website và được trình duyệt đánh giá độ tin cậy; các site HTTP thường bị cảnh báo “Not secure”.
+HTTPS bảo vệ người dùng trước các tấn công phổ biến như Man-in-the-Middle.
 
 ### 3.3. Phương thức trong HTTP/HTTPS
 

@@ -15,7 +15,7 @@ Họ cũng nhấn mạnh "Người chiến thắng ở trong bất kỳ một ng
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/statement.jpeg" style="width: 700px;"/>
 
-Tuy nhiên, chưa kể việc các công ty không nhận ra được tầm nhìn này, mà việc tận dụng dữ liệu là không dễ dàng do có quá nhiều khâu, quá nhiều công đoạn cần phải thực hiện để khai khác các khía cạnh khác nhau của dữ liệu.
+Tuy nhiên, chưa kể việc các công ty không nhận ra được tầm nhìn này, mà việc tận dụng dữ liệu là không dễ dàng do có quá nhiều khâu, quá nhiều công đoạn cần phải thực hiện để khai thác các khía cạnh khác nhau của dữ liệu.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/vision.jpeg" style="width: 1000px;"/>
 
@@ -27,7 +27,7 @@ Ngoài dữ liệu thô được thu thập về, trong quá trình xử lý và
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/data_type_problem.jpeg" style="width: 400px;"/>
 
-Đồng thời, theo thời gian, doanh nghiệp có thể mở rộng các vị trí liên quan đến dữ liệu, do đó, số lượng các vài trò liên quan đến dữ liệu cũng tăng lên, dẫn đến việc quản trị dữ liệu trở nên phức tạp hơn.
+Đồng thời, theo thời gian, doanh nghiệp có thể mở rộng các vị trí liên quan đến dữ liệu, do đó, số lượng các vai trò liên quan đến dữ liệu cũng tăng lên, dẫn đến việc quản trị dữ liệu trở nên phức tạp hơn.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/5_databricks/images/1-introduction/consumer_problem.jpeg" style="width: 1200px;"/>
 
@@ -41,7 +41,7 @@ Lợi ích của Databricks:
 - **Linh hoạt:** Hỗ trợ nhiều ngôn ngữ lập trình và công cụ, thích hợp cho nhiều vai trò khác nhau như kỹ sư dữ liệu, nhà khoa học dữ liệu và nhà phân tích.
 - **Tiết kiệm chi phí:** Tích hợp và quản lý trên đám mây giúp giảm chi phí so với các hệ thống truyền thống.
 
-DataBrick giúp người dùng **thay vì phải quản lý nhiều tài nguyên đến từ nhiều nhà cung cấp khác nhau một cách độc lập**, DataBricks cung cấp một **nền tảng quản lý tập trung**, thân thiện, dễ sử dụng hơn dành cho người dùng.
+DataBricks giúp người dùng **thay vì phải quản lý nhiều tài nguyên đến từ nhiều nhà cung cấp khác nhau một cách độc lập**, DataBricks cung cấp một **nền tảng quản lý tập trung**, thân thiện, dễ sử dụng hơn dành cho người dùng.
 
 ## 3. DataBricks giải quyết các vấn đề trên bằng cách nào?
 
@@ -66,7 +66,7 @@ Kiến trúc của Data Lakehouse được công bố bởi DataBricks gồm:
 - ETL & Real-time Analytics: Các dịch vụ liên quan đến xử lý dữ liệu và phân tích dữ liệu thời gian thực.
 - Orchestration: Các dịch vụ liên quan đến quản lý tập trung và tự động hóa quy trình xử lý dữ liệu.
 - Data Warehousing: Các dịch vụ liên quan đến lưu trữ dữ liệu và truy vấn dữ liệu.
-- Unity Catalog: Các dịch vụ liên quan đến bảo mật và phân quyền dữ liệu,
+- Unity Catalog: Các dịch vụ liên quan đến bảo mật và phân quyền dữ liệu.
 - Delta Lake Uniform: Các dịch vụ lưu trữ với hiệu năng và độ tin cậy cao.
 - Open Data Lake: Các dịch vụ liên quan đến lưu trữ dữ liệu phi cấu trúc như logs, văn bản, âm thanh, hình ảnh, video.
 

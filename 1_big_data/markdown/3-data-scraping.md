@@ -25,10 +25,10 @@ Crawling đảm nhiệm việc thu thập và khám phá trang, trong khi scrapi
 ### Ví dụ so sánh
 
 Giả sử bạn làm việc cho một công ty tìm kiếm và phân tích thị trường, và công việc của bạn là xây dựng một cơ sở dữ liệu về các sản phẩm điện tử trên internet. Trong trường hợp này:
-- Data crawling:
+- **Data crawling:**
     - Là quá trình tự động duyệt qua hàng nghìn trang web thương mại điện tử, chẳng hạn như Amazon, eBay, và Best Buy, để thu thập danh sách các sản phẩm điện tử và URL của chúng.
     - Mục tiêu chính là xây dựng một danh sách các URL và thông tin cơ bản để tạo điều kiện cho việc tìm kiếm và truy xuất thông tin chi tiết sau này.
-- Data scraping:
+- **Data scraping:**
     - Là quá trình trích xuất thông tin cụ thể từ các trang sản phẩm cụ thể, chẳng hạn như thông tin về giá cả, đánh giá của người dùng, và mô tả sản phẩm.
     - Mục tiêu chính là lấy dữ liệu cụ thể từ các trang web đã được thu thập để sử dụng cho mục đích phân tích thị trường hoặc hiển thị thông tin chi tiết cho người dùng.
 
@@ -67,4 +67,4 @@ Một số công cụ phổ biến bao gồm:
 
 Tuy nhiên, cần lưu ý rằng việc data scraping có thể liên quan đến các vấn đề về bản quyền và luật pháp tùy theo trường hợp cụ thể.
 
-Điều này nên được thực hiện theo quy định của pháp luật và tuân thủ quy tắc etic của mạng để đảm bảo tính hợp pháp và đạo đức trong việc sử dụng dữ liệu từ internet.
+Điều này nên được thực hiện theo quy định của pháp luật và tuân thủ quy tắc đạo đức (ethics) của mạng để đảm bảo tính hợp pháp và đạo đức trong việc sử dụng dữ liệu từ internet.

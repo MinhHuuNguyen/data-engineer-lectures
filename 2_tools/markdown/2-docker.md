@@ -10,7 +10,7 @@ is_published: true
 
 ## 1. Cách triển khai ứng dụng truyền thống
 
-Một ứng dụng phần mềm thường bao gồm cách thành phần sau:
+Một ứng dụng phần mềm thường bao gồm các thành phần sau:
 - **Mã nguồn ứng dụng:** Đây là phần chính của ứng dụng và cũng là phần cao nhất (high level) trong kiến trúc phần mềm.
 - **Runtime environment:** Môi trường chạy ứng dụng, bao gồm các thư viện, framework và các công cụ cần thiết để ứng dụng hoạt động.
 - **Driver và phụ thuộc hệ thống:** Các thành phần này bao gồm các driver, thư viện hệ thống và các phần mềm hỗ trợ khác mà ứng dụng cần để tương tác với hệ điều hành và phần cứng.
@@ -37,7 +37,7 @@ Ví dụ 1: Khó khăn trong việc tái tạo môi trường
     - Thấy lỗi, lập trình viên A phải điều chỉnh mã nguồn để tương thích với môi trường kiểm thử.
 - Trong giai đoạn triển khai thực tế:
     - Giai đoạn ban đầu, ứng dụng được triển khai trên máy chủ production chạy đúng với các yêu cầu là Ubuntu 18.04 với Python 3.7 và các phiên bản thư viện khác như NumPy v1.18 và Pandas v1.0.
-    Phầm mềm hoạt động ổn định.
+    Phần mềm hoạt động ổn định.
     - Tuy nhiên, sau một thời gian hoạt động, một máy chủ khác được thêm vào hệ thống để mở rộng quy mô. Máy chủ mới này sử dụng các phần cứng mới hơn và đòi hỏi các phần mềm cũng phải được nâng cấp mới hơn: Ubuntu 20.04 với Python 3.9, NumPy v1.20 và Pandas v1.2.
     - Do sự khác biệt về môi trường giữa máy chủ cũ và máy chủ mới, ứng dụng không thể chạy ổn định trên máy chủ mới.
     - Đội ngũ kỹ thuật phải dành thời gian để điều chỉnh và kiểm tra lại ứng dụng để đảm bảo nó hoạt động đúng trên cả hai môi trường.

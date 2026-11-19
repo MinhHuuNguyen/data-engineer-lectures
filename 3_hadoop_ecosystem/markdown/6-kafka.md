@@ -148,7 +148,7 @@ Producers tạo ra message mới và được gửi tới một topic cụ thể
 Mặc định, producer sẽ phân phối message đều lên tất cả các partition của một topic, một số trường hợp khác, producer sẽ gửi message tới các partition cụ thể.
 Producer có khả năng đảm bảo độ tin cậy bằng cách ghi thông điệp vào Kafka và theo dõi sự xác nhận từ Kafka rằng thông điệp đã được ghi thành công.
 
-Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả mô tả quá trình producer gửi một bản ghi (ProducerRecord) qua serializer và partitioner tới các partition của topic rồi tới Kafka broker, kèm cơ chế thử lại khi gửi thất bại.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/producer.jpeg" style="width: 600px;"/>
 
@@ -223,7 +223,7 @@ Các topic riêng lẻ có thể được cấu hình retention riêng để ch�
 
 Ví dụ, một topic tracking có thể được giữ trong vài ngày, trong khi metric ứng dụng có thể chỉ giữ vài giờ.
 
-Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả mô tả kiến trúc nhiều cluster Kafka trải trên nhiều datacenter, trong đó MirrorMaker sao chép dữ liệu từ các cluster local sang các cluster aggregate.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/multi_clusters.jpeg" style="width: 700px;"/>
 
@@ -242,7 +242,7 @@ Kafka dùng ZooKeeper làm dịch vụ điều phối bên ngoài để lưu met
 
 Tuy nhiên trong những năm gần đây Kafka phát triển KRaft (Kafka Raft) — một control plane nội bộ dùng Raft để quản lý metadata, làm giảm/loại bỏ phụ thuộc vào ZooKeeper cho các cụm mới.
 
-Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả
+Hình dưới đây được lấy từ cuốn sách [Kafka The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/kafka_the_definitive_guide_real_time_data_and_stream_processing_at_scale_2nd_edition_gwen_shapira_todd_palino_rajini_sivaram_krit_petty.pdf), mô tả mô tả cách broker và consumer (phiên bản cũ) lưu metadata và partition offset trong ZooKeeper.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/6-kafka/with_zookeeper.jpeg" style="width: 500px;"/>
 

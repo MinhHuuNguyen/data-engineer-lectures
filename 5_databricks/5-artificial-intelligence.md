@@ -36,7 +36,7 @@ MLFlow cung cấp các thành phần chính:
 Trong đó, Model Registry giúp quản lý các mô hình Machine Learning hiệu quả.
 - Lưu trữ tập trung các mô hình Machine Learning
 - Cho phép phiên bản hoá các tài sản Machine Learning
-- Dễ dành triển khai và so sánh đánh giá các thử nghiệm
+- Dễ dàng triển khai và so sánh đánh giá các thử nghiệm
 - Tích hợp quy trình phê duyệt và quản trị
 - Tự động hoá quá trình triển khai với CI/CD
 

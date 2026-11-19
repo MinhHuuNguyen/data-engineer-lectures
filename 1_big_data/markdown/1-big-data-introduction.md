@@ -107,7 +107,7 @@ Ngoài ba đặc trưng cơ bản (Volume, Velocity, Variety) đã đề cập �
 
 ### 2.3. Đặc trưng mở rộng hướng tới chất lượng vận hành
 
-Ta cũng có thể mở rộng thêm hai đặc trưng nữa, tạo thành mô hình 7Vs của Big Data theo nhu cầu chất lượng vận hành: Validity và Variability.
+Ta cũng có thể mở rộng thêm hai đặc trưng nữa, tạo thành mô hình 7Vs của Big Data theo nhu cầu chất lượng vận hành: Variability và Visualization.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/1_big_data/images/1-big-data-introduction/variability_visualization.jpeg" style="width: 600px;"/>
 
@@ -184,7 +184,7 @@ Cuối cùng, ta có thể mở rộng thêm hai đặc trưng nữa, tạo thà
 </p>
 <br style="clear: both;"/>
 
-### 3.3. Data Analyst – Chuyên viên phân tích dữ liệu
+### 3.2. Data Analyst – Chuyên viên phân tích dữ liệu
 
 **Định nghĩa:** Data Analyst thu thập, phân tích và trực quan hóa dữ liệu để cung cấp insight hỗ trợ ra quyết định kinh doanh. Họ tập trung trả lời câu hỏi kinh doanh dựa trên dữ liệu hiện có.
 

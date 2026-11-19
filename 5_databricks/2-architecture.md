@@ -56,7 +56,7 @@ Bất kể bạn là Data Engineer, Data Scientist hay Data Analyst và bạn c�
 </p>
 <br style="clear: both;"/>
 
-Môt số tính năng chính có thể sử dụng từ Unity Catalog:
+Một số tính năng chính có thể sử dụng từ Unity Catalog:
 - Discovery: Tìm kiếm và khám phá dữ liệu một cách dễ dàng.
 - Access control: Quản lý quyền truy cập dữ liệu một cách linh hoạt.
 - Lineage: Theo dõi nguồn gốc của dữ liệu.

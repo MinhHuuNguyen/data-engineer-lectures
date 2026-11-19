@@ -50,7 +50,7 @@ Một số thuật toán lập lịch phổ biến bao gồm:
   - **Fair Scheduler:** phân bổ tài nguyên sao cho tất cả các ứng dụng đều nhận được phần công bằng theo thời gian.
 - **ApplicationsManager (AMG):** quản lý lifecycle của applications (accept/reject applications, khởi tạo ApplicationMaster, v.v.).
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf),, mô tả vị trí của ResourceManager và NodeManager trong kiến trúc YARN.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả vị trí của ResourceManager và NodeManager trong kiến trúc YARN.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/4-yarn/resource_manager_node_manager.jpeg" style="width: 800px;"/>
 
@@ -69,7 +69,7 @@ Các báo cáo này được ResourceManager sử dụng để đưa ra quyết 
 ApplicationMaster là tiến trình điều phối trung tâm của mỗi ứng dụng chạy trên YARN.
 Nó không xử lý nghiệp vụ trực tiếp mà chịu trách nhiệm quản lý toàn bộ các container của ứng dụng.
 
-Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf),, mô tả kiến trúc master-slave và các thành phần chính của YARN.
+Hình dưới đây được lấy từ cuốn sách [Hadoop in practice - Second edition](https://github.com/MinhHuuNguyen/data-engineer-lectures/blob/master/books/hadoop_in_practice_second_edition_alex_holmes.pdf), mô tả kiến trúc master-slave và các thành phần chính của YARN.
 
 <img src="https://raw.githubusercontent.com/MinhHuuNguyen/data-engineer-lectures/refs/heads/master/3_hadoop_ecosystem/images/4-yarn/architecture.jpeg" style="width: 800px;"/>
 
